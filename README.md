@@ -1,9 +1,9 @@
 
-# VulnBank
-Welcome to UnSAFE iBank - a vulnerable mobile banking iOS application. The frontend has been written in Swift whereas the backend in CodeIgniter3 (PHP).
+# UnSAFE Bank
+Welcome to UnSAFE Bank - a vulnerable mobile banking iOS application. The frontend has been written in Swift whereas the backend in CodeIgniter3 (PHP).
 
 ## About
-UnSAFE iBank iOS application is a core banking application. It currently consists of the following functionality:
+UnSAFE Bank application is a core banking application. It currently consists of the following functionality:
  * Signup
  * Login
  * View Account Details
