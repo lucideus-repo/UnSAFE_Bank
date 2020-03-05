@@ -51,7 +51,7 @@ Say it intentionally or unintentionally, we have introduced vulnerabilities whic
 2. Check your system IP address (ifconfig) and the port on which backend is running (Default port is 80).
 3. Open the iOS Application and provide the connection strings on the top right corner to connect to the backend.
 4. If there is no error message on your iPhone then "You are connected successfully".
-5. If there is an error, make sure your backend is running successfuly or you have provided the correct IP address/port.
+5. If there is an error, make sure your backend is running successfully or you have provided the valid IP address/port.
 
 ### Login Credentials
 Customer ID and password is required to login into the application. You can always sign up as a new user in the application. 
