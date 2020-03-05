@@ -19,15 +19,15 @@ Say it intentionally or unintentionally, we have introduced vulnerabilities whic
 ## Setting up the environment
 
 ### Dependencies
-1. [git](https://www.atlassian.com/git/tutorials/install-git).
-2. [docker-compose](https://docs.docker.com/compose/install/).
+1. Install [git](https://www.atlassian.com/git/tutorials/install-git) on your system.
+2. Install [docker-compose](https://docs.docker.com/compose/install/) on your system.
 3. Make sure that port 80 of your laptop/desktop does not have a running service.
-4. Android/iOS device for mobile application testing.
+4. Android/iOS phone would be required for mobile application testing.
 
 ### Setting up the server
-1. Clone the repository on your system
+1. Clone the repository on your system (Laptop/Desktop)
 `git clone https://github.com/lucideus-repo/UnSAFE_Bank.git`
-2. Navigate to the UnSAFE-Bank/Backend directory
+2. Navigate to the UnSAFE_Bank/Backend directory
 `cd UnSAFE_Bank/Backend`
 3. Start docker service (if not running) 
 `sudo service docker start`
@@ -37,14 +37,19 @@ Say it intentionally or unintentionally, we have introduced vulnerabilities whic
 ### Installing iOS Application
 1. Download and install the [Cydia Impactor](http://www.cydiaimpactor.com/) on your system.
 2. Connect your iPhone to the system and open Cydia Impactor.
-3. Drag and drop the **UnSAFE Bank.ipa** file placed in the **iOS Application** directory.
-4. Trust the developer profile (if required).
+3. Navigate to the **iOS Application** directory.
+4. Drag and drop the **UnSAFE Bank.ipa** file on Cydia Impactor.
+5. Follow the Cydia Impactor process to complete the installation.
+6. Trust the developer profile (if required) and your application would be ready to use.
+
+**Note:** You can always use other methods to install the iOS application as per your convenience.
 
 ### Test Connectivity Status
-1. Connect your iPhone and System to the same internet connection.
-2. Check you system IP address (ifconfig) and the port on which backend is running (Default port is 80).
-3. Open the iOS Application and provide the connection strings on the top right corner to connect.
-4. You are successfully connected if there is no error message on your iPhone
+1. Make sure your iPhone and System are connected to the same network.
+2. Check your system IP address (ifconfig) and the port on which backend is running (Default port is 80).
+3. Open the iOS Application and provide the connection strings on the top right corner to connect to the backend.
+4. If there is no error message on your iPhone then "You are connected successfully".
+5. If there is an error, make sure your backend is running successfuly or you have provided the correct IP address/port.
 
 ### Login Credentials
 Customer ID and password is required to login into the application. You can always sign up as a new user in the application. 
