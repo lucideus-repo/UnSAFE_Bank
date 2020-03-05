@@ -34,7 +34,6 @@ Say it intentionally or unintentionally, we have introduced vulnerabilities whic
 `sudo service docker start`
 3. Start the containers
 `docker-compose up -d`
-4. 
 
 
 ### Installing and starting up the application
