@@ -35,7 +35,7 @@ Say it intentionally or unintentionally, we have introduced vulnerabilities whic
 `docker-compose up -d`
 
 ### Installing iOS Application
-1. Download and install the Cydia Impactor on your system.
+1. Download and install the [Cydia Impactor](http://www.cydiaimpactor.com/) on your system.
 2. Connect your iPhone to the system and open Cydia Impactor.
 3. Drag and drop the **UnSAFE Bank.ipa** file placed in the **iOS Application** directory.
 4. Trust the developer profile (if required).
