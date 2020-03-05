@@ -3,7 +3,7 @@
 Welcome to UnSAFE Bank - Vulnerable Banking Suite
 
 ## About
-UnSAFE Bank is a core virtual banking suite designed with the aim to incorporate the novel attack scenarios such that newbie, developers, and security analysts can learn, hack and improvise their vulnerability assessment and penetration testing skills on Web, Android and iOS application.
+UnSAFE Bank is a core virtual banking suite designed with the aim to incorporate the cybersecurity risks and various test cases such that newbie, developers, and security analysts can learn, hack and improvise their vulnerability assessment and penetration testing skills on Web, Android and iOS application.
 
 ## Application Features
 It currently consists of the following functionalities:
@@ -15,7 +15,6 @@ Note: New features and vulnerability integration is under development.
 
 ## Vulnerability Coverage
 Say it intentionally or unintentionally, we have introduced vulnerabilities which varies from low severity to critical severity. 
-
 
 ## Setting up the environment
 
@@ -29,25 +28,35 @@ Say it intentionally or unintentionally, we have introduced vulnerabilities whic
 1. Clone the repository on your system
 `git clone https://github.com/lucideus-repo/UnSAFE_Bank.git`
 2. Navigate to the UnSAFE-Bank/Backend directory
-`cd UnSAFE-Bank/Backend`
+`cd UnSAFE_Bank/Backend`
 3. Start docker service (if not running) 
 `sudo service docker start`
 3. Start the containers
 `docker-compose up -d`
 
+### Installing iOS Application
+1. Download and install the Cydia Impactor on your system.
+2. Connect your iPhone to the system and open Cydia Impactor.
+3. Drag and drop the **UnSAFE Bank.ipa** file placed in the **iOS Application** directory.
+4. Trust the developer profile (if required).
 
-### Installing and starting up the application
-1. Download the **UnSAFE iBank.ipa** file from the **USE_THIS** directory.
-2. Install the application to your iPhone/iPad using any of the tools- ideviceinstaller, iFunBox, ios-deploy or Cydia Impactor (recommended).
-3. Trust the developer profile (if required).
-4. Use `SERVER_IP` and get going with the application's functionality.
-**Note**: You can signup as a new user or use any of the accounts provided in the next section. Upon a fresh signup, you would be provided with at most two beneficiaries depending upon the number of existing users.
+### Test Connectivity Status
+1. Connect your iPhone and System to the same internet connection.
+2. Check you system IP address (ifconfig) and the port on which backend is running (Default port is 80).
+3. Open the iOS Application and provide the connection strings on the top right corner to connect.
+4. You are successfully connected if there is no error message on your iPhone
 
-### Registering as a new user
-For every new user who registers as a new user using the signup functionality, a _loginId_ would be provided to the user. Also, the bank account would be created which would give the user an _Account Number_, _Bank Code (IFSC Code)_ and a random _Balance_ in the account that would range from 1 Lakh to 5 Lakh.
+### Login Credentials
+Customer ID and password is required to login into the application. You can always sign up as a new user in the application. 
 
-### Sample Data
-You can use the following data for activities such as add beneficiary, funds transfer etc.
+On successful sign up:
+1. You will be provided with your Customer ID corresponding to your account. Always note your Customer ID and keep it SAFE for further usage.
+2. Your dummy PII and account information would be created automatically.
+3. Default beneficiaries would be added in your account.
+4. Virtual money would be added in your account ranging from 1 to 5 lakh.
+
+### Existing User Bank Accounts
+Following data can be used to perform actions such as add beneficiary, funds transfer etc.
 | Account Holder | Account Number | IFSC Code |
 | -------------- | -------------- | ----------|
 | Rubal Jain | 149812733485 | IFSC00002 |  
@@ -56,8 +65,8 @@ You can use the following data for activities such as add beneficiary, funds tra
 | Vibhav Dudeja | 263021552894 | IFSC00010 |
 **********
 
-### Reporting bugs
-If you come across any functional bugs in the application, kindly report the same as issues. We would be happy to resolve them :)
+### Encountered a bug or want to suggest something?
+If you come across any functional bug in the application or want to suggest the improvements, kindly report the same. We will look into it at the earliest. :)
 
 ### License
 Open Source
