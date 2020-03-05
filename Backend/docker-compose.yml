@@ -1,0 +1,41 @@
+version: '3.6'
+
+services:
+
+  db:
+    container_name: database
+    build: ./mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: php
+      MYSQL_USER: phpmyadmin
+      MYSQL_PASSWORD: vibhav
+      MYSQL_DATABASE: abstractwallet
+    networks: 
+      - backend
+
+  server:
+    build: './apache/'
+    depends_on:
+      - db
+    networks:
+      - backend
+    ports:
+      - 80:80
+    volumes:
+      - ./src/:/var/www/html/
+  
+  php:
+    build: './php/'
+    depends_on: 
+      - db
+    networks:
+      - backend
+    volumes:
+      - ./src/:/var/www/html/
+    command: /tmp/wait-for-it.sh -t 0 database:3306 -- php-fpm
+
+networks:
+  backend:
+
