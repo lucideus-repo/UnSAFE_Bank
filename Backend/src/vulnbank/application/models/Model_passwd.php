@@ -3,19 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Model_Passwd extends CI_Model
 {
-    public function get_userdetailid($data)
+    public function get_accountid($data)
     {
         $userid = $data['data']['userid'];
         $result = $this->db->query(
-            "SELECT d.id_pk as detailid
-            FROM user_details as d
+            "SELECT d.id_pk as accountid
+            FROM account_details as d
             LEFT JOIN user as u
                 ON d.user_id_fk = u.id_pk
             WHERE u.cust_id = ?",
             array($userid)
         )->row_array();
-        if (isset($result['detailid'])) {
-            return $result['detailid'];
+        if (isset($result['accountid'])) {
+            return $result['accountid'];
         }
         return null;
     }
@@ -27,7 +27,7 @@ class Model_Passwd extends CI_Model
         // *****************************************************
         // old_pass
         if (isset($data['old_pass'])) {
-            if (!preg_match("/^[A-Za-z0-9@_]{8,20}$/", $data['old_pass'])) {
+            if (!preg_match("/^[A-Za-z0-9_@#\$]{1,20}$/", $data['old_pass'])) {
                 return $status::IncorrectPasswordFormat;
             } else { 
             }
@@ -36,7 +36,7 @@ class Model_Passwd extends CI_Model
         // *****************************************************
         // new_pass
         if (isset($data['new_pass'])) {
-            if (!preg_match("/^[A-Za-z0-9@_]{8,20}$/", $data['new_pass'])) {
+            if (!preg_match("/^[A-Za-z0-9_@#\$]{1,20}$/", $data['new_pass'])) {
                 return $status::IncorrectPasswordFormat;
             } else { 
             }
@@ -74,7 +74,7 @@ class Model_Passwd extends CI_Model
         // *****************************************************
         // new_pass
         if (isset($data['data']['new_pass'])) {
-            if (!preg_match("/^[A-Za-z0-9@_]{8,20}$/", $data['data']['new_pass'])) {
+            if (!preg_match("/^[A-Za-z0-9_@#\$]{1,20}$/", $data['data']['new_pass'])) {
                 return $status::IncorrectPasswordFormat;
             } else { 
             }
@@ -87,12 +87,20 @@ class Model_Passwd extends CI_Model
         );
     }
 
-    public function reset_user_passwd($userid, $data)
+    public function reset_user_passwd($accountid, $data)
     {
         $otpref = $data['data']['otp_response'];
         $newpass = $data['data']['new_pass'];
         $this->load->helper('request_response');
         $status = new status_codes();
+        $detailid = $this->db->query(
+            "SELECT
+                user_details_id_fk as detailid
+            FROM
+                account_details
+            WHERE
+                id_pk = ?", array($accountid)
+        )->row_array()["detailid"];
 
         // check for otp reference
         $result = $this->db->query(
@@ -125,7 +133,7 @@ class Model_Passwd extends CI_Model
                 LEFT JOIN user_details as d
                     ON u.id_pk = d.user_id_fk
                 WHERE d.id_pk = ?",
-                array($userid)
+                array($detailid)
             );
             // d.id_pk = ?", array($result['id']));
             // replace the line 128 with 131 to patch account takeover

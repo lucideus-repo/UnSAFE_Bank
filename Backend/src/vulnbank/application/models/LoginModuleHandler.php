@@ -45,7 +45,7 @@ class LoginModuleHandler extends CI_Model
         // *****************************************************
         // passwd
         if (isset($data['data']['passwd'])) {
-            if (!preg_match("/^[A-Za-z0-9!@#\$%\^&*()<>?.]{1,20}$/", $data['data']['passwd'])) {
+            if (!preg_match("/^[A-Za-z0-9_@#\$]{1,20}$/", $data['data']['passwd'])) {
                 return $status::IncorrectPasswordFormat;
             } else {
             }
