@@ -74,10 +74,10 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-    'dsn'    => '',
+    'dsn'      => '',
     'hostname' => 'database',
     'username' => 'phpmyadmin',
-    'password' => 'vibhav',
+    'password' => '531486b2bf646636a6a1bba61e78ec4a4a54efbd',
     'database' => 'abstractwallet',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',

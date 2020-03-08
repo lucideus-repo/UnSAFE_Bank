@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class SignUpModuleHandler extends CI_Model
 {
+    const SIGNUP_BENEFS = 4;
     public function validateParamsForExist($data)
     {
         $this->load->helper('request_response');
@@ -80,14 +81,14 @@ class SignUpModuleHandler extends CI_Model
         // *****************************************************
         // countryId
         if (isset($data['countryId'])) {
-            if (!in_array($data['countryId'], array("IND", "AUS", "CAN")))
+            if (!in_array($data['countryId'], array("IND", "AUS", "CAN", "USA", "UK")))
                 return $status::CntryInvalidOrNotSet;
             else ;
         } else return $status::CntryInvalidOrNotSet;
         // ****************************************************
         // address
         if (isset($data['address']))
-            if (!preg_match("/^[A-Za-z\-\,0-9]{3,50}/", $data['address']))
+            if (!preg_match("/^[A-Za-z\-,0-9 ]{3,50}/", $data['address']))
                 return $status::AddressInvalidOrNotSet;
             else ;
         else $status::AddressInvalidOrNotSet;
@@ -180,8 +181,8 @@ class SignUpModuleHandler extends CI_Model
         // acctNo
         $acctNo = $this->generateNew("account_no", "account_details", "", 12);
         // ************************************************************
-        // acctBalance - between 10K and 1L
-        $acctBalance = random_int(1000000, 10000000)/100;
+        // acctBalance - between 1L and 10L
+        $acctBalance = random_int(10000000, 100000000)/100;
         // ************************************************************
         // incomTaxNo
         $incomTaxNo = $this->generateNew("income_tax_number", "account_details", "", 10);
@@ -207,7 +208,7 @@ class SignUpModuleHandler extends CI_Model
         $benef_total = $this->db->query(
             "SELECT COUNT(*) AS total FROM account_details"
         )->row_array()['total'];
-        if ($benef_total > 2) $benef_total = 2;
+        if ($benef_total > $this::SIGNUP_BENEFS) $benef_total = $this::SIGNUP_BENEFS;
         // assigned beneficiaries
         $benefs = $this->db->query(
         "SELECT
@@ -314,22 +315,24 @@ class SignUpModuleHandler extends CI_Model
             beneficiary_account_no,
             bank_code
         ) VALUES (?,?,?,?)";
-        switch($benef_total) {
-            case 2: $stmt = $this->db->query(
-                    $sql, array(
-                        $user_fk,
-                        $this->generateNew("beneficiary_alias", "beneficiary_details", "BEN", 5),
-                        $benefs[1]['acc'],
-                        $benefs[1]['ifsc']
-                    ));
-            case 1: $stmt = $this->db->query(
-                    $sql, array(
-                        $user_fk,
-                        $this->generateNew("beneficiary_alias", "beneficiary_details", "BEN", 5),
-                        $benefs[0]['acc'],
-                        $benefs[0]['ifsc']
-                    ));
-            default: break;
+        while($benef_total > 0) {
+            $stmt = $this->db->query($sql, array(
+                $user_fk,
+                $this->db->query(
+                    "SELECT
+                        d.fname
+                    FROM
+                        user_details as d
+                        RIGHT JOIN account_details as a
+                            ON a.user_details_id_fk=d.id_pk
+                    WHERE
+                        a.account_no=?
+                    ", array($benefs[$benef_total-1]['acc'])
+                )->row_array()["fname"],
+                $benefs[$benef_total-1]['acc'],
+                $benefs[$benef_total-1]['ifsc']
+            ));
+            $benef_total--;
         }
         $this->load->helper('global_methods');
         return array(
