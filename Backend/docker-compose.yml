@@ -10,7 +10,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: php
       MYSQL_USER: phpmyadmin
-      MYSQL_PASSWORD: vibhav
+      MYSQL_PASSWORD: 531486b2bf646636a6a1bba61e78ec4a4a54efbd
       MYSQL_DATABASE: abstractwallet
     networks: 
       - backend
