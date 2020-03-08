@@ -78,7 +78,7 @@ Following data can be used to perform actions such as add beneficiary, funds tra
 
 | Account Holder | Account Number | IFSC Code |
 | -------------- | -------------- | --------- |
-| Balaji Prasad | 003558008876 | IFSC00009 |
+| Vipul Malhotra | 003558008876 | IFSC00009 |
 | Kevin Winkel | 270365500638 | IFSC00009 |
 | Kelly Campbell | 533074805951 | IFSC00010 |
 | Krystal Langworth | 731258783797 | IFSC00006 |
