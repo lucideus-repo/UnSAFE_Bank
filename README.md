@@ -103,4 +103,4 @@ Vibhav Dudeja, Tarun Kaushik, Chetan Kumar, Sahil Pahwa
 
 ### Owners
 
-Rubal Jain, [Lucideus Inc.][https://www.lucideus.com]
+Rubal Jain, [Lucideus Inc.](https://www.lucideus.com)
