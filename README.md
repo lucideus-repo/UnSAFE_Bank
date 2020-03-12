@@ -16,7 +16,7 @@ It currently consists of the following functionalities:
 * View Account Statement
 * Add/View Beneficiary
 
-Note: New features and vulnerability integration is under development.
+**Note:** New features and vulnerability integration is under development.
 
 ## Vulnerability Coverage
 
@@ -103,4 +103,4 @@ Vibhav Dudeja, Tarun Kaushik, Chetan Kumar, Sahil Pahwa
 
 ### Owners
 
-Rubal Jain
+Rubal Jain, [Lucideus Inc.][https://www.lucideus.com]
