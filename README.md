@@ -51,7 +51,7 @@ Say it intentionally or unintentionally, we have introduced vulnerabilities whic
 5. Follow the Cydia Impactor process to complete the installation.
 6. Trust the developer profile (if required) and your application would be ready to use.
 
-**Note:** You can always use other methods to install the iOS application as per your convenience.
+**Note:** You can always use [other methods](https://mobile-security.gitbook.io/mobile-security-testing-guide/ios-testing-guide/0x06b-basic-security-testing#installing-apps) to install the iOS application as per your convenience.
 
 ### Test Connectivity Status
 
