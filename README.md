@@ -95,4 +95,12 @@ If you come across any functional bug in the application or want to suggest the 
 
 ### License
 
-Open Source
+This project is using the GNU General Public License v3.0.
+
+### Contributors
+
+Vibhav Dudeja, Tarun Kaushik, Chetan Kumar, Sahil Pahwa
+
+### Owners
+
+Rubal Jain
