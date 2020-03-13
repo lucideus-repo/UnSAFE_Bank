@@ -46,7 +46,7 @@ Say it intentionally or unintentionally, we have introduced vulnerabilities whic
 
 1. Download and install the [Cydia Impactor](http://www.cydiaimpactor.com/) on your system.
 2. Connect your iPhone to the system and open Cydia Impactor.
-3. Navigate to the **iOS Application** directory.
+3. Navigate to the **/iOS** directory.
 4. Drag and drop the **UnSAFE Bank.ipa** file on Cydia Impactor.
 5. Follow the Cydia Impactor process to complete the installation.
 6. Trust the developer profile (if required) and your application would be ready to use.
