@@ -91,7 +91,7 @@ Following data can be used to perform actions such as add beneficiary, funds tra
 
 ### Encountered a bug or want to suggest something?
 
-If you come across any functional bug in the application or want to suggest the improvements, kindly report the same. We will look into it at the earliest. :)
+If you come across any functional bug in the application or want to suggest the improvements, [file an issue](https://github.com/lucideus-repo/UnSAFE_Bank/issues) at this repository. We will look into it at the earliest. :)
 
 ### License
 
