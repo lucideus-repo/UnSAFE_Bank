@@ -1,6 +1,4 @@
-# UnSAFE Bank
-
-Welcome to UnSAFE Bank - Vulnerable Banking Suite
+![](https://repository-images.githubusercontent.com/243465953/e8faaf80-6491-11ea-84c2-8f7116873cff)
 
 ## About
 
