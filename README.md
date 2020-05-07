@@ -1,6 +1,4 @@
-# UnSAFE Bank
-
-Welcome to UnSAFE Bank - Vulnerable Banking Suite
+![](https://repository-images.githubusercontent.com/243465953/e8faaf80-6491-11ea-84c2-8f7116873cff)
 
 ## About
 
@@ -16,7 +14,7 @@ It currently consists of the following functionalities:
 * View Account Statement
 * Add/View Beneficiary
 
-Note: New features and vulnerability integration is under development.
+**Note:** New features and vulnerability integration is under development.
 
 ## Vulnerability Coverage
 
@@ -46,12 +44,12 @@ Say it intentionally or unintentionally, we have introduced vulnerabilities whic
 
 1. Download and install the [Cydia Impactor](http://www.cydiaimpactor.com/) on your system.
 2. Connect your iPhone to the system and open Cydia Impactor.
-3. Navigate to the **iOS Application** directory.
+3. Navigate to the **/iOS** directory.
 4. Drag and drop the **UnSAFE Bank.ipa** file on Cydia Impactor.
 5. Follow the Cydia Impactor process to complete the installation.
 6. Trust the developer profile (if required) and your application would be ready to use.
 
-**Note:** You can always use other methods to install the iOS application as per your convenience.
+**Note:** You can always use [other methods](https://mobile-security.gitbook.io/mobile-security-testing-guide/ios-testing-guide/0x06b-basic-security-testing#installing-apps) to install the iOS application as per your convenience.
 
 ### Test Connectivity Status
 
@@ -78,7 +76,7 @@ Following data can be used to perform actions such as add beneficiary, funds tra
 
 | Account Holder | Account Number | IFSC Code |
 | -------------- | -------------- | --------- |
-| Balaji Prasad | 003558008876 | IFSC00009 |
+| Vipul Malhotra | 003558008876 | IFSC00009 |
 | Kevin Winkel | 270365500638 | IFSC00009 |
 | Kelly Campbell | 533074805951 | IFSC00010 |
 | Krystal Langworth | 731258783797 | IFSC00006 |
@@ -91,8 +89,18 @@ Following data can be used to perform actions such as add beneficiary, funds tra
 
 ### Encountered a bug or want to suggest something?
 
-If you come across any functional bug in the application or want to suggest the improvements, kindly report the same. We will look into it at the earliest. :)
+If you come across any functional bug in the application or want to suggest the improvements, [file an issue](https://github.com/lucideus-repo/UnSAFE_Bank/issues) at this repository. We will look into it at the earliest. :)
 
 ### License
 
-Open Source
+This project is using the GNU General Public License v3.0.
+
+### Contributors
+
+[Vibhav Dudeja](https://www.linkedin.com/in/vibhavd), [Tarun Kaushik](http://linkedin.com/in/tarun-kaushik-13827229), [Chetan Kumar](https://www.linkedin.com/in/chetan-daksh-0023b66a/), [Sahil Pahwa](https://www.linkedin.com/in/sahilpahwa1/)
+
+### Owners
+
+[Rubal Jain]
+
+[Lucideus Inc.](https://www.lucideus.com)

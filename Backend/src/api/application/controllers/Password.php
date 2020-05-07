@@ -39,8 +39,8 @@ class Password extends CI_Controller
 						$status::OtpGenerated['status_code'],
 						$status::OtpGenerated['message'],
 						time(),
-						array("response" => $this->Model_otp->generate(
-							$account_id, $parsed)
+						(object) $this->Model_otp->generate(
+							$account_id, $parsed
 						)
 					);
 			} else
