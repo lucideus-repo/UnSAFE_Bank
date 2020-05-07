@@ -97,10 +97,10 @@ This project is using the GNU General Public License v3.0.
 
 ### Contributors
 
-[Vibhav Dudeja](https://www.linkedin.com/in/vibhavd), [Tarun Kaushik](http://linkedin.com/in/tarun-kaushik-13827229), [Chetan Kumar](https://www.linkedin.com/in/chetan-daksh-0023b66a/), [Sahil Pahwa](https://www.linkedin.com/in/sahilpahwa1/)
+[Vibhav Dudeja](https://www.linkedin.com/in/vibhavd), [Tarun Kaushik](https://linkedin.com/in/tarun-kaushik-13827229), [Chetan Kumar](https://www.linkedin.com/in/chetan-daksh-0023b66a/), [Sahil Pahwa](https://www.linkedin.com/in/sahilpahwa1/)
 
 ### Owners
 
-[Rubal Jain]
+[Rubal Jain](https://www.linkedin.com/in/rubaljain-1991)
 
 [Lucideus Inc.](https://www.lucideus.com)
