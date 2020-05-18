@@ -112,7 +112,7 @@ class LoginModuleHandler extends CI_Model
             $details = $this->db->query(
                 "SELECT
                     a.account_no as acctNo,
-                    a.account_balance as acctBalance,
+                    ROUND(a.account_balance, 2) as acctBalance,
                     a.income_tax_number as incomeTaxNumber,
                     a.account_opening_date as acctOpeningDate,
                     a.currency_ticker as currency,

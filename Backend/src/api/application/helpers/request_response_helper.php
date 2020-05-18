@@ -331,15 +331,23 @@ class status_codes
     );
     const NewPasswdOldPasswd = array(
     'status_code' => 'PSW007',
-    'message' => 'Pew Password cannot be same as Old Password'
+    'message' => 'New Password cannot be same as Old Password'
     );
     const ChangePasswdSuccess = array(
     'status_code' => 'PSW008',
     'message' => 'Password Changed Successfully'
     );
     const OldPassIncorrect = array(
-    'status_code' => 'PSW008',
+    'status_code' => 'PSW009',
     'message' => 'Old password is incorrect'
+    );
+    const IncorrectOldPasswordFormat = array(
+        'status_code' => 'PSW010',
+        'message' => 'Old password format is invalid or not set'
+    );
+    const IncorrectNewPasswordFormat = array(
+        'status_code' => 'PSW011',
+        'message' => 'New password format is invalid or not set'
     );
 
     // statement

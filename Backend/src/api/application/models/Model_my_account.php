@@ -59,7 +59,7 @@ class Model_My_Account extends CI_Model
                 "data" => $this->db->query(
                     "SELECT
                         a.account_no as accountNumber,
-                        a.account_balance as accountBalance,
+                        ROUND(a.account_balance, 2) as accountBalance,
                         a.income_tax_number as incomeTaxNumber,
                         a.account_opening_date as openDate,
                         a.currency_ticker as currency,

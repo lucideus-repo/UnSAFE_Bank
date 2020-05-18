@@ -27,8 +27,8 @@ class Model_Passwd extends CI_Model
         // *****************************************************
         // old_pass
         if (isset($data['old_pass'])) {
-            if (!preg_match("/^[A-Za-z0-9!@#\$%\^&*()<>?.]{1,20}$/", $data['old_pass'])) {
-                return $status::IncorrectPasswordFormat;
+            if (!preg_match("/^[A-Za-z0-9_@#\$]{1,20}$/", $data['old_pass'])) {
+                return $status::IncorrectOldPasswordFormat;
             } else { 
             }
         } else { return $status::RequestParameterNotSet;
@@ -36,8 +36,8 @@ class Model_Passwd extends CI_Model
         // *****************************************************
         // new_pass
         if (isset($data['new_pass'])) {
-            if (!preg_match("/^[A-Za-z0-9!@#\$%\^&*()<>?.]{1,20}$/", $data['new_pass'])) {
-                return $status::IncorrectPasswordFormat;
+            if (!preg_match("/^[A-Za-z0-9_@#\$]{1,20}$/", $data['new_pass'])) {
+                return $status::IncorrectNewPasswordFormat;
             } else { 
             }
         } else { return $status::RequestParameterNotSet;
@@ -180,12 +180,14 @@ class Model_Passwd extends CI_Model
                 return $status::DBSyncError;
             } else {
                 $userid = $stmt['user_id_fk'];
+                /* For Insecure Change Password functionality
                 if (!isset($this->db->query(
                     "SELECT cust_id FROM user WHERE id_pk = ? and password =?",
                     array($userid, $oldpass)
                 )->row_array()['cust_id'])) {
                     return $status::OldPassIncorrect;
                 }
+                */
                 $stmt = $this->db->query(
                     "UPDATE user SET password = ? WHERE id_pk = ?",
                     array($newpass, $userid)

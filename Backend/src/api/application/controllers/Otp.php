@@ -7,6 +7,7 @@ class Otp extends CI_Controller
 
     public function get()
     {
+
         $this->load->helper('request_response');
         $status = new status_codes();
 
@@ -34,15 +35,12 @@ class Otp extends CI_Controller
                             $status::OtpGenerated['status_code'],
                             $status::OtpGenerated['message'],
                             time(),
-                            array(
-                                "response" => $this->Model_otp->generate(
-                                    $account_id,
-                                    $parsed
-                                )
+                            (object) $this->Model_otp->generate(
+                                $account_id,
+                                $parsed
                             )
                         );
                     } else {
-			//echo json_encode(array("status" => "Success"));
                         echo prepare_response(
                             "Failed",
                             $is_valid_param['status_code'],
@@ -115,7 +113,17 @@ class Otp extends CI_Controller
                                 time(),
                                 (object)array()
                             );
-                        } else {
+                        } else if($otp_status['otp_type'] == 3){
+                            echo prepare_response(
+                                "Failed",
+                                $status::OtpVerifyFailed['status_code'],
+                                $status::OtpVerifyFailed['message'],
+                                time(),
+                                array(
+                                    
+                                )
+                            );
+                        }else {
                             echo prepare_response(
                                 "Failed",
                                 $status::OtpVerifyFailed['status_code'],

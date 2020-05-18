@@ -199,7 +199,19 @@ class Model_Otp extends CI_Model
                 remaining_attempts,
                 verified
             ) VALUES (?, ?, ?, ?, ?, 5, 0)";
-        } else {
+//This if else condition has been added intentionally for OTP brute force on fund transfer
+        } else if($data['data']['otp_type']==3){
+            $sql = "UPDATE otp_master
+                SET
+                    otp_no = ?,
+                    otp_timestamp = ?,
+                    otp_purpose = ?,
+                    otp_ref = ?,
+                    remaining_attempts = -9,
+                    verified = 0
+                WHERE
+                    user_details_id_fk = ?";
+        }else {
             $sql = "UPDATE otp_master
                 SET
                     otp_no = ?,
@@ -213,20 +225,23 @@ class Model_Otp extends CI_Model
         }
         $this->db->query($sql,
             array(
-                $new_otp,
+                $sixDigitOTP,
                 time(),
-                $data['data']['otp_type'],
+                $data["data"]["otp_type"],
                 $new_otp_ref,
                 $owner_detailid
             )
         );
-        return base64_encode(openssl_encrypt(
+        $otp = array("response" => base64_encode(openssl_encrypt(
             $sixDigitOTP,
             'aes-256-cbc',
             "9bbc0d79e686e847bc305c9bd4cc2ea6",
             $options=OPENSSL_RAW_DATA,
             "0123456789abcdef"
-        ));
+        )));
+        if ($data["data"]["otp_type"] == 2)
+            $otp += array("checksum" => sha1($sixDigitOTP));
+        return $otp;
     }
 
     public function check_otp($owner, $data)
@@ -244,6 +259,7 @@ class Model_Otp extends CI_Model
             "SELECT
                 otp_no,
                 otp_ref,
+                otp_purpose,
                 otp_timestamp,
                 remaining_attempts,
                 verified
@@ -291,8 +307,10 @@ class Model_Otp extends CI_Model
                     array($left, $owner_detailid)
                 );
             }
+
             return array(
-                "attempts" => $left
+                "attempts" => $left,
+                "otp_type" => $result['otp_purpose']
             );
         }
     }
