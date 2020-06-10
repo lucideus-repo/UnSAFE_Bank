@@ -1,0 +1,7 @@
+// SweetAlert
+
+.swal2-modal {
+  box-shadow: $modal-content-box-shadow-xs;
+  @include border-radius($modal-content-border-radius);
+  background: $modal-content-bg;
+}

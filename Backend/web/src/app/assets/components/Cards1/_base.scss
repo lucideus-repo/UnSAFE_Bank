@@ -1,0 +1,244 @@
+//  Core
+
+.card {
+  box-shadow: $box-shadow-layout-bottom;
+
+  .card-title {
+    font-size: $font-size-lg;
+  }
+}
+
+button.card {
+  outline: none;
+}
+
+.card-text {
+  color: $gray-800;
+}
+
+.card-box-alt {
+  text-align: center;
+
+  .card-icon-wrapper {
+    height: 76px !important;
+    line-height: 58px !important;
+    width: 76px !important;
+    margin: -44px auto 24px;
+    border: $card-bg solid 6px;
+  }
+}
+
+.card-border-top {
+  border-top-width: 3px;
+  border-top-style: solid;
+}
+
+.card-badges {
+  position: absolute;
+  right: $card-spacer-y;
+  top: $card-spacer-y;
+  z-index: 2;
+
+  & > * {
+    box-shadow: $box-shadow-layout-bottom;
+  }
+}
+
+.card-badges-bottom {
+  top: auto;
+  bottom: $card-spacer-y;
+}
+
+.card-transparent {
+  background: none;
+  box-shadow: 0 0 0 0 transparent !important;
+}
+
+// Boxes
+
+.card-box {
+  border-width: 1px;
+
+  .card-footer,
+  .card-header {
+    border-width: 1px;
+    border-color: $list-group-border-color;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .card-header--title {
+    flex-grow: 1;
+
+    & > b {
+      display: block;
+    }
+
+    & > small {
+      text-transform: uppercase;
+      display: block;
+      opacity: 0.3;
+      font-weight: bold;
+
+      & + b {
+        padding-top: ($spacer / 4);
+      }
+    }
+  }
+
+  &.card-box-border-bottom {
+    border-top-color: $list-group-border-color !important;
+    border-right-color: $list-group-border-color !important;
+    border-left-color: $list-group-border-color !important;
+    border-bottom-width: 4px;
+    border-bottom-color: #3D476E;
+  }
+}
+
+.card-hover-indicator {
+  opacity: 0.1;
+  transition: $transition-base;
+}
+
+.card.card-box:hover {
+  .card-hover-indicator {
+    opacity: 0.1;
+    transform: scale(1.3);
+  }
+}
+
+.card {
+  & > .bg-composed-wrapper {
+    top: -1px;
+    margin-left: -1px;
+    margin-right: -1px;
+    margin-bottom: -2px;
+    z-index: 6;
+  }
+}
+
+// Tasks wrapper
+
+.task-wrapper {
+  .task-item {
+    position: relative;
+    padding: 0 0 ($spacer * 2);
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+// Align elements
+
+.align-box-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+// Chat wrapper
+
+.chat-wrapper {
+  .chat-item {
+    .chat-box {
+      position: relative;
+      opacity: 1;
+      border: 0;
+      padding: ($spacer / 1.2) ($spacer * 2);
+      @include border-radius($border-radius-lg * 2);
+      border-top-left-radius: $border-radius-sm;
+      max-width: 50%;
+      min-width: 100%;
+      font-size: $font-size-sm;
+
+      p {
+        margin-bottom: ($spacer / 3);
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .avatar-icon-wrapper {
+      margin-right: ($spacer / 2);
+    }
+  }
+
+  .chat-item-reverse {
+    .chat-box {
+      border-top-left-radius: ($border-radius-lg * 2);
+      border-top-right-radius: $border-radius-sm;
+    }
+
+    .avatar-icon-wrapper {
+      margin-left: ($spacer / 2);
+      margin-right: 0;
+    }
+  }
+}
+
+// File manager
+
+.file-manager-wrapper {
+  .file-manager-item {
+    background: transparent;
+  }
+}
+
+// Card indicator
+
+.card-indicator {
+  position: absolute;
+  height: 60%;
+  top: 20%;
+  width: 6px;
+  @include border-radius($border-radius-lg);
+  left: -4px;
+}
+
+// Card absolute actions
+
+.card-tr-actions {
+  position: absolute;
+  right: ($spacer);
+  top: ($spacer / 1.5);
+}
+
+// Card border shadow
+
+@each $color, $value in $theme-colors {
+  .card-shadow-#{$color} {
+    box-shadow: 0 0.46875rem 2.1875rem rgba($value, 0.03),
+      0 0.9375rem 1.40625rem rgba($value, 0.03),
+      0 0.25rem 0.53125rem rgba($value, 0.05),
+      0 0.125rem 0.1875rem rgba($value, 0.03);
+  }
+}
+
+// Show hide container
+
+.hover-show-hide-container {
+  .hover-show-wrapper {
+    display: none;
+  }
+
+  .hover-hide-wrapper {
+    display: block;
+  }
+
+  &:hover {
+    .hover-show-wrapper {
+      display: block;
+    }
+
+    .hover-hide-wrapper {
+      display: none;
+    }
+  }
+}

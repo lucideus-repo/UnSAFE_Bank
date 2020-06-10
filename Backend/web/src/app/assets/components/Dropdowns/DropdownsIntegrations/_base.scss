@@ -1,0 +1,46 @@
+//  Core
+
+// Dropdown menu
+
+.dropdown-menu {
+
+  & > .bg-composed-wrapper {
+    margin: (-($dropdown-padding-y)) -1px -2px;
+    z-index: 5;
+    top: -1px;
+  }
+
+  & > .list-group-flush:last-of-type {
+    .list-group-item:last-child {
+      @include border-bottom-radius(inherit !important);
+    }
+  }
+
+  & > .list-group-flush,
+  & > .card-body {
+    &:last-of-type {
+      @include border-bottom-radius(inherit !important);
+    }
+  }
+
+  & > .scroll-area {
+    height: 10rem;
+  }
+}
+
+.dropdown-menu-lg {
+  min-width: 15rem;
+}
+
+.dropdown-menu-xl {
+  min-width: 18rem;
+}
+
+.dropdown-menu-xxl {
+  min-width: 21rem;
+}
+
+.dropdown-toggle::after {
+  position: relative;
+  top: 2px;
+}

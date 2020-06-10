@@ -1,0 +1,217 @@
+//  Core
+
+.btn {
+  transition: all .2s ease-out;
+  @include border-radius($border-radius-xs);
+
+  &:not(:disabled):hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-wrapper--label:not(:first-child) {
+    margin-left: ($spacer / 2);
+  }
+
+  .btn-wrapper--label {
+    display: inline-block;
+
+    & + .btn-wrapper--icon {
+      margin-left: ($spacer / 2);
+    }
+  }
+
+  &.btn-transition-none {
+    &:hover {
+      transform: none !important;
+    }
+  }
+}
+
+.btn-default {
+  @include button-variant($primary, $primary);
+  box-shadow: 0 0.25rem 0.55rem rgba($primary, .35);
+
+  &:not(:disabled):active,
+  &:not(:disabled):focus,
+  &:not(:disabled):hover {
+    box-shadow: 0 0.22rem 0.525rem rgba($primary, .4), 0 0.0625rem 0.385rem rgba($primary, .54);
+  }
+}
+.btn-pill {
+  @include border-radius($border-radius-lg * 6);
+}
+
+.btn-square {
+  @include border-radius(1px);
+}
+
+.btn-icon-transition {
+  transition: $transition-base;
+}
+.btn:hover {
+  .btn-icon-transition {
+    transform: scale(1.1);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    box-shadow: 0 0.25rem 0.55rem rgba($value, .35);
+
+    &:not(:disabled):active,
+    &:not(:disabled):focus,
+    &:not(:disabled):hover {
+      box-shadow: 0 0.22rem 0.525rem rgba($value, .4), 0 0.0625rem 0.385rem rgba($value, .54);
+    }
+
+    &:focus,
+    &.active,
+    &:hover {
+      .btn-wrapper--icon {
+        svg path {
+          fill: color-yiq($value);
+        }
+      }
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-neutral-#{$color} {
+    background: transparentize($value, .85);
+    color: $value;
+    border-color: transparent;
+
+    @if $color == "secondary" {
+      color: color-yiq($value);
+    }
+
+    &.active,
+    &:focus,
+    &:hover {
+      background: $value;
+      color: color-yiq($value);
+
+      .btn-wrapper--icon {
+        svg path {
+          fill: color-yiq($value);
+        }
+      }
+    }
+  }
+}
+
+@each $color, $value in $brand-colors {
+  .btn-#{$color} {
+    box-shadow: 0 0.25rem 0.55rem rgba($value, .35);
+    @include button-variant($value, $value);
+
+    &:not(:disabled):active,
+    &:not(:disabled):focus,
+    &:not(:disabled):hover {
+      box-shadow: 0 0.22rem 0.525rem rgba($value, .4), 0 0.0625rem 0.385rem rgba($value, .54);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+
+    &:not(:disabled):hover {
+      box-shadow: 0 0.22rem 0.525rem rgba($value, .4), 0 0.0625rem 0.385rem rgba($value, .54);
+    }
+  }
+}
+
+.btn-spinner {
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-secondary {
+  border-color: $secondary;
+  box-shadow: 0 0.25rem 0.55rem rgba($gray-700, .55);
+  color: $primary;
+
+  &:not(:disabled):active,
+  &:not(:disabled):focus,
+  &:not(:disabled):hover {
+    border-color: $secondary;
+    color: darken($link-hover-color, 25%);
+    box-shadow: 0 0.22rem 0.525rem rgba($gray-700, .4), 0 0.0625rem 0.385rem rgba($gray-700, .54);
+  }
+
+  &:not(:disabled):active {
+    border-color: transparent !important;
+    background: $gray-300 !important;
+  }
+}
+
+.btn-link {
+  span {
+    position: relative;
+    transition: $transition-base;
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out 0s;
+    }
+  }
+
+  &:hover {
+    span:before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-link-#{$color} {
+
+    span {
+      color: $value;
+
+      &:before {
+        background-color: $value;
+      }
+    }
+
+    &:hover {
+      span {
+        color: darken($value, 10%);
+      }
+    }
+  }
+}
+
+.btn-link {
+  font-weight: $font-weight-normal;
+  color: $link-color;
+  text-decoration: $link-decoration;
+
+  @include hover {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    transform: none;
+  }
+
+  &:focus,
+  &.focus {
+    text-decoration: $link-hover-decoration;
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+    pointer-events: none;
+  }
+}

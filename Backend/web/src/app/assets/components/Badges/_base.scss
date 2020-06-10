@@ -1,0 +1,18 @@
+//  Core
+
+.badge {
+  text-transform: uppercase;
+  height: 20px;
+  line-height: 21px;
+}
+
+@mixin badge-neutral-variant($parent, $color) {
+  #{$parent} {
+    background-color: $color !important;
+  }
+}
+
+@each $color, $value in $theme-colors-neutral {
+  @include badge-neutral-variant(".badge-neutral-#{$color}", $value);
+}
+

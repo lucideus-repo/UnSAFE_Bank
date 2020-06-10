@@ -1,0 +1,14 @@
+//  Core
+
+.tooltip {
+  .tooltip-inner {
+    box-shadow: $box-shadow-sm;
+  }
+}
+
+.tooltip-lg {
+  .tooltip-inner {
+    padding: 0;
+    max-width: $tooltip-max-width * 1.5;
+  }
+}

@@ -1,0 +1,38 @@
+//  Core
+
+.app-sidebar {
+  &--userbox {
+    @include border-radius($border-radius-sm);
+    padding: $spacer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: $spacer $spacer ($spacer / 2);
+    position: relative;
+    flex-direction: column;
+    text-align: center;
+
+    .btn-userbox {
+      white-space: nowrap
+    }
+
+    .card-tr-actions {
+      position: absolute;
+      right: ($spacer / 2);
+      top: ($spacer / 3);
+    }
+
+    .avatar-icon-wrapper {
+      margin: 0;
+    }
+  }
+}
+
+// Themes
+
+@import "themes/dark";
+@import "themes/light";
+
+// Modifiers
+
+@import "modifiers/collapsed";

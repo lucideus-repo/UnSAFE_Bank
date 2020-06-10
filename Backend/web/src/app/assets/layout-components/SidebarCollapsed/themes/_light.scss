@@ -1,0 +1,59 @@
+// Sidebar light
+
+.app-sidebar {
+  &--light {
+    .sidebar-menu-collapsed {
+      li {
+
+        a {
+          background: transparent;
+          color: rgba($primary, .5);
+
+          svg {
+            stroke: rgba($primary, .6);
+            fill: rgba($primary, .1);
+          }
+
+          &.active,
+          &:hover {
+            background: rgba($primary, .1);
+            color: rgba($primary, 1);
+
+            svg {
+              stroke: rgba($primary, 1);
+              fill: rgba($primary, .1);
+            }
+          }
+        }
+      }
+    }
+
+    &.app-sidebar--lighter {
+      .sidebar-menu-collapsed {
+        li {
+
+          a {
+            background: transparent;
+            color: rgba($white, .5);
+
+            svg {
+              stroke: rgba($white, .6);
+              fill: rgba($white, .1);
+            }
+
+            &.active,
+            &:hover {
+              background: rgba($white, .1);
+              color: rgba($white, 1);
+
+              svg {
+                stroke: rgba($white, 1);
+                fill: rgba($white, .1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,320 @@
+// React noUiSlider
+
+
+.noUi-target,
+.noUi-target * {
+  touch-action: none;
+  user-select: none;
+
+}
+
+.noUi-target {
+  position: relative;
+  direction: ltr;
+}
+
+.noUi-base,
+.noUi-connects {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Wrapper for all connect elements.
+ */
+.noUi-connects {
+  overflow: hidden;
+  z-index: 0;
+}
+
+.noUi-connect,
+.noUi-origin {
+  will-change: transform;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+}
+
+.noUi-connect {
+  height: 100%;
+  width: 100%;
+}
+
+.noUi-origin {
+  height: 10%;
+  width: 10%;
+}
+
+/* Offset direction
+ */
+html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
+  left: auto;
+  right: 0;
+}
+
+/* Give origins 0 height/width so they don't interfere with clicking the
+ * connect elements.
+ */
+.noUi-vertical {
+  min-height: 200px;
+
+  .noUi-origin {
+    width: 0;
+  }
+}
+
+.noUi-horizontal .noUi-origin {
+  height: 0;
+}
+
+.noUi-handle {
+  position: absolute;
+  outline: none !important;
+}
+
+.noUi-touch-area {
+  height: 100%;
+  width: 100%;
+}
+
+.noUi-state-tap .noUi-connect,
+.noUi-state-tap .noUi-origin {
+  transition: transform 0.3s;
+}
+
+.noUi-state-drag * {
+  cursor: inherit !important;
+}
+
+/* Slider size and handle placement;
+ */
+.noUi-horizontal {
+  height: 4px;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 16px;
+  height: 16px;
+  left: -6px;
+  top: -6px;
+  @include border-radius(100%);
+  outline: none !important;
+}
+
+.noUi-vertical {
+  width: 4px;
+}
+
+.noUi-vertical .noUi-handle {
+  width: 16px;
+  height: 16px;
+  left: -6px;
+  top: -6px;
+}
+
+html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
+  right: -6px;
+  left: auto;
+}
+
+/* Styling;
+ * Giving the connect element a border radius causes issues with using transform: scale
+ */
+.noUi-target {
+  background-color: $gray-200;
+  @include border-radius($border-radius);
+}
+
+.noUi-connects {
+  @include border-radius($border-radius);
+}
+
+.noUi-connect {
+  background: $primary;
+}
+
+/* Handles and cursors;
+ */
+.noUi-draggable {
+  cursor: ew-resize;
+}
+
+.noUi-vertical .noUi-draggable {
+  cursor: ns-resize;
+}
+
+.noUi-handle {
+  border: 2px solid $primary;
+  @include border-radius(100%);
+  background: $white;
+  cursor: default;
+  transition: box-shadow 200ms;
+}
+
+.noUi-active {
+  border-color: darken($primary, 15%);
+  box-shadow: 0 0.46875rem 2.1875rem rgba($primary, .8),
+  0 0.125rem 0.5875rem rgba($primary, .9);
+}
+
+/* Handle stripes;
+ */
+.noUi-handle:before,
+.noUi-handle:after {
+  display: none;
+}
+
+/* Disabled state;
+ */
+[disabled] .noUi-connect {
+  background: $gray-200;
+}
+
+[disabled].noUi-target,
+[disabled].noUi-handle,
+[disabled] .noUi-handle {
+  cursor: not-allowed;
+}
+
+.noUi-pips {
+  position: absolute;
+  color: $gray-300;
+}
+
+/* Values;
+ *
+ */
+.noUi-value {
+  position: absolute;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.noUi-value-sub {
+  color: $gray-600;
+  font-size: 10px;
+}
+
+/* Markings;
+ *
+ */
+.noUi-marker {
+  position: absolute;
+  background: $gray-400;
+}
+
+.noUi-marker-sub {
+  background: $gray-300;
+}
+
+.noUi-marker-large {
+  background: $gray-300;
+}
+
+/* Horizontal layout;
+ *
+ */
+.noUi-pips-horizontal {
+  padding: 10px 0;
+  height: 80px;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.noUi-value-horizontal {
+  transform: translate(-50%, 50%);
+}
+
+.noUi-rtl .noUi-value-horizontal {
+  transform: translate(50%, 50%);
+}
+
+.noUi-marker-horizontal.noUi-marker {
+  margin-left: -1px;
+  width: 2px;
+  height: 5px;
+}
+
+.noUi-marker-horizontal.noUi-marker-sub {
+  height: 10px;
+}
+
+.noUi-marker-horizontal.noUi-marker-large {
+  height: 15px;
+}
+
+/* Vertical layout;
+ *
+ */
+.noUi-pips-vertical {
+  padding: 0 10px;
+  height: 100%;
+  top: 0;
+  left: 100%;
+}
+
+.noUi-value-vertical {
+  transform: translate(0, -50%, 0);
+  padding-left: 25px;
+}
+
+.noUi-rtl .noUi-value-vertical {
+  transform: translate(0, 50%);
+}
+
+.noUi-marker-vertical.noUi-marker {
+  width: 5px;
+  height: 2px;
+  margin-top: -1px;
+}
+
+.noUi-marker-vertical.noUi-marker-sub {
+  width: 10px;
+}
+
+.noUi-marker-vertical.noUi-marker-large {
+  width: 15px;
+}
+
+.noUi-tooltip {
+  padding: 6px 0;
+  color: $white;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgba($gray-900, .9);
+  border-radius: $border-radius-sm;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+  min-width: 70px;
+  white-space: nowrap;
+  position: absolute;
+  font-size: $font-size-xs / 1.2;
+
+  &::after {
+    position: absolute;
+    content: '';
+    border-color: transparent;
+    border-style: solid;
+    bottom: -5px;
+    margin-left: -5px;
+    border-width: 5px 5px 0;
+    left: 50%;
+    border-top-color: rgba($gray-900, .9);
+  }
+
+}
+
+.noUi-horizontal .noUi-tooltip {
+  transform: translate(-50%, 0);
+  left: 50%;
+  bottom: 165%;
+}
+
+.noUi-vertical .noUi-tooltip {
+  transform: translate(0, -50%);
+  top: 50%;
+  right: 165%;
+}

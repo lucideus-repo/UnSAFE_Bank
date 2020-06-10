@@ -38,7 +38,7 @@ class Beneficiary extends CI_Controller
                         $status::PaymentSuccess['status_code'],
                         $status::PaymentSuccess['message'],
                         time(),
-                        array("transaction_reference" => $pay_result['data'])
+                        $pay_result['data']
                     );
                 }
             } else {
@@ -251,13 +251,24 @@ class Beneficiary extends CI_Controller
                         (object)array()
                     );
                 } else {
-                    echo prepare_response(
-                        "Success",
-                        $status::BeneficiaryFetchSuccess['status_code'],
-                        $status::BeneficiaryFetchSuccess['message'],
-                        time(),
-                        $fetch_result['data']
-                    );
+                    if ($fetch_result['data']['alias'] === null) {
+                        echo prepare_response(
+                            "Failed",
+                            $status::BeneficiaryNotExist['status_code'],
+                            $parsed['data']['alias']." does not exist",
+                            time(),
+                            $fetch_result['data']
+                        );
+                    }
+                    else {
+                        echo prepare_response(
+                            "Success",
+                            $status::BeneficiaryFetchSuccess['status_code'],
+                            $status::BeneficiaryFetchSuccess['message'],
+                            time(),
+                            $fetch_result['data']
+                        );
+                    }
                 }
             } else {
                 echo prepare_response(

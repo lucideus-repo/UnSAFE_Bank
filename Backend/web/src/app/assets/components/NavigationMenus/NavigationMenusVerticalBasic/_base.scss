@@ -1,0 +1,51 @@
+//  Core
+
+.nav {
+  .nav-item {
+    .nav-link {
+      display: flex;
+      align-items: center;
+      align-content: center;
+      background: $nav-item-link-bg;
+      color: $nav-item-link-color;
+      transition: $transition-base;
+      margin: 1px 0;
+
+      &.active,
+      &:hover {
+        background: $nav-item-link-active-bg;
+        color: $nav-item-link-active-color;
+      }
+
+      .nav-link-icon {
+        width: $nav-item-icon-size;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 5px;
+        font-size: $font-size-lg;
+      }
+
+      &.disabled {
+        opacity: .7;
+      }
+    }
+
+    &--header {
+      text-transform: uppercase;
+      color: $nav-item-header-color;
+      font-size: $nav-item-header-font-size;
+      padding: $nav-link-padding-y $nav-link-padding-x;
+      font-weight: 500;
+    }
+  }
+
+  &.nav-pills-rounded {
+    .nav-item {
+      .nav-link {
+        @include border-radius($border-radius-lg * 2);
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+//  Core
+
+.app-sidebar {
+  &--footer {
+    height: $sidebar-footer-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: $transition-base;
+
+    @include border-radius($border-radius);
+    margin: 0 ($spacer);
+
+    .btn {
+      box-shadow: none !important;
+      font-size: $font-size-xs;
+    }
+
+    ul {
+      @include list-unstyled;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+
+      li {
+        border-right: transparent solid 1px;
+        padding: ($spacer / 4) 0;
+
+        &:last-child {
+          border-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.app-sidebar-fixed {
+  .app-sidebar {
+    &--footer {
+      margin: 0;
+      @include border-radius(0);
+    }
+  }
+}
+
+// Themes
+
+@import "themes/dark";
+@import "themes/light";
+
+// Modifiers
+
+@import "modifiers/collapsed";

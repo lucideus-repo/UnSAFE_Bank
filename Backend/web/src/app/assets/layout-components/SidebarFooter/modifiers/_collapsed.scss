@@ -1,0 +1,20 @@
+// Collapsed Sidebar
+
+.app-sidebar-collapsed {
+  .app-sidebar {
+
+    &--footer {
+      opacity: 0;
+      visibility: hidden;
+      height: 0;
+    }
+
+    &:not(.app-sidebar--mini):hover {
+      .app-sidebar--footer {
+        opacity: 1;
+        visibility: visible;
+        height: $sidebar-footer-height;
+      }
+    }
+  }
+}

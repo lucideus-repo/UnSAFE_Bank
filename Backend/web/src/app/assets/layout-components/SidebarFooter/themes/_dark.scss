@@ -1,0 +1,40 @@
+// Sidebar dark
+
+.app-sidebar {
+  &--dark {
+      .app-sidebar--footer {
+        background: rgba($white,.06);
+        box-shadow:
+                0 -0.36875rem 0.1675rem rgba($black,.04),
+                0 -0.8375rem 0.30625rem rgba($black,.04),
+                0 -0.2rem 0.11125rem rgba($black,.06),
+                0 -0.1rem 0.0775rem rgba($black,.04);
+
+        .btn {
+          color: rgba($white, .5);
+
+          svg {
+            fill: rgba($white, .15);
+          }
+
+          &.active,
+          &:active,
+          &:focus,
+          &:hover {
+            color: rgba($white, .9);
+            background: rgba($white,.1);
+
+            svg {
+              fill: rgba($white, .25);
+            }
+          }
+        }
+
+        ul {
+          li {
+            border-right-color: rgba($white, .1);
+          }
+        }
+      }
+    }
+}

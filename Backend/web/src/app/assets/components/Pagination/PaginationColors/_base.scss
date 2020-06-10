@@ -1,0 +1,24 @@
+//  Core
+
+@each $color, $value in $theme-colors {
+  .pagination-#{$color} {
+
+    .page-item {
+
+      .page-link:hover {
+        color: $value;
+        background: rgba($value, .05);
+        border-color: $value;
+      }
+
+      &.active {
+        .page-link {
+          background: $value;
+          color: color-yiq($value);
+          border-color: $value;
+          box-shadow: 0 0.313rem 0.8rem rgba($value, .5), 0 0.126rem 0.225rem rgba($value, .3)
+        }
+      }
+    }
+  }
+}

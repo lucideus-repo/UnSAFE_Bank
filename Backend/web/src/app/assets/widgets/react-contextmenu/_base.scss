@@ -1,0 +1,50 @@
+// React context menu
+
+.react-contextmenu {
+  outline: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms ease !important;
+  margin-top: 0;
+
+  &.rel-container {
+    position: absolute !important;
+    top: 15% !important;
+    left: 50% !important;
+  }
+}
+
+.react-contextmenu-item {
+  outline: none !important;
+}
+
+.react-contextmenu.react-contextmenu--visible {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 9999;
+  visibility: visible;
+}
+
+.react-contextmenu-item--divider {
+  border-bottom: 1px solid $gray-300;
+  cursor: inherit;
+  margin-bottom: 3px;
+  padding: 2px 0;
+}
+
+.react-contextmenu-item.react-contextmenu-submenu {
+  padding: 0;
+}
+
+.react-contextmenu-item.react-contextmenu-submenu
+> .react-contextmenu-item:after {
+  content: '▶';
+  display: inline-block;
+  position: absolute;
+  right: 7px;
+}
+
+.example-multiple-targets::after {
+  content: attr(data-count);
+  display: block;
+}

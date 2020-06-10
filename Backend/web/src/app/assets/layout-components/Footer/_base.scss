@@ -1,0 +1,57 @@
+//  Core
+
+.app-footer {
+  height: $footer-height;
+  display: flex;
+  align-items: center;
+  background: $footer-bg;
+  width: 100%;
+  padding: 0 $layout-spacer;
+  transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  font-size: $font-size-sm;
+  justify-content: space-between;
+
+  @include media-breakpoint-down(lg) {
+    display: block;
+    text-align: center;
+
+    .nav {
+      justify-content: center;
+    }
+
+    height: auto;
+    padding: ($spacer / 3) ($spacer / 2) ($spacer / 2);
+  }
+  &--opacity-bg {
+    background: $footer-bg-transparent;
+  }
+
+  &:hover {
+    background: $footer-bg !important;
+  }
+  // Footer shadow
+  &--shadow {
+    box-shadow: $box-shadow-layout-top;
+  }
+  @include media-breakpoint-down(lg) {
+    &--second {
+      span:first-child {
+        display: block;
+        margin-bottom: ($spacer / 2);
+      }
+    }
+  }
+}
+// Fixed footer
+
+.app-footer-fixed {
+  .app-footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 22;
+  }
+
+  .app-content--inner__wrapper {
+    padding-bottom: $footer-height;
+  }
+}

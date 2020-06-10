@@ -1,0 +1,68 @@
+//  Core
+
+.image-title-overlay {
+  position: relative;
+
+  img {
+    transition: $transition-base;
+  }
+
+  &--bottom {
+    background: -moz-linear-gradient(top,  rgba($black,0) 0%, rgba($black,0.8) 100%);
+    background: -webkit-linear-gradient(top,  rgba($black,0) 0%,rgba($black,0.8) 100%);
+    background: linear-gradient(to bottom,  rgba($black,0) 0%,rgba($black,0.8) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000',GradientType=0 );
+    transition: $transition-base;
+    z-index: 3;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: ($card-spacer-x * 2) $card-spacer-x ($card-spacer-x);
+    @include border-bottom-radius(inherit);
+  }
+
+  &:hover {
+
+    img {
+      opacity: .95;
+    }
+
+    .image-title-overlay--bottom {
+      padding: ($card-spacer-x * 3) $card-spacer-x ($card-spacer-x);
+    }
+  }
+}
+
+// Hover cards
+
+.card-box-hover-rise {
+  transition: $transition-base;
+
+  &:hover {
+    box-shadow: $box-shadow-layout-bottom;
+    transform: translateY(-15px);
+  }
+
+  &.card-box-hover {
+    &:hover {
+      box-shadow: $box-shadow-layout-bottom;
+      transform: translateY(0);
+    }
+  }
+}
+
+.card-box-hover-rise-alt {
+  transition: $transition-base;
+
+  &:hover {
+    box-shadow: $modal-content-box-shadow-xs;
+    transform: translateY(-8px);
+  }
+
+  &.card-box-hover {
+    &:hover {
+      transform: translateY(0);
+    }
+  }
+}

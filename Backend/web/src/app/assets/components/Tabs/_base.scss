@@ -1,0 +1,173 @@
+// Tabs
+
+.tab-container {
+  display: block;
+}
+
+.nav.nav-tabs {
+  padding: 0 ($spacer / 1.5);
+
+  .nav-item {
+    padding: 0 ($spacer / 6);
+
+    .nav-link {
+      font-size: $font-size-sm;
+      text-transform: uppercase;
+      margin: 2px 0 0 0;
+      color: $gray-700;
+      background: transparent;
+      transition: $transition-base;
+      cursor: pointer;
+
+      &:hover {
+        color: $black;
+        background: transparent;
+      }
+
+      &.active {
+        margin-top: 0;
+        color: $primary;
+        background: transparent;
+        border-top: $primary solid 3px;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+
+  }
+}
+
+@include media-breakpoint-down(lg) {
+
+  .tabs-responsive {
+    .nav.nav-tabs {
+      flex-wrap: wrap;
+      display: flex;
+
+      .nav-item {
+        text-align: center;
+        width: 50%;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+
+  .tabs-responsive {
+    .nav.nav-tabs {
+      flex-wrap: wrap;
+      display: flex;
+
+      .nav-item {
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.nav-justified {
+  .nav-link {
+    & > span {
+      width: 100%;
+    }
+  }
+}
+
+// Line tabs
+
+.nav.nav-line {
+  .nav-item {
+    .nav-link {
+      color: $gray-700;
+      position: relative;
+      transition: $transition-base;
+      padding: 0 $spacer $spacer;
+      background: transparent;
+
+      .divider {
+        width: 34px;
+        @include border-radius($border-radius-lg);
+        height: 3px;
+        background: $primary;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: $transition-base;
+        position: absolute;
+        left: $spacer;
+        bottom: 0;
+      }
+
+      &:hover {
+        color: $black;
+        background: transparent;
+      }
+
+      &.active {
+        color: $primary;
+        background: transparent;
+
+        &:hover {
+          color: $primary;
+        }
+
+        .divider {
+          visibility: visible;
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+// Line tabs alternate
+
+.nav-line-alt {
+  .nav.nav-line {
+    position: relative;
+    z-index: 4;
+
+    &:after {
+      background: $gray-200;
+      height: 3px;
+      @include border-radius($border-radius-lg);
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      content: "";
+      z-index: 5;
+    }
+
+    .nav-item + .nav-item {
+      margin-left: ($spacer * 2);
+    }
+
+    .nav-item {
+      .nav-link {
+        padding: 0 0 $spacer;
+        margin: 0;
+
+        .divider {
+          z-index: 8;
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Header tabs
+
+.header-tabs {
+  & > .nav {
+    display: none;
+  }
+}

@@ -1,0 +1,91 @@
+//  Core
+
+.badge-wrapper {
+  position: relative;
+}
+
+.badge-position {
+  position: absolute !important;
+
+  &--top-right {
+    &.badge-circle {
+      right: -5px;
+      top: -5px;
+    }
+
+    &.badge-circle-inner {
+      right: -8px;
+      top: -8px;
+    }
+  }
+
+  &--top-center {
+    &.badge-circle {
+      left: 50%;
+      margin-left: -5px;
+      top: -5px;
+    }
+
+    &.badge-circle-inner {
+      left: 50%;
+      margin-left: -8px;
+      top: -8px;
+    }
+  }
+
+  &--top-left {
+    &.badge-circle {
+      left: -5px;
+      top: -5px;
+    }
+
+    &.badge-circle-inner {
+      left: -8px;
+      top: -8px;
+    }
+  }
+
+  &--bottom-right {
+    &.badge-circle {
+      right: -5px;
+      bottom: -5px;
+      top: auto;
+    }
+
+    &.badge-circle-inner {
+      right: -8px;
+      bottom: -8px;
+      top: auto;
+    }
+  }
+
+  &--bottom-center {
+    &.badge-circle {
+      left: 50%;
+      margin-left: -5px;
+      bottom: -5px;
+      top: auto;
+    }
+
+    &.badge-circle-inner {
+      left: 50%;
+      margin-left: -8px;
+      bottom: -8px;
+      top: auto;
+    }
+  }
+
+  &--bottom-left {
+    &.badge-circle {
+      left: -5px;
+      bottom: -5px;
+      top: auto;
+    }
+
+    &.badge-circle-inner {
+      left: -8px;
+      bottom: -8px;
+      top: auto;
+    }
+  }
+}

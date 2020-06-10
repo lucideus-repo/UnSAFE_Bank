@@ -1,0 +1,69 @@
+//  Core
+
+.progress {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+
+  &.progress-xs {
+      height: $progress-bar-xs-height;
+  }
+
+  &.progress-sm {
+      height: $progress-bar-sm-height;
+  }
+
+  &.progress-lg {
+      height: $progress-bar-lg-height;
+  }
+
+  .progress-bar {
+    position: relative;
+
+    &:last-child {
+      @include border-right-radius($progress-border-radius);
+    }
+  }
+
+  &.progress-bar-rounded {
+    @include border-radius(30px);
+
+
+    .progress-bar:last-child {
+      @include border-right-radius(30px);
+    }
+  }
+
+  &.progress-animated-alt {
+    .progress-bar-animated {
+      &::after {
+        content: '';
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: $progress-bar-animated-color;
+        animation: progress-active 2s ease infinite;
+      }
+    }
+  }
+}
+
+@keyframes progress-active {
+  0% {
+    opacity: .4;
+    width: 0
+  }
+  100% {
+    opacity: 0;
+    width: 100%
+  }
+}
+
+// Gauges
+
+.gauge-wrapper {
+  max-width: 160px;
+  margin: 0 auto;
+  padding: ($spacer / 2);
+}

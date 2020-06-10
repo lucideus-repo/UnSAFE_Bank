@@ -1,0 +1,60 @@
+//  Core
+
+.popover-share-box {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  width: $popover-max-width * 2;
+  max-width: $popover-max-width * 2;
+
+  .popover-body {
+    padding: 0;
+  }
+
+  & > .popover {
+    width: $popover-max-width * 2;
+    max-width: $popover-max-width * 2;
+  }
+}
+.promo-section-wrapper {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1163;
+  display: block;
+  height: 100vh;
+  transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+
+  @include media-breakpoint-down(md) {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.promo-section-buttons-wrapper {
+  position: absolute;
+  right: 0;
+  top: 45%;
+}
+
+.promo-section-buttons {
+  box-shadow: $dropdown-box-shadow;
+  display: flex;
+  padding: 10px 15px;
+  flex-direction: column;
+  align-items: center;
+  background: $white;
+  @include border-left-radius($border-radius);
+
+  .btn-squared {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+  }
+
+  .btn {
+    margin: 5px 0;
+  }
+}

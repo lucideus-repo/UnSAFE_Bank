@@ -85,8 +85,9 @@ class LoginModuleHandler extends CI_Model
             if (isset($stmt['session_id'])) {
                 // last_access was less than 150 s
                 // updated to 60s @18-Mar-2019
+                // updated to 300s @13-May-2020
                 $time_diff = time() - $stmt['last_access'];
-                if ($time_diff < 60) {
+                if ($time_diff < 300) {
                     return $status::CoolDownPeriod;
                 }
                 $sql = "UPDATE session_master

@@ -22,7 +22,8 @@ function is_valid_session($sessionId)
     // session timeout 10 mins i.e. 600 seconds
     // updated: 1 min i.e. 60s @18-Mar-2019
     // updated: 5 min i.e. 300s @20-Mar-2019
-    $SESSION_TIMEOUT = 300;
+    // updated: 15 mn i.e 900s @13-May-2020
+    $SESSION_TIMEOUT = 900;
 
     $stmt = $CI->db->query(
         "SELECT

@@ -1,0 +1,36 @@
+//  Core
+
+.btn-gradient {
+  border: 0;
+  position: relative;
+  color: $white;
+
+  &:after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: $white;
+    opacity: 0;
+    transition: $transition-base;
+    content: '';
+  }
+
+  &:hover {
+    color: $white;
+
+    &:after {
+      opacity: .15;
+    }
+  }
+}
+
+.btn-gradient-inverse {
+  color: $black;
+
+  &:hover {
+    color: $black;
+  }
+}

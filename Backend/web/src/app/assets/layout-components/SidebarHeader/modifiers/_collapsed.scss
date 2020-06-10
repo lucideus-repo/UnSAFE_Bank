@@ -1,0 +1,79 @@
+// Collapsed Sidebar
+.app-sidebar {
+  &--header {
+    .collapse-sidebar-btn {
+      visibility: visible;
+      transition: $transition-base;
+      @include border-radius(100%);
+      padding: ($spacer / 3);
+    }
+
+    .expand-sidebar-btn {
+      transition: $transition-base;
+      position: absolute;
+      right: 0;
+      width: 36px;
+      height: 36px;
+      line-height: 34px;
+      margin: -18px -18px 0 0;
+      top: 50%;
+      padding: 0;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    // Responsive
+
+    @include media-breakpoint-down(md) {
+      .collapse-sidebar-btn,
+      .expand-sidebar-btn {
+        display: none;
+      }
+    }
+  }
+}
+
+.app-sidebar-collapsed {
+  .app-sidebar {
+    .collapse-sidebar-btn {
+      visibility: hidden;
+      opacity: 0;
+      display: none;
+    }
+
+    &--header {
+      .nav-logo {
+
+        i {
+          left: 11px;
+          margin-right: 0;
+        }
+
+        span {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+
+    &:not(.app-sidebar--mini):hover {
+      .app-sidebar--header {
+        .nav-logo {
+
+          i {
+            left: 0;
+            margin-right: ($layout-spacer / 2.5);
+          }
+
+          span {
+            visibility: visible;
+          }
+        }
+
+        .expand-sidebar-btn {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

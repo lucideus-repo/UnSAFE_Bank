@@ -1,0 +1,212 @@
+//  Core
+
+.app-page-title {
+  margin: (-$layout-spacer) (-$layout-spacer) $layout-spacer;
+  padding: $layout-spacer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba($white, 0.5);
+  transition: $transition-base;
+  &--shadow {
+    box-shadow: $page-title-shadow;
+  }
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+  }
+  &--dark {
+    color: rgba($white, 1);
+
+    .app-page-title--breadcrumb {
+      .breadcrumb-item {
+        color: rgba($white, 0.5);
+
+        a {
+          color: rgba($white, 0.5);
+
+          &:hover {
+            background: rgba($white, 0.1);
+            color: rgba($white, 0.8);
+          }
+        }
+      }
+    }
+  }
+
+  &--first {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      margin-bottom: ($spacer * 1.5);
+    }
+  }
+
+  &--second {
+    display: flex;
+    align-items: center;
+  }
+  &--heading {
+    padding-right: ($spacer);
+
+    @include media-breakpoint-down(md) {
+      padding-right: 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: black;
+      font-size: $display4-size / 1.1;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+  &--iconbox {
+    background: $white;
+    @include border-radius($border-radius-sm);
+    box-shadow: $box-shadow-sm-light;
+    display: flex;
+    margin: 0 ($spacer * 1.5) 0 0;
+    justify-content: center;
+    align-items: center;
+
+    @include media-breakpoint-down(md) {
+      margin: 0 0 ($spacer * 1.5);
+    }
+  }
+
+  &--description {
+    margin: ($spacer / 2) 0 0;
+    font-size: $font-size-base * 1.1;
+    opacity: 0.6;
+    font-weight: normal;
+  }
+  &--breadcrumb {
+    margin: 0 0 ($spacer);
+    opacity: 0.7;
+    background: transparent;
+    padding: 0;
+
+    .breadcrumb-item {
+      text-transform: uppercase;
+      font-size: $font-size-xs / 1.2;
+      font-weight: bold;
+      position: relative;
+      padding: 0 16px 0 0;
+      color: rgba($black, 0.5);
+
+      &:before {
+        font-family: "Ionicons";
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: $font-size-base;
+        padding: 0;
+        text-align: center;
+        text-indent: initial;
+        display: block;
+        content: "\f3d1";
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        top: 50%;
+        margin-top: -8px;
+        right: 0;
+        position: absolute;
+      }
+
+      & > a,
+      & > span {
+        padding: ($spacer / 3.5) ($spacer / 2);
+        @include border-radius($border-radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: $transition-base;
+      }
+
+      a {
+        &:hover {
+          background: rgba($primary, 0.1);
+          color: $primary;
+        }
+      }
+
+      &:last-child {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // Alternate style 1
+
+  &.app-page-title-alt-1 {
+    background: $white;
+    padding-top: ($spacer / 1.2);
+    padding-bottom: ($spacer / 1.2);
+
+    .app-page-title--heading {
+      display: flex;
+      align-items: center;
+      h1 {
+        font-size: $font-size-lg;
+      }
+    }
+
+    .app-page-title--description {
+      width: 75%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 0 0 0 ($spacer / 2);
+      font-size: $font-size-base;
+    }
+
+    .app-page-title--iconbox {
+      box-shadow: none;
+      background: none;
+      margin-right: ($spacer / 2);
+
+      width: 32px !important;
+      height: 32px !important;
+
+      .d-70 {
+        width: 32px !important;
+        height: 32px !important;
+
+        .display-3 {
+          font-size: $font-size-lg !important;
+        }
+      }
+    }
+  }
+
+  // Alternate style 2
+
+  &.app-page-title-alt-2 {
+    margin: (-$layout-spacer) 0 $layout-spacer;
+    padding: $layout-spacer;
+    @include border-bottom-radius($border-radius);
+  }
+
+  // Alternate style 3
+
+  &.app-page-title-alt-3 {
+    margin: 0 0 $layout-spacer;
+    padding: ($layout-spacer / 1.5) $layout-spacer;
+    @include border-radius($border-radius);
+
+    .app-page-title--iconbox {
+      @include border-radius(100%);
+    }
+  }
+}

@@ -1,0 +1,63 @@
+//  Core
+
+.btn-animated-icon {
+  transition: all 0.35s;
+  overflow: hidden;
+  position: relative;
+
+  svg path {
+    transition: $transition-base;
+  }
+
+  &:before {
+    top: 90%;
+    left: -110%;
+    transition: all 0.35s;
+    transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+    content: '';
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: 2;
+    @include border-radius(100%);
+  }
+
+  &.btn-pill {
+    &:before {
+      @include border-radius(0);
+    }
+  }
+
+  .btn-wrapper--icon {
+    transform: scale(1);
+    transition: all 0.35s;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:focus,
+  &:hover {
+    &:before {
+      top: -10%;
+      left: -10%;
+    }
+
+    .btn-wrapper--icon {
+      color: $white !important;
+      transform: scale(1.25);
+    }
+  }
+
+  @each $color, $value in $theme-colors {
+    &--#{$color} {
+      &:before {
+        background-color: $value;
+      }
+    }
+  }
+}

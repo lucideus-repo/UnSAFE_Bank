@@ -1,0 +1,98 @@
+@import 'variables';
+
+.rbc-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: $secondary;
+  @include border-radius($border-radius);
+  padding: $spacer;
+  margin-bottom: ($spacer);
+  flex-direction: column;
+
+  @include media-breakpoint-up(xl) {
+    flex-direction: row;
+  }
+
+  .rbc-toolbar-label {
+    flex-grow: 1;
+    padding: $spacer 0;
+    font-weight: bold;
+    text-align: center;
+    font-size: $font-size-lg;
+
+    @include media-breakpoint-up(xl) {
+      padding: 0;
+    }
+  }
+
+  button {
+    display: inline-block;
+    font-family: $btn-font-family;
+    font-weight: $btn-font-weight;
+    text-align: center;
+    white-space: $btn-white-space;
+    vertical-align: middle;
+    outline: none !important;
+    cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
+    user-select: none;
+    @include button-variant($primary, $primary);
+    color: $primary;
+    background: transparent;
+    border-width: 2px;
+    border-style: solid;
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+    @include transition($btn-transition);
+
+    &.rbc-active,
+    &:not(:disabled):active,
+    &:not(:disabled):focus,
+    &:not(:disabled):hover {
+      background: $primary;
+      box-shadow: 0 0.25rem 0.55rem rgba($primary, .35);
+      color: color-yiq($primary);
+    }
+  }
+}
+
+.rbc-btn-group {
+  display: inline-block;
+  white-space: nowrap;
+
+  > button:first-child:not(:last-child) {
+    @include border-right-radius(0);
+  }
+
+  > button:last-child:not(:first-child) {
+    @include border-left-radius(0);
+  }
+
+  .rbc-rtl & > button:first-child:not(:last-child) {
+    @include border-radius($border-radius-sm);
+    @include border-left-radius(0);
+  }
+
+  .rbc-rtl & > button:last-child:not(:first-child) {
+    @include border-radius($border-radius-sm);
+    @include border-right-radius(0);
+  }
+
+  > button:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+
+  button + button {
+    margin-left: -2px;
+  }
+
+  .rbc-rtl & button + button {
+    margin-left: 0;
+    margin-right: -2px;
+  }
+
+  & + &,
+  & + button {
+    margin-left: 10px;
+  }
+}

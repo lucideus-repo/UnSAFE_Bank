@@ -1,0 +1,31 @@
+// Sidebar dark
+
+.app-sidebar {
+  &--dark {
+    .sidebar-menu-collapsed {
+      li {
+
+        a {
+          background: transparent;
+          color: rgba($white, .5);
+
+          svg {
+            stroke: rgba($white, .6);
+            fill: rgba($white, .15);
+          }
+
+          &.active,
+          &:hover {
+            background: rgba($white, .15);
+            color: rgba($white, 1);
+
+            svg {
+              stroke: rgba($white, 1);
+              fill: rgba($white, .3);
+            }
+          }
+        }
+      }
+    }
+  }
+}

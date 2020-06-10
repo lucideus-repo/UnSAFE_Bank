@@ -1,0 +1,31 @@
+
+$out-of-range-color: $gray-400 !default;
+$out-of-range-bg-color: $gray-200 !default;
+
+$calendar-border: $table-border-color !default;
+$cell-border: $table-border-color !default;
+
+$border-color: $table-border-color !default;
+
+$segment-width: percentage(1 / 7) !default;
+
+$time-selection-color: $white !default;
+$time-selection-bg-color: transparentize($black, .5) !default;
+$date-selection-bg-color: transparentize($black, .9) !default;
+
+
+$event-bg: $primary !default;
+$event-border: darken(#3174ad, 10%) !default;
+$event-outline: transparent !default;
+$event-color: $white !default;
+$event-border-radius: $border-radius-sm !default;
+$event-padding: 5px 10px !default;
+$event-zindex: 4 !default;
+
+$btn-border: $table-border-color !default;
+
+$current-time-color: $success !default;
+
+$rbc-css-prefix: rbc-i !default;
+
+$today-highlight-bg: $first !default;

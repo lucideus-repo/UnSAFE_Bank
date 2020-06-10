@@ -1,0 +1,82 @@
+//  Core
+
+html,
+body {
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: auto;
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.app-wrapper {
+  display: flex;
+  flex: 1;
+  background: $page-bg;
+  transition: all 0.5s $app-sidebar-transition;
+}
+
+.app-main {
+  display: flex;
+  flex: 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  position: relative;
+  min-height: 100vh;
+}
+
+.app-content {
+  flex: 1;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  transition: all 0.5s $app-sidebar-transition;
+
+  &--inner {
+    padding: $layout-spacer;
+    display: flex;
+    flex: 1;
+
+    &__wrapper {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+// Fixed sidebar
+
+.app-sidebar-fixed {
+  .app-content {
+    padding-left: $sidebar-width;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .app-content {
+    padding-left: 0 !important;
+  }
+}
+
+// Fixed header
+
+@include media-breakpoint-up(lg) {
+  .app-header-fixed {
+    .app-content {
+      padding-top: $header-height;
+    }
+  }
+}
+// Collapsed sidebar
+
+@include media-breakpoint-up(lg) {
+  .app-sidebar-collapsed {
+    .app-content {
+      padding-left: $sidebar-width-collapsed;
+    }
+  }
+}

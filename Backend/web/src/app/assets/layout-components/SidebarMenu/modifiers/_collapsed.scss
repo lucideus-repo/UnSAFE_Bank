@@ -1,0 +1,56 @@
+// Collapsed Sidebar
+.app-sidebar-collapsed {
+  .app-sidebar:not(:hover) {
+    .app-sidebar--content {
+
+      .sidebar-navigation {
+
+        .sidebar-header {
+          padding-top: 0;
+          padding-bottom: 0;
+          height: 0;
+          margin: ($layout-spacer / 2);
+
+          &:after {
+            visibility: visible;
+            opacity: 1;
+          }
+
+          span {
+            visibility: hidden;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+          }
+
+          &:after {
+            height: 1px;
+            content: '';
+            position: absolute;
+            width: 80%;
+            left: 10%;
+          }
+        }
+
+        li {
+          .sidebar-icon {
+            margin-right: 300px;
+            text-align: center;
+          }
+
+          &.submenu-open {
+            ul {
+              padding: 0;
+              opacity: 0;
+
+              li a {
+                margin: 0;
+                height: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
