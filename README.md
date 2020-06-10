@@ -20,6 +20,21 @@ It currently consists of the following functionalities:
 
 Say it intentionally or unintentionally, we have introduced vulnerabilities which varies from low severity to critical severity. 
 
+To provide you a reference, the following classes of vulnerabilities will be encountered in the applications:
+
+| OWASP Top 10 - 2017 | OWASP Mobile Top 10 2016 |
+|----------------------|-------------------|
+| A1:2017-Injection | M1: Improper Platform Usage |
+| A2:2017-Broken Authentication | M2: Insecure Data Storage |
+| A3:2017-Sensitive Data Exposure | M3: Insecure Communication |
+| A5:2017-Broken Access Control | M4: Insecure Authentication |
+| A6:2017-Security Misconfiguration | M5: Insufficient Cryptography |
+| A7:2017-Cross-Site Scripting (XSS) | M6: Insecure Authorization |
+| | M7: Client Code Quality |
+| | M8: Code Tampering |
+| | M9: Reverse Engineering |
+
+
 ## Setting up the environment
 
 ### Dependencies
@@ -51,13 +66,24 @@ Say it intentionally or unintentionally, we have introduced vulnerabilities whic
 
 **Note:** You can always use [other methods](https://mobile-security.gitbook.io/mobile-security-testing-guide/ios-testing-guide/0x06b-basic-security-testing#installing-apps) to install the iOS application as per your convenience.
 
-### Test Connectivity Status
+### Test Connectivity Status (iOS Application)
 
-1. Make sure your iPhone and System are connected to the same network.
-2. Check your system IP address (ifconfig) and the port on which backend is running (Default port is 80).
+1. Make sure your iPhone and the server machine are connected to the same network.
+2. Check your server's IP address (`ifconfig` or `ipconfig`) and the port (Default port is 80).
 3. Open the iOS Application and provide the connection strings on the top right corner to connect to the backend.
 4. If there is no error message on your iPhone then "You are connected successfully".
 5. If there is an error, make sure your backend is running successfully or you have provided the valid IP address/port.
+
+### Test Connectivity Status (Web Application)
+
+1. Make sure that you are either using the same machine as the server or the server machine is running on a machine on the same local network.
+2. Note down the port number of your web application (APP_PORT). Default port is 3000.
+3. Check your server's IP address (`ifconfig` or `ipconfig`) and the port (Default port is 80).
+4. On any browser, navigate to http://<SERVER_IP>:<APP_PORT> and check if you can land at the login page.
+5. Click on `Test Connection?` and enter the <SERVER_IP> and <SERVER_PORT>.
+6. Ensure that the application shows a message `Connection Established`.
+
+
 
 ### Login Credentials
 
@@ -68,7 +94,7 @@ On successful sign up:
 1. You will be provided with your Customer ID corresponding to your account. Always note your Customer ID and keep it SAFE for further usage.
 2. Your dummy PII and account information would be created automatically.
 3. Default beneficiaries would be added in your account.
-4. Virtual money would be added in your account ranging from 1 to 5 lakh.
+4. Virtual money would be added in your account ranging from 1 to 10 lakh.
 
 ### Existing User Bank Accounts
 
@@ -87,6 +113,30 @@ Following data can be used to perform actions such as add beneficiary, funds tra
 | Yvette Cooper | 841478410516 | IFSC00007 |
 | Orion Glover | 001498029143 | IFSC00003 |
 
+### Troubleshooting
+Problem 1: Docker containers fail to build on the first attempt.
+
+Problem 2: Internet connection goes away while the docker containers are building up. 
+
+Problem 3: You end up inserting junk data or deleting essential data from the database.
+
+> Solution: run the command `docker-compose up -d --build` to build the docker containers fresh.
+
+Problem 4: Error message `listen tcp 0.0.0.0:80: bind: address already in use`.
+
+Problem 5: Error message `listen tcp 0.0.0.0:3000: bind: address already in use`.
+
+> Solution: Check that another service that uses port 80 such as Apache or IIS is down.
+
+Problem 6: Navigating to http://<SERVER_IP>:<SERVER_PORT> gives a mesage `Service Unavailable`. 
+
+> Solution: Wait for 20 to 30 seconds for the services to completely start up.
+
+Problem 7: Web application shows the message `Backend server is unrespensive`.
+
+> Solution 1: Follow the steps mentioned to [check the connectivity status](https://github.com/lucideus-repo/UnSAFE_Bank/blob/master/README.md#test-connectivity-status-web-application) and navigate to http://<SERVER_URL>:<SERVER_PORT>/api. Check if you can get the message `Welcome to UnSAFE Bank`.
+
+
 ### Encountered a bug or want to suggest something?
 
 If you come across any functional bug in the application or want to suggest the improvements, [file an issue](https://github.com/lucideus-repo/UnSAFE_Bank/issues) at this repository. We will look into it at the earliest. :)
@@ -97,7 +147,7 @@ This project is using the GNU General Public License v3.0.
 
 ### Contributors
 
-[Vibhav Dudeja](https://www.linkedin.com/in/vibhavd), [Tarun Kaushik](https://linkedin.com/in/tarun-kaushik-13827229), [Chetan Kumar](https://www.linkedin.com/in/chetan-daksh-0023b66a/), [Sahil Pahwa](https://www.linkedin.com/in/sahilpahwa1/)
+[Vibhav Dudeja](https://www.linkedin.com/in/vibhavd), [Tarun Kaushik](https://linkedin.com/in/tarun-kaushik-13827229), [Chetan Kumar](https://www.linkedin.com/in/chetan-daksh-0023b66a/), [Sahil Pahwa](https://www.linkedin.com/in/sahilpahwa1/), [Deepak Pawar](https://www.linkedin.com/in/deepak-singh-pawar/), [Aman Jain](https://www.linkedin.com/in/jn-aman/)
 
 ### Owners
 
