@@ -1,0 +1,25 @@
+//  Core
+
+.dropdown-mega-menu-lg {
+  width: 54rem;
+
+  @include media-breakpoint-down(lg) {
+    width: 30rem;
+  }
+}
+
+.dropdown-mega-menu-md {
+  width: 25rem;
+}
+
+.app-header-menu {
+  position: relative;
+  transition: $transition-base;
+  transform: scale(1);
+  visibility: visible;
+  transition-delay: .2s;
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}

@@ -1,0 +1,20 @@
+// Sidebar dark
+
+.app-sidebar {
+  &--dark {
+    background: $sidebar-bg;
+
+    &--content {
+      background: $sidebar-content-bg;
+    }
+
+    perfect-scrollbar > .ps.ps--scrolling-y > .ps__rail-y,
+    .ps .ps__rail-y:hover {
+      background-color: rgba($black,.05) !important;
+    }
+
+    .ps__thumb-y {
+      background-color: rgba($black,.15) !important;
+    }
+  }
+}

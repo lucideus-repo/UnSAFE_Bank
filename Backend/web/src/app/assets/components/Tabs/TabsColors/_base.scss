@@ -1,0 +1,63 @@
+// Tabs colors
+
+@each $color, $value in $theme-colors {
+  .nav-tabs-#{$color} {
+    .nav.nav-tabs {
+      .nav-item {
+        .nav-link {
+          color: $gray-700;
+
+          &.active {
+            color: $value;
+            border-top: $value solid 3px;
+
+            &:hover {
+              color: $value;
+            }
+          }
+        }
+      }
+    }
+
+    .nav.nav-line {
+      .nav-item {
+        .nav-link {
+          .divider {
+            background: $value;
+          }
+
+          &.active,
+          &.active:hover {
+            color: $value;
+          }
+        }
+      }
+    }
+
+    &.tabs-animated-shadow {
+      & > .nav-tabs {
+        .nav-item {
+          .nav-link {
+            color: $body-color;
+
+            &::before {
+              background: $value !important;
+              box-shadow: 0 16px 26px -10px rgba($value, 0.56),
+              0 4px 25px 0px rgba(0, 0, 0, 0.12),
+              0 8px 10px -5px rgba($value, 0.2);
+            }
+
+            &.active,
+            &:hover {
+              color: color-yiq($value) !important;
+
+              span {
+                color: color-yiq($value) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

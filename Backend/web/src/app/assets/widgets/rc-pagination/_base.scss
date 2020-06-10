@@ -1,0 +1,370 @@
+// RC Pagination
+
+.rc-pagination {
+  padding: 0;
+  margin: 0;
+}
+
+.rc-pagination > li {
+  list-style: none;
+}
+
+.rc-pagination-total-text {
+  float: left;
+  height: 36px;
+  line-height: 36px;
+  list-style: none;
+  padding: 0;
+  color: $gray-700;
+  text-transform: uppercase;
+  font-size: $font-size-sm;
+  font-weight: bold;
+  margin: 0 ($spacer / 1.75) 0 0;
+}
+
+.rc-pagination:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.rc-pagination-item {
+  cursor: pointer;
+  @include border-radius($border-radius-xs);
+  min-width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  list-style: none;
+  float: left;
+  border: 1px solid $pagination-border-color;
+  background-color: $pagination-bg;
+  margin-right: ($spacer / 1.75);
+  outline: none;
+}
+
+.rc-pagination-item a {
+  text-decoration: none;
+  color: $pagination-color;
+}
+
+.rc-pagination-prev:hover,
+.rc-pagination-next:hover,
+.rc-pagination-item:hover {
+  border-color: $pagination-hover-border-color;
+  background: $pagination-hover-bg;
+}
+
+.rc-pagination-item:hover a {
+  color: $pagination-hover-color;
+}
+
+.rc-pagination-item-disabled {
+  cursor: not-allowed;
+}
+
+.rc-pagination-item-disabled:hover {
+  border-color: $pagination-disabled-border-color !important;
+}
+
+.rc-pagination-item-disabled:hover a {
+  color: $pagination-disabled-color !important;
+}
+
+.rc-pagination-item-active:hover,
+.rc-pagination-item-active {
+  background-color: $pagination-active-bg;
+  border-color: $pagination-active-border-color;
+  box-shadow: $box-shadow-sm;
+}
+
+.rc-pagination-item-active a,
+.rc-pagination-item-active:hover a {
+  color: $pagination-active-color;
+}
+
+.rc-pagination-jump-prev:after,
+.rc-pagination-jump-next:after {
+  content: "•••";
+  display: block;
+  letter-spacing: 2px;
+  font-size: 18px;
+  color: $pagination-disabled-color;
+  margin-top: 1px;
+}
+
+.rc-pagination-jump-prev:hover:after,
+.rc-pagination-jump-next:hover:after {
+  color: $pagination-hover-color;
+}
+
+.rc-pagination-jump-prev:hover:after {
+  content: "«";
+}
+
+.rc-pagination-jump-next:hover:after {
+  content: "»";
+}
+
+.rc-pagination-jump-prev-custom-icon,
+.rc-pagination-jump-next-custom-icon {
+  position: relative;
+}
+
+.rc-pagination-jump-prev-custom-icon:after,
+.rc-pagination-jump-next-custom-icon:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  transition: $transition-base;
+  content: "•••";
+  opacity: 1;
+  display: block;
+  letter-spacing: 2px;
+  color: $pagination-disabled-color;
+  margin-top: 1px;
+}
+
+.rc-pagination-jump-prev-custom-icon .custom-icon-jump-prev,
+.rc-pagination-jump-next-custom-icon .custom-icon-jump-prev,
+.rc-pagination-jump-prev-custom-icon .custom-icon-jump-next,
+.rc-pagination-jump-next-custom-icon .custom-icon-jump-next {
+  opacity: 0;
+  transition: $transition-base;
+}
+
+.rc-pagination-jump-prev-custom-icon:hover:after,
+.rc-pagination-jump-next-custom-icon:hover:after {
+  opacity: 0;
+  color: $pagination-disabled-color;
+}
+
+.rc-pagination-jump-prev-custom-icon:hover .custom-icon-jump-prev,
+.rc-pagination-jump-next-custom-icon:hover .custom-icon-jump-prev,
+.rc-pagination-jump-prev-custom-icon:hover .custom-icon-jump-next,
+.rc-pagination-jump-next-custom-icon:hover .custom-icon-jump-next {
+  opacity: 1;
+  color: $pagination-hover-color;
+}
+
+.rc-pagination-prev,
+.rc-pagination-jump-prev,
+.rc-pagination-jump-next {
+  margin-right: ($spacer / 1.75);
+}
+
+.rc-pagination-prev,
+.rc-pagination-next,
+.rc-pagination-jump-prev,
+.rc-pagination-jump-next {
+  cursor: pointer;
+  color: $pagination-hover-color;
+  font-size: 18px;
+  @include border-radius($border-radius-xs);
+  list-style: none;
+  min-width: 34px;
+  height: 34px;
+  line-height: 34px;
+  float: left;
+  text-align: center;
+  outline: none;
+}
+
+.rc-pagination-prev a:after {
+  content: "‹";
+  display: block;
+}
+
+.rc-pagination-next a:after {
+  content: "›";
+  display: block;
+}
+
+.rc-pagination-prev,
+.rc-pagination-next {
+  border: 1px solid $pagination-border-color;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rc-pagination-prev a,
+.rc-pagination-next a {
+  color: $pagination-color;
+}
+
+.rc-pagination-prev a:after,
+.rc-pagination-next a:after {
+  margin-top: -1px;
+}
+
+.rc-pagination-disabled {
+  cursor: not-allowed;
+}
+
+.rc-pagination-disabled a {
+  color: $pagination-disabled-color;
+}
+
+.rc-pagination-disabled .rc-pagination-item,
+.rc-pagination-disabled .rc-pagination-prev,
+.rc-pagination-disabled .rc-pagination-next {
+  cursor: not-allowed;
+}
+
+.rc-pagination-disabled .rc-pagination-item:hover,
+.rc-pagination-disabled .rc-pagination-prev:hover,
+.rc-pagination-disabled .rc-pagination-next:hover {
+  border-color: $pagination-disabled-color;
+}
+
+.rc-pagination-disabled .rc-pagination-item:hover a,
+.rc-pagination-disabled .rc-pagination-prev:hover a,
+.rc-pagination-disabled .rc-pagination-next:hover a {
+  color: $pagination-disabled-color;
+}
+
+.rc-pagination-disabled .rc-pagination-jump-prev,
+.rc-pagination-disabled .rc-pagination-jump-next {
+  pointer-events: none;
+}
+
+.rc-pagination-options {
+  float: left;
+  margin-left: 15px;
+}
+
+.rc-pagination-options-size-changer {
+  float: left;
+  width: 120px;
+}
+
+.rc-pagination-options-quick-jumper {
+  float: left;
+  margin-left: 16px;
+  height: 34px;
+  line-height: 34px;
+}
+
+.rc-pagination-options-quick-jumper input {
+  margin: 0 ($spacer / 1.75);
+
+  background-color: $pagination-bg;
+  @include border-radius($border-radius-xs);
+  border: 1px solid $pagination-border-color;
+  outline: none;
+  padding: 3px 12px;
+  width: 50px;
+  height: 34px;
+}
+
+.rc-pagination-options-quick-jumper input:hover {
+  border-color: $pagination-hover-border-color;
+}
+
+.rc-pagination-options-quick-jumper button {
+  display: inline-block;
+  margin: 0 ($spacer / 1.75);
+  font-weight: 500;
+  text-align: center;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 0 15px;
+  @include border-radius($border-radius-xs);
+  height: 34px;
+  user-select: none;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  position: relative;
+  color: $pagination-color;
+  background-color: $pagination-bg;
+  border-color: $pagination-border-color;
+}
+
+.rc-pagination-options-quick-jumper button:hover,
+.rc-pagination-options-quick-jumper button:active,
+.rc-pagination-options-quick-jumper button:focus {
+  color: $pagination-hover-color;
+  background-color: $pagination-hover-bg;
+  border-color: $pagination-hover-border-color;
+}
+
+.rc-pagination-simple .rc-pagination-prev,
+.rc-pagination-simple .rc-pagination-next {
+  border: none;
+  height: 24px;
+  line-height: 24px;
+  margin: 0;
+  font-size: 18px;
+}
+
+.rc-pagination-simple .rc-pagination-simple-pager {
+  float: left;
+  margin-right: ($spacer / 1.75);
+  list-style: none;
+}
+
+.rc-pagination-simple .rc-pagination-simple-pager .rc-pagination-slash {
+  margin: 0 10px;
+}
+
+.rc-pagination-simple .rc-pagination-simple-pager input {
+  margin: 0 ($spacer / 1.75);
+
+  background-color: $pagination-bg;
+  @include border-radius($border-radius-xs);
+  border: 1px solid $pagination-border-color;
+  outline: none;
+  padding: 5px ($spacer / 1.75);
+  min-height: 20px;
+}
+
+.rc-pagination-simple .rc-pagination-simple-pager input:hover {
+  border-color: $pagination-hover-border-color;
+}
+
+.rc-pagination-simple .rc-pagination-simple-pager button {
+  display: inline-block;
+  margin: 0 ($spacer / 1.75);
+  font-weight: 500;
+  text-align: center;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 0 ($spacer / 1.75);
+  @include border-radius($border-radius-xs);
+  height: 26px;
+  user-select: none;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  position: relative;
+  color: $pagination-color;
+  background-color: $pagination-bg;
+  border-color: $pagination-border-color;
+}
+
+.rc-pagination-simple .rc-pagination-simple-pager button:hover,
+.rc-pagination-simple .rc-pagination-simple-pager button:active,
+.rc-pagination-simple .rc-pagination-simple-pager button:focus {
+  color: $pagination-hover-color;
+  background-color: $pagination-hover-bg;
+  border-color: $pagination-hover-border-color;
+}
+
+@media only screen and (max-width: 1024px) {
+  .rc-pagination-item-after-jump-prev,
+  .rc-pagination-item-before-jump-next {
+    display: none;
+  }
+}

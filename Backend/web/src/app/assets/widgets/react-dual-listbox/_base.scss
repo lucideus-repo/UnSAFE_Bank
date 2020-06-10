@@ -1,0 +1,196 @@
+// React dual list box
+
+$rdl-input-bg: $input-bg;
+$rdl-input-disabled-bg: $input-disabled-bg;
+$rdl-input-border: $input-border-color;
+$rdl-input-color: $input-color;
+$rdl-btn-bg: $rdl-input-bg;
+$rdl-btn-border: $rdl-input-border;
+$rdl-btn-color: theme-color('primary');
+$rdl-line-height: 1.42857;
+
+.react-dual-listbox {
+  display: flex;
+  align-items: center;
+
+
+  input,
+  select {
+    &:disabled {
+      background: $rdl-input-disabled-bg;
+      cursor: not-allowed;
+    }
+  }
+
+  button,
+  select {
+    line-height: $rdl-line-height;
+    font-family: inherit;
+  }
+}
+
+.rdl-list-box {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.rdl-filter,
+.rdl-control {
+  display: block;
+  border: 1px solid $rdl-input-border;
+  @include border-radius($input-border-radius, 0);
+  height: $input-height;
+  padding: $input-padding-y $input-padding-x;
+  width: 100%;
+  font-family: $input-font-family;
+  @include font-size($input-font-size);
+  font-weight: $input-font-weight;
+  line-height: $input-line-height;
+  color: $rdl-input-color;
+  @include box-shadow($input-box-shadow);
+  @include transition($input-transition);
+
+  @include form-control-focus($ignore-warning: true);
+
+  &::placeholder {
+    color: $input-placeholder-color;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 1;
+  }
+}
+
+.rdl-filter {
+  margin-bottom: $spacer;
+}
+
+.rdl-control-container {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
+.rdl-control-label {
+  padding: 2px 4px;
+
+  &.rdl-sr-only {
+    position: absolute;
+    clip: rect(0 0 0 0);
+  }
+}
+
+.rdl-control {
+  flex: 1 0 auto;
+
+  optgroup {
+    font: inherit;
+    font-weight: 700;
+  }
+}
+
+.rdl-actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  margin: 0 10px;
+
+  .rdl-has-header & {
+    padding-top: 31px;
+  }
+
+  .rdl-has-filter & {
+    padding-top: 44px;
+  }
+
+  .rdl-has-header.rdl-has-filter & {
+    padding-top: 75px;
+  }
+}
+
+.rdl-actions-right,
+.rdl-actions-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.rdl-actions-right {
+  margin-bottom: $spacer;
+}
+
+.rdl-move {
+  margin-bottom: 5px;
+  border: 1px solid $rdl-btn-border;
+  @include border-radius($border-radius-sm);
+  background: $rdl-input-bg;
+  cursor: pointer;
+  padding: $btn-padding-y-sm $btn-padding-x-sm;
+  color: $rdl-btn-color;
+  font-size: 14px;
+
+  &:active:not(:disabled),
+  &:focus:not(:disabled) {
+    border-color: darken($rdl-btn-border, 25%);
+    background: darken($rdl-btn-bg, 10%);
+  }
+
+  &:focus:not(:disabled) {
+    outline: thin dotted;
+    outline-offset: -2px;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: darken($rdl-btn-border, 12%);
+    background: darken($rdl-btn-bg, 10%);
+  }
+
+  &:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // Decrease spacing between icons
+  i {
+    margin: 0 -1px;
+  }
+}
+
+.rdl-align-top {
+  .rdl-available {
+    margin-right: 10px;
+  }
+
+  .rdl-selected {
+    margin-left: 10px;
+  }
+
+  .rdl-control {
+    @include border-top-radius(0);
+  }
+
+  .rdl-actions-left,
+  .rdl-actions-right {
+    flex-direction: row;
+    margin: 0;
+  }
+
+  .rdl-move {
+    flex: 0 1 50%;
+
+    &:first-child {
+      margin-bottom: 0;
+      border-right: 0;
+      border-top-right-radius: 0;
+      @include border-bottom-radius(0);
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      @include border-bottom-radius(0);
+    }
+  }
+}

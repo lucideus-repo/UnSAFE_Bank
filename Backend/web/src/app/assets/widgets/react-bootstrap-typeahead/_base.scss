@@ -1,0 +1,297 @@
+// React Typeahead
+
+@mixin placeholder($placeholder-color) {
+  // Firefox
+  &::-moz-placeholder {
+    color: $placeholder-color;
+    opacity: 1;
+  }
+
+  // Internet Explorer 10+
+  &:-ms-input-placeholder {
+    color: $placeholder-color;
+  }
+
+  // Safari and Chrome
+  &::-webkit-input-placeholder  {
+    color: $placeholder-color;
+  }
+}
+
+.rbt {
+  outline: none;
+
+  &-menu {
+    margin-bottom: 2px;
+
+    & > li a {
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &-pagination-option {
+      text-align: center;
+    }
+  }
+
+  // Hide IE's native "clear" button
+  & .rbt-input-main::-ms-clear {
+    display: none;
+  }
+
+  &-input-multi {
+    cursor: text;
+    overflow: hidden;
+    position: relative;
+    height: auto;
+
+    // Apply Bootstrap focus styles
+    &.focus {
+      border-color: $input-focus-border-color;
+      outline: 0;
+    }
+
+    // BS4 uses the :disabled pseudo-class, which doesn't work with non-inputs.
+    &.form-control[disabled] {
+      background-color: $input-disabled-bg;
+      opacity: 1;
+    }
+
+    // Apply Bootstrap placeholder styles
+    input {
+      @include placeholder($gray-500);
+    }
+
+    .rbt-input-wrapper {
+      margin-bottom: -4px;
+      margin-top: -1px;
+      overflow: hidden;
+    }
+
+    .rbt-input-main {
+      // Set input height for cross-browser consistency
+      height: 20px;
+      margin: 1px 0 4px;
+    }
+
+    .rbt-input-hint-container {
+      display: inline-block;
+    }
+
+    &.input,
+    &.form-control {
+      &-lg {
+        .rbt-input-main {
+          height: 24px;
+        }
+      }
+
+      &-sm {
+        .rbt-input-main {
+          height: 18px;
+        }
+      }
+    }
+  }
+
+  &-close {
+    z-index: 1;
+
+    &-lg {
+      font-size: 24px;
+    }
+  }
+
+  &-token {
+    background-color: $primary;
+    border: 0;
+    border-radius: 2px;
+    color: color-yiq($primary);
+    display: inline-block;
+    line-height: 1em;
+    margin: 0 3px 3px 0;
+    padding: 4px 7px;
+    position: relative;
+
+    &-disabled {
+      background-color: $input-disabled-bg;
+      color: $gray-600;
+      pointer-events: none;
+    }
+
+    &-removeable {
+      cursor: pointer;
+      padding-right: 21px;
+    }
+
+    &-active {
+      background-color: $primary;
+      color: color-yiq($primary);
+      outline: none;
+      text-decoration: none;
+    }
+
+    & &-remove-button {
+      bottom: 0;
+      color: inherit;
+      font-size: inherit;
+      font-weight: normal;
+      opacity: 1;
+      outline: none;
+      padding: 3px 7px;
+      position: absolute;
+      right: 0;
+      text-shadow: none;
+      top: 0;
+    }
+  }
+
+  &-loader {
+    animation: loader-animation 600ms infinite linear;
+    border: 1px solid $white;
+    border-radius: 50%;
+    border-top-color: $primary;
+    display: block;
+    height: 16px;
+    width: 16px;
+
+    &-lg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  &-aux {
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    justify-content: center;
+    pointer-events: none; /* Don't block clicks on the input */
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 34px;
+
+    &-lg {
+      width: 46px;
+    }
+
+    & .rbt-close {
+      margin-top: -4px;
+      pointer-events: auto; /* Override pointer-events: none; above */
+    }
+  }
+
+  .has-aux &-input {
+    padding-right: 34px;
+  }
+
+  &-highlight-text {
+    background-color: inherit;
+    color: inherit;
+    font-weight: bold;
+    padding: 0;
+  }
+}
+
+/* Input Groups */
+.input-group > .rbt {
+  flex: 1;
+
+  & .rbt-input-hint-container {
+    display: flex;
+  }
+
+  & .rbt-aux,
+  & .rbt-input-hint {
+    // Form-controls within input-groups have a higher z-index.
+    z-index: 5;
+  }
+
+  &:not(:first-child) .form-control {
+    @include border-left-radius(0);
+  }
+
+  &:not(:last-child) .form-control {
+    @include border-right-radius(0);
+  }
+}
+
+/* Validation States */
+.has-error .rbt-input-multi.focus {
+  border-color: $danger;
+}
+
+.has-warning .rbt-input-multi.focus {
+  border-color: $warning;
+}
+
+.has-success .rbt-input-multi.focus {
+  border-color: $success;
+}
+
+
+@keyframes loader-animation {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@-webkit-keyframes loader-animation {
+  to {
+    -webkit-transform: rotate(1turn);
+  }
+}
+
+.rbt {
+  &-input-multi {
+    // Bootstrap 4 focus style
+    &.focus {
+      background-color: $white;
+      border-color: $input-focus-border-color;
+      color: $input-color;
+      outline: 0;
+    }
+
+    &.is-invalid.focus {
+      border-color: $danger;
+    }
+
+    &.is-valid.focus {
+      border-color: $success;
+    }
+
+    input {
+      @include placeholder($gray-600);
+    }
+
+    .rbt-input-main {
+      height: auto;
+    }
+
+    &.form-control {
+      &-lg {
+        .rbt-input-main {
+          height: auto;
+        }
+      }
+
+      &-sm {
+        .rbt-input-main {
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+.input-group > .rbt {
+  // Fixes input height bug with IE + BS4
+  & .rbt-input-hint-container {
+    flex: 1;
+    height: 100%;
+  }
+}

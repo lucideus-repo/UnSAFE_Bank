@@ -1,0 +1,66 @@
+// Sidebar dark
+
+.app-sidebar {
+  &--dark {
+    .app-sidebar--header {
+      background: transparent;
+
+      .collapse-sidebar-btn {
+        background: transparent;
+        color: rgba($white, .8);
+        opacity: 1;
+
+        &:hover {
+          background: rgba($black, .2);
+          color: $white;
+        }
+      }
+      .expand-sidebar-btn {
+        border: $white solid 2px;
+        background: $white;
+        color: $primary;
+        box-shadow: $box-shadow-sm;
+      }
+      &:after {
+        background: rgba($white, .15);
+      }
+
+      .nav-logo {
+        a {
+          color: $white;
+
+          i {
+            background: $white;
+          }
+        }
+      }
+    }
+
+    .hamburger-inner,
+    .hamburger-inner:after,
+    .hamburger-inner:before {
+      background: $white !important;
+    }
+  }
+}
+// Collapsed Sidebar
+
+.app-sidebar-collapsed {
+  .app-sidebar {
+    &--dark {
+      &:hover {
+        .app-sidebar--header {
+          .nav-logo {
+            span {
+              opacity: 1;
+            }
+          }
+
+          .expand-sidebar-btn {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

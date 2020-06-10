@@ -1,0 +1,17 @@
+//  Core
+
+.list-group-item {
+  font-size: $font-size-base;
+  transition: $transition-base;
+
+  .nav-icon-wrapper {
+    width: 32px;
+    text-align: center;
+  }
+
+  & + .list-group-item {
+    & > .card-header {
+      @include border-top-radius(0);
+    }
+  }
+}

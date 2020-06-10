@@ -12,7 +12,7 @@ services:
       MYSQL_USER: phpmyadmin
       MYSQL_PASSWORD: 531486b2bf646636a6a1bba61e78ec4a4a54efbd
       MYSQL_DATABASE: abstractwallet
-    networks: 
+    networks:
       - backend
 
   server:
@@ -25,10 +25,21 @@ services:
       - 80:80
     volumes:
       - ./src/:/var/www/html/
-  
+
+  web:
+    build:
+      context: './web'
+      dockerfile: Dockerfile
+    depends_on:
+      - server
+    networks:
+      - frontend
+    ports:
+      - 3000:80
+
   php:
     build: './php/'
-    depends_on: 
+    depends_on:
       - db
     networks:
       - backend
@@ -37,5 +48,5 @@ services:
     command: /tmp/wait-for-it.sh -t 0 database:3306 -- php-fpm
 
 networks:
+  frontend:
   backend:
-

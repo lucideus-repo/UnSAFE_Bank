@@ -1,0 +1,27 @@
+// Collapsed Sidebar
+
+.app-sidebar-collapsed {
+  .app-sidebar {
+
+    &--userbox {
+      background: transparent;
+
+      .userbox-details,
+      .btn-userbox,
+      .card-tr-actions {
+        display: none;
+      }
+    }
+
+    &:not(.app-sidebar--mini):hover {
+      .app-sidebar--userbox {
+
+        .userbox-details,
+        .btn-userbox,
+        .card-tr-actions {
+          display: block;
+        }
+      }
+    }
+  }
+}

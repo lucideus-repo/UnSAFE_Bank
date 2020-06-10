@@ -1,0 +1,153 @@
+// RC Switch
+$sw-sm-knob-size: 22px !default;
+$sw-md-knob-size: 30px !default;
+$sw-lg-knob-size: 40px !default;
+
+$sw-sm-font-size: $font-size-xs / 1.2 !default;
+$sw-md-font-size: $font-size-xs / 1.2 !default;
+$sw-lg-font-size: $font-size-xs / 1.2 !default;
+
+$sw-sm-min-width: 50px;
+$sw-md-min-width: 70px;
+$sw-lg-min-width: 90px;
+
+%small-switch-min-width {
+  min-width: $sw-sm-min-width;
+}
+
+%medium-switch-min-width {
+  min-width: $sw-md-min-width;
+}
+
+%large-switch-min-width {
+  min-width: $sw-lg-min-width;
+}
+
+%small-label-font-size {
+  font-size: $sw-sm-font-size;
+}
+
+%medium-label-font-size {
+  font-size: $sw-md-font-size;
+}
+
+%large-label-font-size {
+  font-size: $sw-lg-font-size;
+}
+
+@mixin config-switch-sizes($prefix, $sizes...) {
+  @each $i in $sizes {
+    &.#{$prefix}#{nth($i, 1)} {
+      // min-width via placeholder
+      @extend %#{ nth($i, 1) }-switch-min-width;
+      border-radius: nth($i, 2);
+
+      .rc-switch-inner {
+       &:after {
+         width: nth($i, 2);
+         height: nth($i, 2);
+         right: calc(100% - #{nth($i, 2)});
+       }
+      }
+    }
+    &.#{$prefix}#{nth($i, 1)} {
+      height: nth($i, 2);
+    }
+  }
+}
+
+.rc-switch {
+  border: 1px solid $gray-600;
+  position: relative;
+  display: inline-block;
+  box-sizing: content-box;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  transition: $transition-base;
+  white-space: nowrap;
+  background: $gray-200;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none !important;
+
+  .rc-switch-inner {
+    &:after {
+      content: '';
+      border-radius: 100%;
+      position: absolute;
+      top: 0;
+      right: calc(100% - 24px);
+      background: $white;
+
+      background: -webkit-gradient(linear, left top, left bottom, from($white), to($gray-100));
+      background: -webkit-linear-gradient(top, $white, $gray-100);
+      background: linear-gradient(180deg, $white 0, $gray-100);
+      background-size: 100% 100%;
+      box-shadow: inset 0 1px 1px $white, 0 1px 3px rgba(0, 0, 0, .25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transform: scale(1);
+      transition: all .3s cubic-bezier(0.35, 0, 0.25, 1);
+      animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
+      animation-duration: .3s;
+      animation-name: rcSwitchOff;
+    }
+  }
+
+  &:hover {
+    border-color: $gray-700;
+    box-shadow: 0 0.16875rem 0.1875rem rgba($primary, .1), 0 0.125rem 0.1275rem rgba($primary, .1);
+
+    .rc-switch-inner {
+      &:after {
+        transform: scale(1.1);
+        animation-name: rcSwitchOn;
+      }
+    }
+  }
+
+  @include config-switch-sizes('switch-', 'small' $sw-sm-knob-size, 'medium' $sw-md-knob-size, 'large' $sw-lg-knob-size);
+
+  &.rc-switch-checked {
+    background: $primary;
+    border-color: $primary;
+    color: color-yiq($primary);
+
+    .rc-switch-inner {
+      &:after {
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+@keyframes rcSwitchOn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes rcSwitchOff {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

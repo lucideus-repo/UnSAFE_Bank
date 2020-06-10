@@ -1,0 +1,120 @@
+// Sidebar menu light color scheme
+.app-sidebar {
+  &--light {
+    .sidebar-navigation {
+
+      .sidebar-header {
+        color: rgba($primary, .85);
+      }
+
+      ul {
+        li {
+          & > a {
+            color: rgba($black, .7);
+
+            .sidebar-icon {
+              & > * {
+                color: $black;
+                opacity: .4;
+              }
+            }
+          }
+
+          ul {
+            li {
+              a {
+                &:after {
+                  background: rgba($black, .08);
+                }
+              }
+            }
+          }
+        }
+
+        li > a:hover,
+        li > a.active,
+        li.active > a,
+        li.submenu-open > a {
+          color: $primary;
+          background: rgba($primary, .05);
+
+          .sidebar-icon-indicator {
+            opacity: .7;
+          }
+
+          .sidebar-icon {
+            & > * {
+              opacity: .6;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--lighter {
+    .sidebar-navigation {
+
+      .sidebar-header {
+        color: rgba($white, 1);
+      }
+
+      ul {
+        li {
+          & > a {
+            color: rgba($white, .8);
+
+            .sidebar-icon {
+              & > * {
+                color: $white;
+                opacity: .6;
+              }
+            }
+          }
+
+          ul {
+            li {
+              a {
+                &:after {
+                  background: rgba($black, .08);
+                }
+              }
+            }
+          }
+        }
+
+        li > a:hover,
+        li > a.active,
+        li.active > a,
+        li.submenu-open > a {
+          color: $white;
+          background: rgba($white, .15);
+
+          .sidebar-icon-indicator {
+            opacity: .7;
+          }
+
+          .sidebar-icon {
+            & > * {
+              opacity: .6;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.app-sidebar-collapsed {
+  .app-sidebar--light:not(:hover) {
+    .app-sidebar--content {
+      .sidebar-navigation {
+        .sidebar-header {
+          &:after {
+            background: rgba($black, .15);
+          }
+        }
+      }
+    }
+  }
+}

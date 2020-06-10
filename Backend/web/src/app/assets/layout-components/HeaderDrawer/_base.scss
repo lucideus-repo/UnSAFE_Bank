@@ -1,0 +1,95 @@
+//  Core
+
+.app-drawer-content {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1160;
+  height: 100vh;
+  transform: translate($header-drawer-width);
+  transition: $header-drawer-transition;
+  box-shadow: 0 0 0 0 transparent;
+  width: $header-drawer-width;
+  background: $white;
+
+  .close-drawer-btn {
+    transition: $transition-base;
+    position: absolute;
+    left: -19px;
+    width: 38px;
+    height: 38px;
+    margin: 0;
+    top: 19px;
+    padding: 0;
+    border: 0;
+    background: $white;
+    color: $white;
+    box-shadow: $box-shadow-sm;
+    z-index: 1155;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.app-drawer-wrapper {
+  border-left: rgba($black, .1) solid 1px;
+  padding: ($spacer / 3.5) 0 ($spacer / 3.5) ($spacer * 2);
+  margin: 0 0 0 ($spacer * 2);
+  height: 50px;
+  display: flex;
+  align-items: center;
+
+  @include media-breakpoint-down(lg) {
+    padding: ($spacer / 3.5) 0 ($spacer / 3.5) ($spacer);
+    margin: 0 0 0 $spacer;
+  }
+}
+
+// Open header drawer section
+
+.header-drawer-open {
+
+  .app-drawer-content {
+    transform: translate(0);
+    box-shadow: $header-drawer-open-box-shadow;
+  }
+
+  .close-drawer-btn {
+    opacity: 1;
+    visibility: visible;
+    @include border-radius(100%);
+  }
+}
+
+// Drawer overlay
+
+.app-drawer-overlay {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(7, 9, 25, .4);
+  background: linear-gradient(90deg, rgba(7, 9, 25, .1) 25%, rgba(7, 9, 25, 0.6) 100%);
+  z-index: 1112;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .app-drawer-wrapper,
+  .app-drawer-overlay,
+  .app-drawer-content {
+    display: none;
+  }
+}

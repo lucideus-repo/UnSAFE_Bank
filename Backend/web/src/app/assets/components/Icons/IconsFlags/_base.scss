@@ -1,0 +1,6 @@
+//  Core
+
+.flag-icon {
+  background-size: 100% !important;
+  @include border-radius($border-radius-sm);
+}

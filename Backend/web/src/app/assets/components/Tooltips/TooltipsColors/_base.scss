@@ -1,0 +1,51 @@
+//  Core
+
+@each $color, $value in $theme-colors {
+  .tooltip-#{$color} {
+
+    &.show {
+      opacity: 1;
+    }
+
+    .tooltip-inner {
+      background: $value;
+      color: color-yiq($value);
+    }
+
+    &.bs-tooltip-auto[x-placement^="top"],
+    &.bs-tooltip-top {
+      .arrow {
+        &::before {
+          border-top-color: $value;
+        }
+      }
+    }
+
+    &.bs-tooltip-auto[x-placement^="right"],
+    &.bs-tooltip-right {
+      .arrow {
+        &::before {
+          border-right-color: $value;
+        }
+      }
+    }
+
+    &.bs-tooltip-auto[x-placement^="bottom"],
+    &.bs-tooltip-bottom {
+      .arrow {
+        &::before {
+          border-bottom-color: $value;
+        }
+      }
+    }
+
+    &.bs-tooltip-auto[x-placement^="left"],
+    &.bs-tooltip-left {
+      .arrow {
+        &::before {
+          border-left-color: $value;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+//  Core
+
+.d-44 {
+  height: 44px;
+  line-height: 44px;
+  width: 44px;
+
+  .badge-circle {
+    position: absolute;
+    left: -5px;
+    top: -2px !important;
+    box-shadow: 0 0 0 3px #fff;
+  }
+
+  .badge-header-alt {
+    border: 0;
+    top: 1px !important;
+    box-shadow: 0 0 0 0 transparent;
+    height: 6px;
+    width: 6px;
+    left: 50%;
+    margin-left: -3px;
+  }
+}

@@ -1,0 +1,27 @@
+//  Core
+
+.pagination {
+  margin: 0;
+
+  .page-link {
+    @include border-radius($border-radius-xs !important);
+    margin: 0 ($spacer / 3.5);
+    transition: $transition-base;
+    position: relative;
+  }
+
+  .page-item {
+    &.active {
+      .page-link {
+        box-shadow: $box-shadow-sm;
+      }
+    }
+
+    &.pagination-first .page-link,
+    &.pagination-prev .page-link,
+    &.pagination-last .page-link,
+    &.pagination-next .page-link {
+      padding: 0 $pagination-padding-x;
+    }
+  }
+}

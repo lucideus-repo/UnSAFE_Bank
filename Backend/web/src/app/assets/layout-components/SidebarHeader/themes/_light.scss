@@ -1,0 +1,128 @@
+// Sidebar light
+.app-sidebar {
+  &--light {
+    .app-sidebar--header {
+      background: transparent;
+
+      .collapse-sidebar-btn {
+        background: transparent;
+        color: rgba($black, .8);
+        opacity: 1;
+
+        &:hover {
+          background: rgba($black, .03);
+          color: $primary;
+        }
+      }
+
+      .expand-sidebar-btn {
+        border: $primary solid 2px;
+        background: $primary;
+        color: $white;
+        box-shadow: $box-shadow-sm;
+      }
+
+      &:after {
+        background: rgba($black, .07);
+      }
+
+      .nav-logo {
+        a {
+          color: $primary;
+
+          i {
+            background: rgba($primary, .05);
+          }
+        }
+      }
+    }
+
+    .hamburger-inner,
+    .hamburger-inner:after,
+    .hamburger-inner:before {
+      background: $primary !important;
+    }
+  }
+
+  &--lighter {
+    .app-sidebar--header {
+      background: transparent;
+
+      .collapse-sidebar-btn {
+        background: transparent;
+        color: rgba($white, .8);
+        opacity: 1;
+
+        &:hover {
+          background: rgba($white, .03);
+          color: $white;
+        }
+      }
+
+      .expand-sidebar-btn {
+        border: $white solid 2px;
+        background: $white;
+        color: $black;
+        box-shadow: $box-shadow-sm;
+      }
+
+      &:after {
+        background: rgba($black, .09);
+      }
+
+      .nav-logo {
+        a {
+          color: $white;
+
+          i {
+            background: rgba($white, .15);
+          }
+        }
+      }
+    }
+
+    .hamburger-inner,
+    .hamburger-inner:after,
+    .hamburger-inner:before {
+      background: $white !important;
+    }
+  }
+}
+
+// Collapsed Sidebar
+
+.app-sidebar-collapsed {
+  .app-sidebar {
+    &--light {
+      &:hover {
+        .app-sidebar--header {
+          .nav-logo {
+            span {
+              opacity: 1;
+            }
+          }
+
+          .expand-sidebar-btn {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &--lighter {
+      &:hover {
+        .app-sidebar--header {
+          .nav-logo {
+            span {
+              opacity: 1;
+            }
+          }
+
+          .expand-sidebar-btn {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

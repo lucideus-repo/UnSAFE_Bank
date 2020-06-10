@@ -19,7 +19,7 @@ class SignUpModuleHandler extends CI_Model
         // email
         if (isset($data['data']['email']))
             if ((strlen($data['data']['email']) > 50) or
-                (!preg_match("/^[A-Za-z0-9\.\_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/", $data['data']['email'])))
+                (!preg_match("/^[A-Za-z0-9\.\_]+@[a-zA-Z_]+?\.[\.a-zA-Z]{2,10}$/", $data['data']['email'])))
                 return $status::EmailInvalidOrNotSet;
             else ;
         else return $status::EmailInvalidOrNotSet;

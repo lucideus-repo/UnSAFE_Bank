@@ -1,0 +1,281 @@
+// Helpers
+
+// Generic
+
+a,
+button {
+  outline: none;
+}
+
+// Close button
+
+.close {
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+// Border radius
+
+.br-tl {
+  border-top-left-radius: $border-radius-sm !important;
+}
+
+.br-tr {
+  border-top-right-radius: $border-radius-sm !important;
+}
+
+.br-bl {
+  border-bottom-left-radius: $border-radius-sm !important;
+}
+
+.br-br {
+  border-bottom-right-radius: $border-radius-sm !important;
+}
+
+@include media-breakpoint-up(lg) {
+  .br-lg-right-0 {
+    @include border-right-radius(0 !important);
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .br-xl-right-0 {
+    @include border-right-radius(0 !important);
+  }
+}
+
+// Opacity
+
+@for $o from 1 through 9 {
+  .opacity-#{$o} {
+    opacity: $o / 10 !important;
+  }
+}
+
+// Sizing
+
+$num: 30;
+@while $num < 150 {
+  .d-#{$num} {
+    height: $num +0px !important;
+    line-height: $num +0px !important;
+    width: $num +0px !important;
+  }
+  $num: $num + 10;
+}
+
+// Line height
+
+.line-height-sm {
+  line-height: 1.3;
+}
+
+.line-height-md {
+  line-height: 2;
+}
+
+.line-height-1 {
+  line-height: 1;
+}
+
+// Height
+
+.h-auto {
+  height: auto;
+}
+
+.h-100 {
+  height: 100%;
+}
+.h-70 {
+  height: 70%;
+}
+.h-80 {
+  height: 80%;
+}
+.h-90 {
+  height: 90%;
+}
+// Width
+
+.w-auto {
+  width: auto;
+}
+
+.w-43 {
+  width: 43%;
+}
+
+.w-50 {
+  min-width: 50%;
+}
+
+.max-w-70 {
+  max-width: 70%;
+}
+
+// Divider
+
+.divider {
+  background: $border-color;
+  height: 1px;
+  overflow: hidden;
+}
+
+// Border
+
+.border-1 {
+  border-width: 1px !important;
+  border-style: solid;
+}
+
+.border-2 {
+  border-width: 2px !important;
+  border-style: solid;
+}
+
+.border-3 {
+  border-width: 3px !important;
+  border-style: solid;
+}
+
+// Font size
+
+.font-size-xs {
+  font-size: $font-size-xs / 1.2;
+}
+
+.font-size-sm {
+  font-size: $font-size-sm;
+}
+
+.font-size-md {
+  font-size: $font-size-base;
+}
+
+.font-size-lg {
+  font-size: $font-size-lg;
+}
+
+.font-size-xl {
+  font-size: $font-size-lg * 1.2;
+}
+
+.font-size-xxl {
+  font-size: $font-size-lg * 1.4;
+}
+
+// Composed backgrounds
+
+%composed-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  opacity: .15;
+}
+
+.bg-composed-wrapper {
+  position: relative;
+  @include border-top-radius(inherit);
+  display: flex;
+  align-items: center;
+
+  &--image {
+    filter: grayscale(80%);
+    background-size: cover;
+    @include border-top-radius(inherit);
+    @extend %composed-bg;
+  }
+
+  &--content {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+  }
+
+  &--bg {
+    @extend %composed-bg;
+    z-index: 5;
+  }
+}
+
+.bg-composed-filter-rm {
+  filter: grayscale(0%);
+}
+
+// Shadow
+
+.shadow-xxl {
+  box-shadow: $box-shadow-xxl !important;
+}
+
+.shadow-sm-dark {
+  box-shadow: $box-shadow-sm-dark !important;
+}
+
+// Background white 50%
+
+.bg-white-50 {
+  background-color: transparentize($white, .8);
+}
+
+// Text dark
+
+.text-black {
+  color: $black;
+}
+
+// Images
+
+.img-fit-container {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// Gradient Icons
+
+.gradient-icon {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+// Blockquote
+
+.blockquote {
+  font-family: $font-family-monospace;
+}
+
+// Position
+
+.p-top-a {
+  top: auto !important;
+}
+
+.pos-r {
+  left: auto;
+  right: 0;
+}
+
+
+// Responsive rounded
+
+@include media-breakpoint-down(xl) {
+  .rounded-right,
+  .rounded-left {
+    border-radius: 0 !important;
+  }
+}
+
+.d-44 {
+  height: 44px;
+  line-height: 44px;
+  width: 44px;
+}

@@ -1,0 +1,215 @@
+// Color swatches
+
+.color-swatch {
+  position: relative;
+  margin: 0 0 ($spacer * 3);
+
+  &--bg {
+    @include border-top-radius($border-radius-lg);
+    height: 84px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &--title {
+    background: $white;
+    border: $gray-400 solid 1px;
+    @include border-bottom-right-radius($border-radius-lg * 2);
+    @include border-bottom-left-radius($border-radius-lg);
+    padding: ($spacer / 1.5) $spacer;
+    text-align: center;
+    color: $gray-700;
+  }
+}
+
+// Headings
+
+.heading-3 {
+  text-transform: uppercase;
+  font-size: $font-size-base / 1.1;
+  font-weight: bold;
+  margin: 0 0 1rem;
+  padding: 0;
+  color: $gray-800;
+}
+
+// Demo box fixed width
+
+.demo-box-positions {
+  height: 100px;
+  border-radius: 0;
+}
+
+// Icon demo box
+
+.icon-demo-box {
+  padding: ($spacer * 2) 0 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .card {
+    margin: 0 ($spacer) ($spacer * 2);
+    padding: 0 !important;
+    width: 100px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: $transition-base;
+
+    i,
+    span {
+      font-size: 2.5rem;
+    }
+
+    &:hover {
+      transform: scale(1.8);
+      z-index: 9;
+      border-radius: 30px;
+      box-shadow: $modal-content-box-shadow-xs;
+    }
+  }
+}
+
+// Heading big demo
+
+.heading-2-demo {
+  padding-left: 0;
+  font-size: 2.3rem;
+  text-align: center;
+  font-weight: bold;
+
+  &::before {
+    display: none;
+  }
+
+  & + p {
+    margin: 0;
+    color: $white;
+    opacity: .7;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+}
+
+// Slick slider
+
+.slider-item {
+  background: $gray-300;
+  @include border-radius($border-radius);
+  color: $gray-600;
+  font-size: 36px;
+  padding: 0;
+  position: relative;
+  height: 150px;
+  line-height: 150px;
+  text-align: center;
+  transition: $transition-base;
+}
+
+// Go back button
+
+.btn-go-back {
+  position: fixed;
+  left: ($spacer * 2);
+  top: ($spacer * 2);
+  z-index: 55;
+}
+
+// Demo image placeholder
+
+.demo-img-wrapper {
+  background: $gray-100;
+  @include border-radius($border-radius-sm);
+  color: $gray-600;
+  font-size: 4rem;
+  padding: 3rem;
+  text-align: center;
+  height: 100%;
+  position: relative;
+  transition: $transition-base;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:after {
+    content: 'This demo placeholder should be replaced with either images or components.';
+    position: absolute;
+    left: 50%;
+    width: 300px;
+    margin-left: -150px;
+    font-size: $font-size-base;
+    background: $tooltip-bg;
+    @include border-radius($border-radius-sm);
+    visibility: hidden;
+    opacity: 0;
+    padding: ($spacer);
+    transition: $transition-base;
+    color: $white;
+    line-height: 1.6rem;
+  }
+
+  &:hover {
+    border-color: $primary;
+
+    &:after {
+      visibility: visible;
+      opacity: .9;
+    }
+  }
+
+  i {
+    margin: auto;
+  }
+}
+
+.card.demo-img-wrapper-discrete {
+  background-color: rgba($white, .1);
+  border: 0 !important;
+  font-size: 3rem;
+  color: rgba($white, .6);
+
+  &:after {
+    font-size: .86rem !important;
+  }
+
+  &:hover {
+    background-color: rgba($white, .15);
+  }
+}
+
+.card.demo-img-wrapper-dark {
+  background-color: $gray-700;
+  border-color: $black;
+
+  &:after {
+    background-color: $gray-900;
+    color: $gray-400;
+  }
+
+  &:hover {
+    border-color: $gray-300;
+  }
+}
+
+// Hide theme configurator when drawer open
+
+.header-drawer-open {
+  .theme-configurator {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
+
+// Landing page helpder
+
+.details-helper {
+  position: absolute;
+  width: 100%;
+  bottom: 13px;
+  left: 0;
+}

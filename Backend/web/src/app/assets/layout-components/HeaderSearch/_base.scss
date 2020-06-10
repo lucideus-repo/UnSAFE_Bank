@@ -1,0 +1,54 @@
+//  Core
+
+.header-search-wrapper {
+  border-right: rgba($black, .1) solid 1px;
+  padding: ($spacer / 3.5) ($spacer) ($spacer / 3.5) 0;
+  margin: 0 ($spacer * 2) 0 0;
+  cursor: pointer;
+
+  .search-wrapper {
+    .form-control {
+      padding: 0 0 0 0;
+      width: 42px;
+      opacity: 0;
+      transition: $transition-base;
+      cursor: pointer;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    border-left: rgba($black, .1) solid 1px;
+    border-right: transparent solid 1px;
+    padding: ($spacer / 3.5) ($spacer / 2);
+    margin: 0 $spacer;
+  }
+}
+
+.search-wrapper-open {
+  .header-search-wrapper {
+    border-right-color: transparent;
+
+    .search-wrapper {
+      .form-control {
+        padding: 0 $input-padding-x 0 42px;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  .app-header-menu {
+    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  @include media-breakpoint-down(md) {
+    .app-header--pane + .app-header--pane {
+      transform: scale(0);
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}

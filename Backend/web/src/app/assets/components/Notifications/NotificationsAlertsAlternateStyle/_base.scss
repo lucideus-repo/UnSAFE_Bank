@@ -1,0 +1,10 @@
+//  Core
+
+.alerts-alternate {
+  .alert {
+    background: $white;
+    border-width: 2px;
+    @include border-radius($border-radius-sm);
+    border-left-width: 6px;
+  }
+}

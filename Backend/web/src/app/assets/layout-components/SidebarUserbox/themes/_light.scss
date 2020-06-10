@@ -1,0 +1,46 @@
+// Sidebar light
+
+.app-sidebar {
+  &--light {
+    .app-sidebar--userbox {
+      color: $black;
+      background: rgba($primary, .03);
+
+      .text-white-50 {
+        color: rgba($black, .5) !important;
+      }
+
+      .btn-userbox {
+        background: rgba($primary, .1);
+        color: rgba($primary, .8);
+
+        &:hover {
+          background: rgba($primary, .2);
+          color: rgba($primary, 1);
+        }
+      }
+
+      .avatar-icon {
+        box-shadow: 0 0 0 3px rgba($white, .8);
+      }
+
+      .badge.badge-circle {
+        box-shadow: 0 0 0 2px rgba($white, .8);
+      }
+    }
+  }
+}
+
+// Collapsed sidebar
+
+.app-sidebar-collapsed {
+  .app-sidebar {
+    &--light {
+      &:not(.app-sidebar--mini):hover {
+        .app-sidebar--userbox {
+          background: rgba($primary, .03);
+        }
+      }
+    }
+  }
+}

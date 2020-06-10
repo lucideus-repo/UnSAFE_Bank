@@ -1,0 +1,31 @@
+//  Core
+
+.table {
+  font-size: $font-size-base;
+
+  thead th {
+    text-transform: uppercase;
+    background: $gray-200;
+    font-size: $font-size-sm;
+  }
+
+  tr {
+    transition: $transition-base;
+  }
+
+  td, th {
+    vertical-align: middle;
+  }
+
+  &.table-alternate {
+    thead th {
+      text-transform: none;
+      background: transparent;
+      font-size: $font-size-base * 1.1;
+      font-weight: normal;
+      color: $gray-900;
+    }
+  }
+}
+
+

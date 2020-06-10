@@ -1,0 +1,92 @@
+//  Core
+
+.app-sidebar {
+  &--header {
+    padding: 0 ($layout-spacer / 2);
+    min-height: $header-height;
+    height: $header-height;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    .expand-sidebar-btn {
+      @include border-radius(100%);
+    }
+
+    &:after {
+      content: "";
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      position: absolute;
+    }
+  }
+
+  .toggle-mobile-sidebar-btn {
+    display: none;
+  }
+
+  // Responsive
+
+  @include media-breakpoint-down(md) {
+    .toggle-mobile-sidebar-btn {
+      display: block;
+    }
+  }
+}
+
+// Logo wrapper
+
+.nav-logo {
+  a {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    font-size: $nav-logo-font-size;
+
+    span {
+      opacity: 1;
+      visibility: visible;
+      transition: $transition-base;
+    }
+
+    i {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      @include border-radius($border-radius);
+      margin: 0 ($layout-spacer / 2.5) 0 0;
+      position: relative;
+      left: 0;
+      transition: $transition-base;
+
+      img {
+        width: 28px;
+        margin: 0 auto;
+        animation: logo-spin infinite 20s linear;
+      }
+    }
+  }
+}
+
+@-webkit-keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// Themes
+
+@import "themes/dark";
+@import "themes/light";
+
+// Modifiers
+
+@import "modifiers/collapsed";

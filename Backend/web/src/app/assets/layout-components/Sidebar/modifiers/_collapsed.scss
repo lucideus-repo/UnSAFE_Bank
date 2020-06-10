@@ -1,0 +1,15 @@
+// Collapsed Sidebar
+.app-sidebar-collapsed {
+
+  .app-sidebar {
+    width: $sidebar-width-collapsed;
+    position: fixed;
+    left: 0;
+
+    &:hover:not(.app-sidebar--mini) {
+      width: $sidebar-width;
+      position: fixed;
+      box-shadow: $sidebar-shadow;
+    }
+  }
+}

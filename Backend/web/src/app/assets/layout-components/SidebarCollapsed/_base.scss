@@ -1,0 +1,27 @@
+//  Variables
+
+.sidebar-menu-collapsed {
+  @include list-unstyled;
+  padding: ($spacer / 3) 0;
+
+  li {
+    text-align: center;
+    padding: ($spacer / 3) ($spacer);
+
+    a {
+      @include border-radius($border-radius);
+      display: block;
+      padding: ($spacer / 1.5) 0;
+      transition: $transition-base;
+
+      svg {
+        transition: $transition-base;
+      }
+    }
+  }
+}
+
+// Themes
+
+@import "themes/dark";
+@import "themes/light";

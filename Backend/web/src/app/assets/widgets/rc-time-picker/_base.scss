@@ -1,0 +1,180 @@
+// RC Timepicker
+
+.rc-time-picker {
+  display: inline-block;
+  position: relative;
+
+}
+
+.rc-time-picker-clear {
+  position: absolute;
+  right: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 19px;
+  top: 11px;
+  margin: 0;
+  transition: $transition-base;
+  @include border-radius(100%);
+
+  &:hover {
+    background: $gray-200;
+  }
+}
+
+.rc-time-picker-clear-icon:after {
+  content: "x";
+  font-style: normal;
+  color: $gray-700;
+  display: inline-block;
+  line-height: 1;
+  height: 20px;
+  width: 20px;
+  transition: color 0.3s ease;
+}
+
+.rc-time-picker-clear-icon:hover:after {
+  color: $primary;
+}
+
+.rc-time-picker-input {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  padding: $input-padding-y $input-padding-x;
+  height: $input-height;
+  cursor: text;
+  line-height: 1.5;
+  color: $primary;
+  background-color: $white;
+  background-image: none;
+  border: 1px solid $input-border-color;
+  @include border-radius($input-border-radius);
+  transition: border 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  &:hover:not([disabled]) {
+    box-shadow: $input-focus-box-shadow;
+    border-color: $input-focus-border-color;
+  }
+}
+
+.rc-time-picker-input[disabled] {
+  color: $gray-600;
+  background: $gray-200;
+  cursor: not-allowed;
+}
+
+.rc-time-picker-panel {
+  z-index: 1070;
+  width: 280px;
+  position: absolute;
+
+}
+
+.rc-time-picker-panel-inner {
+  display: inline-block;
+  position: relative;
+  outline: none;
+  list-style: none;
+  text-align: left;
+  background-color: $white;
+  @include border-radius($input-border-radius);
+  box-shadow: $box-shadow-sm;
+  border: 1px solid $gray-500;
+  line-height: 1.5;
+}
+
+.rc-time-picker-panel-narrow {
+  max-width: 113px;
+}
+
+.rc-time-picker-panel-input {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  cursor: auto;
+  line-height: 1.5;
+  outline: 0;
+  border: 1px solid transparent;
+}
+
+.rc-time-picker-panel-input-wrap {
+  position: relative;
+  padding: 8px 12px;
+  border-bottom: 1px solid $gray-400;
+}
+
+.rc-time-picker-panel-input-invalid {
+  border-color: $danger;
+}
+
+.rc-time-picker-panel-select {
+  float: left;
+  border: 1px solid $gray-400;
+  border-width: 0 1px;
+  margin-left: -1px;
+  width: 80px;
+  max-height: 144px;
+  overflow-y: auto;
+  position: relative;
+  padding: 6px;
+}
+
+.rc-time-picker-panel-select-active {
+  overflow-y: auto;
+}
+
+.rc-time-picker-panel-select:first-child {
+  border-left: 0;
+  margin-left: 0;
+}
+
+.rc-time-picker-panel-select:last-child {
+  border-right: 0;
+}
+
+.rc-time-picker-panel-select ul {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.rc-time-picker-panel-select li {
+  list-style: none;
+  margin: 2px 0;
+  padding: 0 0 0 16px;
+  width: 100%;
+  height: 26px;
+  line-height: 26px;
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  @include border-radius($border-radius-sm);
+}
+
+.rc-time-picker-panel-select li:hover {
+  background: $primary;
+  color: color-yiq($primary);
+}
+
+li.rc-time-picker-panel-select-option-selected {
+  background: $primary;
+  color: color-yiq($primary);
+  font-weight: bold;
+}
+
+li.rc-time-picker-panel-select-option-disabled {
+  color: $gray-700;
+}
+
+li.rc-time-picker-panel-select-option-disabled:hover {
+  background: transparent;
+  cursor: not-allowed;
+  color: $gray-700;
+}

@@ -393,7 +393,6 @@ function validate_params($request)
     $status = new status_codes();
     if (isset($request['requestBody'])
         and isset($request['requestBody']['timestamp'])
-        and isset($request['requestBody']['device'])
         and isset($request['requestBody']['data'])
     ) {
         // str_replace(find,replace,string,count);
@@ -411,33 +410,35 @@ function validate_params($request)
             }
 
             // check device
-            if (gettype($request['requestBody']['device'] == 'array')) {
-                $device = $request['requestBody']['device'];
-                // check deviceid
-                if (!preg_match("/^[A-Z0-9\-]+/", $device['deviceid'])) {
-                    return $status::InvalidFormatOfDeviceId;
-                }
-                // check os
-
-                $OSArray = array("ios", "IOS", "iOS", "android", "Android", "ANDROID");
-                // print();
-                if (isset($device['os'])) {
-                    if (!in_array($device['os'], $OSArray)) {
-                        return $status::InvalidFormatOfOs;
+            if (isset($request['requestBody']['device'])) {
+                if (gettype($request['requestBody']['device'] == 'array')) {
+                    $device = $request['requestBody']['device'];
+                    // check deviceid
+                    if (!preg_match("/^[A-Z0-9\-]+/", $device['deviceid'])) {
+                        return $status::InvalidFormatOfDeviceId;
                     }
-                } else {
-                    return $status::RequestParameterNotSet;
-                }
-                // check host
-                if (isset($device['host'])) {
-                    if ($device['host'] != "lucideustech.com") {
-                        return $status::InvalidFormatOfHost;
-                    }
-                } else {
-                    return $status::RequestParameterNotSet;
-                }
+                    // check os
 
-            } else { return $status::ImproperFormatInDeviceParameter;
+                    $OSArray = array("ios", "IOS", "iOS", "android", "Android", "ANDROID");
+                    // print();
+                    if (isset($device['os'])) {
+                        if (!in_array($device['os'], $OSArray)) {
+                            return $status::InvalidFormatOfOs;
+                        }
+                    } else {
+                        return $status::RequestParameterNotSet;
+                    }
+                    // check host
+                    if (isset($device['host'])) {
+                        if ($device['host'] != "lucideustech.com") {
+                            return $status::InvalidFormatOfHost;
+                        }
+                    } else {
+                        return $status::RequestParameterNotSet;
+                    }
+
+                } else { return $status::ImproperFormatInDeviceParameter;
+                }
             }
 
             // check data

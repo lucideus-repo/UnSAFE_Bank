@@ -699,7 +699,10 @@ class Model_Beneficiary extends CI_Model
                             return array(
                                 "status_code" => "ALLOK2",
                                 "message" => "Success",
-                                "data" => $reference
+                                "data" => (object) array(
+                                    "transaction_id" => $reference,
+                                    "updated_balance" => $payer_balance
+                                )
                             );
                         } else {
                             return $status::InsufficientBalance;

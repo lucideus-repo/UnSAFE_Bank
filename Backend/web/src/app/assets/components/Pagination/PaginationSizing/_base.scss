@@ -1,0 +1,74 @@
+//  Core
+
+.pagination {
+  .page-item {
+    .page-link {
+      padding: 0;
+      min-width: 36px;
+      height: 36px;
+      line-height: 36px;
+      text-align: center;
+    }
+  }
+
+  &.pagination-icons {
+    .page-item {
+      .page-link {
+        &:before {
+          min-width: 36px;
+          height: 36px;
+          line-height: 36px;
+          font-size: 1.55rem;
+        }
+      }
+    }
+  }
+}
+
+.pagination-sm {
+  .page-item {
+    .page-link {
+      padding: 0;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+    }
+  }
+
+  &.pagination-icons {
+    .page-item {
+      .page-link {
+        &:before {
+          font-size: 1.15rem;
+          width: 24px;
+          height: 24px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+}
+
+.pagination-lg {
+  .page-item {
+    .page-link {
+      padding: 0;
+      width: 52px;
+      height: 52px;
+      line-height: 52px;
+    }
+  }
+
+  &.pagination-icons {
+    .page-item {
+      .page-link {
+        &:before {
+          font-size: 1.95rem;
+          width: 52px;
+          height: 52px;
+          line-height: 52px;
+        }
+      }
+    }
+  }
+}

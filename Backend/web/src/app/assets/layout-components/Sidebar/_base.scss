@@ -1,0 +1,79 @@
+//  Variables
+
+.app-sidebar {
+  width: $sidebar-width;
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+  transition: all 0.5s $app-sidebar-transition;
+  z-index: 1115;
+  position: relative;
+  @include media-breakpoint-up(lg) {
+    &--shadow {
+      box-shadow: $sidebar-shadow;
+    }
+  }
+  &--content {
+    overflow-y: auto;
+    overflow-x: visible;
+    height: 100%;
+  }
+}
+
+// Fixed sidebar
+
+.app-sidebar-fixed {
+  .app-sidebar {
+    position: fixed;
+    left: 0;
+  }
+}
+
+.app-sidebar-overlay {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(7, 9, 25, .4);
+  z-index: 1113;
+
+  @include media-breakpoint-down(lg) {
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// Responsive
+
+@include media-breakpoint-down(md) {
+  .app-sidebar {
+    position: fixed !important;
+    left: -$sidebar-width !important;
+  }
+
+  .app-sidebar-mobile-open {
+    .app-sidebar {
+      left: 0 !important;
+      box-shadow: $sidebar-shadow;
+    }
+  }
+}
+
+// Modifiers
+
+@import "modifiers/collapsed";
+
+// Themes
+
+@import "themes/dark";
+@import "themes/light";

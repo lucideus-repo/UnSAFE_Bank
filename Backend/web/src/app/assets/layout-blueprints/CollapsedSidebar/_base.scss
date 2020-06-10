@@ -1,0 +1,128 @@
+//  Core
+
+// Inner content layout
+
+.app-inner-content-layout {
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+  }
+
+  &-fixed {
+    bottom: 0;
+    left: 0;
+
+    @include media-breakpoint-up(lg) {
+      left: $sidebar-width-collapsed;
+    }
+
+    right: 0;
+    top: $header-height;
+    position: absolute;
+  }
+
+  &--sidebar {
+    width: $app-content-sidebar-width;
+    display: flex;
+    transition: all 0.5s $app-sidebar-transition;
+    flex-direction: column;
+    position: relative;
+    z-index: 900;
+    box-shadow: $sidebar-shadow-light;
+
+    &__content {
+      padding: $spacer;
+    }
+
+    &__lg {
+      width: $app-content-sidebar-lg-width;
+      @include media-breakpoint-down(lg) {
+        width: $app-content-sidebar-width;
+      }
+    }
+
+    &__sm {
+      width: $app-content-sidebar-sm-width;
+    }
+
+    &__xl {
+      width: $app-content-sidebar-xl-width;
+      @include media-breakpoint-down(lg) {
+        width: $app-content-sidebar-width;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      left: -$app-content-sidebar-lg-width;
+      position: fixed;
+      z-index: 1175;
+      top: 0;
+      height: 100vh;
+      width: $app-content-sidebar-width;
+
+      &.layout-sidebar-open {
+        left: 0;
+        padding-top: $header-height;
+        box-shadow: $box-shadow-layout-right;
+      }
+
+      &.pos-r {
+        left: auto;
+        right: -$app-content-sidebar-lg-width;
+
+        &.layout-sidebar-open {
+          left: auto;
+          right: 0;
+          box-shadow: $box-shadow-layout-left;
+        }
+      }
+    }
+  }
+
+  &--main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: calc(100vh - #{$header-height});
+    @include media-breakpoint-down(md) {
+      height: calc(100vh - (#{$header-height} + 88px));
+    }
+  }
+}
+
+.app-content > .app-inner-content-layout--main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  & > div:not([class]) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.sidebar-inner-layout-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($black, .4);
+  z-index: 1165;
+
+  @include media-breakpoint-down(lg) {
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

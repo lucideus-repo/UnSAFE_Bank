@@ -1,0 +1,141 @@
+// Tabs animated
+
+.tabs-animated {
+
+  & > .nav-tabs {
+    border: 0;
+
+    .nav-item {
+      .nav-link {
+        border: 0 !important;
+        position: relative;
+        padding: ($layout-spacer / 3) ($layout-spacer / 2);
+        margin: 0 ($layout-spacer / 4) 0 0;
+        color: $body-color;
+        text-transform: none;
+        font-size: $font-size-base;
+        cursor: pointer;
+
+        &::before {
+          transform: scale(0);
+          opacity: 1;
+          width: 100%;
+          left: 0;
+          bottom: -2px;
+          content: "";
+          position: absolute;
+          display: block;
+          @include border-radius($border-radius-lg);
+          background: $primary;
+          transition: all .2s;
+          height: 4px;
+        }
+
+        &.active,
+        &:hover {
+          color: $primary;
+          border: 0;
+
+          &::before {
+            transform: scale(1);
+          }
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &.tabs-bordered {
+    & > .nav-tabs {
+      border-bottom: $card-border-color solid 1px;
+      padding: ($layout-spacer / 2);
+
+      .nav-item {
+        .nav-link {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.tabs-animated-line {
+  .nav-tabs {
+    padding: 0 5px;
+
+    .nav-link {
+      cursor: pointer;
+
+      span {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.tabs-animated-shadow {
+  & > .nav-tabs {
+    position: relative;
+    z-index: 9;
+
+    .nav-item {
+      .nav-link {
+        padding: ($layout-spacer / 3) ($layout-spacer / 2);
+        margin-bottom: ($layout-spacer / 4);
+        cursor: pointer;
+
+        span {
+          position: relative;
+          z-index: 5;
+          display: inline-block;
+          width: 100%;
+        }
+
+        &::before {
+          height: 100%;
+          top: 0;
+          z-index: 4;
+          bottom: auto;
+          box-shadow: 0 16px 26px -10px rgba($primary, 0.56),
+          0 4px 25px 0px rgba(0, 0, 0, 0.12),
+          0 8px 10px -5px rgba($primary, 0.2);
+          @include border-radius($border-radius-xs / 1.5);
+          opacity: .5;
+        }
+
+        &.active,
+        &:hover {
+          color: $white !important;
+
+          span {
+            color: $white !important;
+          }
+
+          &::before {
+            @include border-radius($border-radius-sm);
+            opacity: 1;
+          }
+        }
+      }
+
+      .nav-item:last-child {
+        .nav-link {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.tabs-rm-padding {
+  & > .nav.nav-tabs {
+    padding: 0 !important;
+
+    .nav-item .nav-link {
+      margin-bottom: 0 !important;
+    }
+  }
+}
