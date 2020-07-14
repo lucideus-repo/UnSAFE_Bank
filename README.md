@@ -4,7 +4,7 @@
 
 UnSAFE Bank is a core virtual banking suite designed with the aim to incorporate the cybersecurity risks and various test cases such that newbie, developers, and security analysts can learn, hack and improvise their vulnerability assessment and penetration testing skills on Web, Android and iOS application.
 
-**Note:** Only iOS application is launched as a part of this release. Android and Web application are under development.
+**Note:** Only Web and iOS application are launched. Android application is under development.
 
 ## Application Features
 
