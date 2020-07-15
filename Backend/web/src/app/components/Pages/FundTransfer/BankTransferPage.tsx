@@ -43,6 +43,7 @@ const BankTransferPage = ({
   if (localStorage.length === 0  || !userData) {
     document.location.href = "/";
   }
+  //@ts-ignore
   history.listen((location, action) => {
     handleResetOTP();
   });
