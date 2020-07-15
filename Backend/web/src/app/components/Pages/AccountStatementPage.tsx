@@ -19,7 +19,7 @@ const AccountStatementPage = ({ accountStatements, handleAccountStatement, handl
   if (localStorage.length === 0 || !userData) {
     document.location.href = "/";
   }
-
+//@ts-ignore
   history.listen((location, action) => {
     handleReset();
   });

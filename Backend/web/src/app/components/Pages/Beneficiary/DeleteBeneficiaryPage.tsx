@@ -41,7 +41,7 @@ const DeleteBeneficiaryPage = ({
   if (localStorage.length === 0 || !userData) {
     window.location.assign(routes.app.authentication.login);
   }
-
+//@ts-ignore
   history.listen((location, action) => {
     handleResetOTP();
   });
