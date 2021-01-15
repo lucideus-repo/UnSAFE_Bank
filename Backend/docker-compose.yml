@@ -37,13 +37,13 @@ services:
       - 3000:80
 
   php:
-    build: "./php/"
+    build:
+      context: "./src"
+      dockerfile: Dockerfile
     depends_on:
       - db
     networks:
       - backend
-    volumes:
-      - ./src/:/var/www/html/:Z
     command: /tmp/wait-for-it.sh -t 0 database:3306 -- php-fpm
 
 networks:
