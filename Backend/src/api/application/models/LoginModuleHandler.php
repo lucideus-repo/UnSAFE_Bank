@@ -1,16 +1,17 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class LoginModuleHandler extends CI_Model
 {
-    public function new_token()
+    public function new_token($details)
     {
+        $details['exp'] = time() + (60 * 60 * 24 * 7);
+        $this->load->helper('jwt_helper');
+        $JWT = new JWT();
+
         do {
-            $all_chars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
-            $token = "12345678901234567890";
-            for ($i = 0; $i < 20; $i++) {
-                $token[$i] = $all_chars[random_int(0, strlen($all_chars) - 1)];
-            }
+            $key = "unsafebank";
+            $token = $JWT::encode($details, $key);
         } while (!$this->is_existing_token($token));
         return $token;
     }
@@ -40,7 +41,8 @@ class LoginModuleHandler extends CI_Model
                 return $status::IncorrectUseridFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // *****************************************************
         // passwd
@@ -49,7 +51,8 @@ class LoginModuleHandler extends CI_Model
                 return $status::IncorrectPasswordFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // **************** ALL DONE **************************
         return array(
@@ -73,7 +76,7 @@ class LoginModuleHandler extends CI_Model
         // die;
         $res = $stmt->row_array();
         if (isset($res['cust_id'])) {
-            // existing session
+            // existing session                
             $custId = $res['cust_id'];
             $stmt = $this->db->query(
                 "SELECT session_id, last_access
@@ -81,7 +84,7 @@ class LoginModuleHandler extends CI_Model
                 WHERE cust_id = ?",
                 array($custId)
             )->row_array();
-            $token = $this->new_token();
+
             if (isset($stmt['session_id'])) {
                 // last_access was less than 150 s
                 // updated to 60s @18-Mar-2019
@@ -100,7 +103,7 @@ class LoginModuleHandler extends CI_Model
                     cust_id
                 ) VALUES (?, ?, ?)";
             }
-            $stmt = $this->db->query($sql, array($token, time(), $custId));
+
             // include account details
             $accountid = $this->db->query(
                 "SELECT a.id_pk as id
@@ -134,8 +137,11 @@ class LoginModuleHandler extends CI_Model
                 ON
                     a.user_details_id_fk = d.id_pk
                 WHERE
-                    a.id_pk = ?", array($accountid)
+                    a.id_pk = ?",
+                array($accountid)
             )->row_array();
+            $token = $this->new_token($details);
+            $stmt = $this->db->query($sql, array($token, time(), $custId));
             return array(
                 'status_code' => 'ALLOK2',
                 'data' => array("token" => $token) +

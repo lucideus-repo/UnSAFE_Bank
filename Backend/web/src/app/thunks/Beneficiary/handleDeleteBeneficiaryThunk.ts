@@ -4,6 +4,7 @@ import routes from "../../routes";
 import { toast } from "react-toastify";
 import deleteBeneficiarySlice from "../../slices/DeleteBeneficiarySlice";
 import Swal from "sweetalert2";
+import { getHeaders } from "../configHelper";
 
 const handleDeleteBeneficiary = (alias: string, otpResponse: string, token: string) => (dispatch: Dispatch) => {
   console.log("called");
@@ -11,13 +12,12 @@ const handleDeleteBeneficiary = (alias: string, otpResponse: string, token: stri
     .post(routes.api.beneficiary.deleteBeneficiary, {
       requestBody: {
         timestamp: new Date(),
-        token: token,
         data: {
           alias: alias,
           otp_response: otpResponse
         }
       }
-    })
+    },getHeaders(token))
     .then(response => {
       if (response.data.status !== "Failed") {
         dispatch(deleteBeneficiarySlice.actions.setisSuccessful(true));

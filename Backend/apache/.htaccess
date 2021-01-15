@@ -2,3 +2,7 @@ Header set Access-Control-Allow-Origin "*"
 Header set Access-Control-Allow-Headers "*"
 Header set Access-Control-Allow-Methods "*"
 Header set Access-Control-Allow-Credentials "true"
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1

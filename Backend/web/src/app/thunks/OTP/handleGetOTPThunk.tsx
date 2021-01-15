@@ -7,13 +7,13 @@ import addBeneficiarySlice from "../../slices/AddBeneficiarySlice";
 import bankTransferSlice from "../../slices/BankTransferSlice";
 import React from "react";
 import deleteBeneficiarySlice from "../../slices/DeleteBeneficiarySlice";
+import { getHeaders } from "../configHelper";
 
 const handleGetOTP = (token: string, type: string) => (dispatch: Dispatch) => {
   axios
     .post(routes.api.otp.getOTP, {
       requestBody: {
         timestamp: "325553",
-        token: token,
         device: {
           deviceid: "UHDGGF735SVHFVSX",
           os: "ios",
@@ -23,7 +23,7 @@ const handleGetOTP = (token: string, type: string) => (dispatch: Dispatch) => {
           otp_type: type
         }
       }
-    })
+    },getHeaders(token))
     .then(response => {
       if (response.data.status !== "Failed") {
         var encryptionMethod = "AES-256-CBC";

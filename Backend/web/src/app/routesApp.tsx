@@ -33,7 +33,7 @@ const Routes = () => {
             <ReactIdleTimer />
             <Route  path={routes.app.accountStatement} component={AccountStatementPage} />
             <Route  path={routes.app.dashboard} component={DashboardPage} />
-            <Route  path={routes.app.userProfile} component={UserProfilePage} />
+            <Route  path={routes.app.user.userProfile} component={UserProfilePage} />
             <Route  path={routes.app.beneficiary.viewBeneficiary} component={ViewBeneficiaryPage} />
             <Route  path={routes.app.beneficiary.addBeneficiary} component={AddBeneficiaryPage} />
             <Route  path={routes.app.fundTransfer.bank} component={BankTransferPage} />

@@ -10,7 +10,6 @@ import accountStatementSlice from "../../slices/AccountStatementSlice";
 interface Props extends RouteComponentProps<any> {
   accountStatements: AccountStatementState;
   handleReset: () => void;
-
   handleAccountStatement: (args: { token: string }) => void;
 }
 

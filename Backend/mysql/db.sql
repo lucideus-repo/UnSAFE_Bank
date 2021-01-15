@@ -193,7 +193,7 @@ DROP TABLE IF EXISTS `session_master`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `session_master` (
   `id_pk` int NOT NULL AUTO_INCREMENT,
-  `session_id` char(20) NOT NULL,
+  `session_id` TEXT NOT NULL,
   `cust_id` char(8) NOT NULL,
   `last_access` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id_pk`)
@@ -285,7 +285,7 @@ CREATE TABLE `user_details` (
   `user_id_fk` int NOT NULL,
   `fname` varchar(20) NOT NULL,
   `lname` varchar(20) NOT NULL,
-  `address` varchar(50) NOT NULL,
+  `address` varchar(100) NOT NULL,
   `dob` date NOT NULL,
   `mobile_no` char(10) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -294,6 +294,7 @@ CREATE TABLE `user_details` (
   `wallet_id` char(10) NOT NULL,
   `gender` int NOT NULL COMMENT 'Male=1,Female=2,Others=3',
   `country_id` char(3) NOT NULL,
+  `avatar` VARCHAR(250),
   PRIMARY KEY (`id_pk`),
   KEY `user_id_pk_fk_const` (`user_id_fk`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
@@ -305,9 +306,26 @@ CREATE TABLE `user_details` (
 
 LOCK TABLES `user_details` WRITE;
 /*!40000 ALTER TABLE `user_details` DISABLE KEYS */;
-INSERT INTO `user_details` VALUES (1,1,'Vipul','Malhotra','19, Ambika Villas, Virar Thiruvananthapuram','1990-11-14','9690008703','vipul.malhotra@ubmail.com','100051650609','7230745428','4489238790',1,'IND'),(2,2,'Kevin','Winkel','1088 Hillhaven Drive, Los Angeles, CA 90017','2001-04-12','3238245428','kevin.winkel@ubmail.com','409631107754','0437232270','1304616359',1,'USA'),(3,3,'Kelly','Campbell','194 Tina ClubClarkburghDN2 5AU','1983-07-04','0192299898','kelly.campbell@ubmail.com','084512943929','4320024956','1065208538',2,'UK'),(4,4,'Krystal','Langworth','26141 Bernhard SquareCrooksfurt, NT R7K 4G8','1995-08-04','1081533578','krystal.langworth@ubmail.com','087605257670','2202661800','9062907004',1,'AUS'),(5,5,'Margarita','Mann','387 Christina CourtMitchellton, AB N9Y-2L3','1991-06-29','4087658970','margarita.mann@ubmail.com','570630845299','3165831863','0701067746',2,'CAN'),(6,6,'David','Mahabir','94, Kusum Society, Marathahalli Ranchi - 416560','1989-09-18','7190473876','david.mahabir@ubmail.com','322421230507','0535052879','9305910677',1,'IND'),(7,7,'Boris','Gerhold','78005 Buford ManorsJastview, AB H2H0C9','1990-04-10','9083884662','boris.gerhold@ubmail.com','280755930525','5640445738','8580304600',1,'CAN'),(8,8,'Nathaniel','Runolfsson','972 Fannie ViaNorth Karolannmouth, SC 21360','1981-11-11','2912835653','nathaniel.runolfsson@ubmail.com','613698367545','0189010909','1904008575',1,'USA'),(9,9,'Yvette','Cooper','94 Souterhead Road, LOSGAINTIR, HS3 0PZ','1999-03-29','8116423130','yvette.cooper@ubmail.com','097852583194','7887733110','1753791897',2,'UK'),(10,10,'Orion','Glover','Unit 81 0 Jeffery ParkwayGutkowskiland, TAS 7274','1981-08-13','7017128990','orion.glover@ubmail.com','510200402330','0070419647','6064583077',2,'AUS');
+INSERT INTO `user_details` VALUES (1,1,'Vipul','Malhotra','19, Ambika Villas, Virar Thiruvananthapuram','1990-11-14','9690008703','vipul.malhotra@ubmail.com','100051650609','7230745428','4489238790',1,'IND',''),(2,2,'Kevin','Winkel','1088 Hillhaven Drive, Los Angeles, CA 90017','2001-04-12','3238245428','kevin.winkel@ubmail.com','409631107754','0437232270','1304616359',1,'USA',''),(3,3,'Kelly','Campbell','194 Tina ClubClarkburghDN2 5AU','1983-07-04','0192299898','kelly.campbell@ubmail.com','084512943929','4320024956','1065208538',2,'UK',''),(4,4,'Krystal','Langworth','26141 Bernhard SquareCrooksfurt, NT R7K 4G8','1995-08-04','1081533578','krystal.langworth@ubmail.com','087605257670','2202661800','9062907004',1,'AUS',''),(5,5,'Margarita','Mann','387 Christina CourtMitchellton, AB N9Y-2L3','1991-06-29','4087658970','margarita.mann@ubmail.com','570630845299','3165831863','0701067746',2,'CAN',''),(6,6,'David','Mahabir','94, Kusum Society, Marathahalli Ranchi - 416560','1989-09-18','7190473876','david.mahabir@ubmail.com','322421230507','0535052879','9305910677',1,'IND',''),(7,7,'Boris','Gerhold','78005 Buford ManorsJastview, AB H2H0C9','1990-04-10','9083884662','boris.gerhold@ubmail.com','280755930525','5640445738','8580304600',1,'CAN',''),(8,8,'Nathaniel','Runolfsson','972 Fannie ViaNorth Karolannmouth, SC 21360','1981-11-11','2912835653','nathaniel.runolfsson@ubmail.com','613698367545','0189010909','1904008575',1,'USA',''),(9,9,'Yvette','Cooper','94 Souterhead Road, LOSGAINTIR, HS3 0PZ','1999-03-29','8116423130','yvette.cooper@ubmail.com','097852583194','7887733110','1753791897',2,'UK',''),(10,10,'Orion','Glover','Unit 81 0 Jeffery ParkwayGutkowskiland, TAS 7274','1981-08-13','7017128990','orion.glover@ubmail.com','510200402330','0070419647','6064583077',2,'AUS','');
 /*!40000 ALTER TABLE `user_details` ENABLE KEYS */;
 UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `loan_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `loan_details` (
+  `id_pk` int NOT NULL AUTO_INCREMENT,
+  `user_id_fk` int NOT NULL,
+  `amount` varchar(20) NOT NULL,
+  `roi` varchar(20) NOT NULL,
+  `type` TEXT NOT NULL,
+  `tenure` varchar(200) NOT NULL,
+  `AppliedDate` char(10) NOT NULL,
+  PRIMARY KEY (`id_pk`),
+  KEY `user_id_pk_fk_const` (`user_id_fk`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 
 --
 -- Table structure for table `wallet`

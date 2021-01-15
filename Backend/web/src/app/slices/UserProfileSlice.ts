@@ -3,8 +3,7 @@ import { UserProfileState } from "../store/ReduxState";
 
 const INITIAL_STATE = {
   loading: false,
-  userProfile: {},
-  count: -1
+  userProfile: null,
 } as UserProfileState;
 
 const userprofileSlice = createSlice({
@@ -19,11 +18,10 @@ const userprofileSlice = createSlice({
     },
     setUserInfomation: (state: UserProfileState, action) => {
       state.userProfile = action.payload;
-      state.count = action.payload.fname.length;
     },
     setLoadingFailed: (state: UserProfileState) => {
       state.loading = false;
-      state.count = -1;
+      state.userProfile = null;
     }
   }
 });

@@ -3,6 +3,7 @@ import axios from "axios";
 import authenticationSlice from "../../slices/LoginSlice";
 import routes from "../../routes";
 import { toast } from "react-toastify";
+import { getHeaders } from "../configHelper";
 
 const handleSignOutThunk = ({ token }: { token: string }) => (
   dispatch: Dispatch
@@ -11,7 +12,6 @@ const handleSignOutThunk = ({ token }: { token: string }) => (
     .post(routes.api.authentication.logout, {
       requestBody: {
         timestamp: "325553",
-        token: token,
         device: {
           deviceid: "UHDGGF735SVHFVSX",
           os: "ios",
@@ -19,7 +19,7 @@ const handleSignOutThunk = ({ token }: { token: string }) => (
         },
         data: {}
       }
-    })
+    },getHeaders(token))
     .then(response => {
       if (response.data.status !== "Failed") {
         dispatch(authenticationSlice.actions.resetState);

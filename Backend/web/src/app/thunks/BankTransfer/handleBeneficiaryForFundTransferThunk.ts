@@ -3,6 +3,7 @@ import axios from 'axios';
 import routes from '../../routes';
 import bankTransferSlice from '../../slices/BankTransferSlice';
 import { toast } from 'react-toastify';
+import { getHeaders } from '../configHelper';
 
 const handleBeneficiaryForFundTransfer = ({ token }: { token: string }) => (dispatch: Dispatch) => {
 	dispatch(bankTransferSlice.actions.setLoading);
@@ -10,7 +11,7 @@ const handleBeneficiaryForFundTransfer = ({ token }: { token: string }) => (disp
 		.post(routes.api.fundTransfer.getAliasBankTransfer, {
 			requestBody: {
 				timestamp: '325553',
-				token: token,
+				// token: token,
 				device: {
 					deviceid: 'UHDGGF735SVHFVSX',
 					os: 'ios',
@@ -18,7 +19,7 @@ const handleBeneficiaryForFundTransfer = ({ token }: { token: string }) => (disp
 				},
 				data: {}
 			}
-		})
+		},getHeaders(token))
 		.then((response) => {
 			if (response.data.status !== 'Failed') {
 				dispatch(bankTransferSlice.actions.setLoaded());

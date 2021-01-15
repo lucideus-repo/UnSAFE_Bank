@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import addBeneficiarySlice from "../../slices/AddBeneficiarySlice";
 import bankTransferSlice from "../../slices/BankTransferSlice";
 import deleteBeneficiarySlice from "../../slices/DeleteBeneficiarySlice";
+import { getHeaders } from "../configHelper";
 
 const handleVerifyOTP = (token: string, OTP: string, type: string) => (dispatch: Dispatch) => {
   toast.clearWaitingQueue();
@@ -12,7 +13,6 @@ const handleVerifyOTP = (token: string, OTP: string, type: string) => (dispatch:
     .post(routes.api.otp.verifyOTP, {
       requestBody: {
         timestamp: "1542359523",
-        token: token,
         device: {
           deviceid: "UHDGGF735SVHFVSX",
           os: "ios",
@@ -22,7 +22,7 @@ const handleVerifyOTP = (token: string, OTP: string, type: string) => (dispatch:
           otp: OTP
         }
       }
-    })
+    },getHeaders(token))
     .then(response => {
       if (response.data.status !== "Failed") {
         if (type === "1") dispatch(addBeneficiarySlice.actions.setOTPResponse(response.data.data.response));
