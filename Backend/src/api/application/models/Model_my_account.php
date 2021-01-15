@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Model_My_Account extends CI_Model
 {
@@ -20,7 +20,8 @@ class Model_My_Account extends CI_Model
                 return $status::IncorrectUseridFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // **************** ALL DONE **************************
         return array(
@@ -65,6 +66,7 @@ class Model_My_Account extends CI_Model
                         a.currency_ticker as currency,
                         d.fname as fname,
                         d.lname as lname,
+                        d.avatar as avatar,
                         d.address as address,
                         d.dob as dob,
                         d.mobile_no as mobileNo,
@@ -82,7 +84,8 @@ class Model_My_Account extends CI_Model
                     LEFT JOIN user AS u
                         ON a.user_id_fk = u.id_pk
                     WHERE
-                        a.id_pk = ?", array($accountid)
+                        a.id_pk = ?",
+                    array($accountid)
                 )->row_array()
             );
         }

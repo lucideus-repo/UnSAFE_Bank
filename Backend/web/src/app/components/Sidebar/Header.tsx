@@ -1,12 +1,9 @@
 import React, { Fragment } from "react";
 import clsx from "clsx";
-import { Button} from "reactstrap";
+import { Button } from "reactstrap";
 import handleSignOutThunk from "../../thunks/Authentication/handleSignOutThunk";
 import { connect } from "react-redux";
-import {
-  RouteComponentProps,
-  withRouter
-} from "react-router-dom";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 
 import { ThemeState } from "../../store/ReduxState";
 import { bindActionCreators, Dispatch } from "redux";
@@ -53,7 +50,7 @@ let Header = ({ handleSignOut, theme, handleCurrentView }: Props) => {
             color="vicious-stance"
             className="ml-3 mr-3"
             size="sm"
-            href={routes.app.userProfile}
+            href={routes.app.user.userProfile}
           >
             My Account
           </Button>
@@ -63,7 +60,7 @@ let Header = ({ handleSignOut, theme, handleCurrentView }: Props) => {
             size="sm"
             color="vicious-stance"
             className="transition-none"
-            onClick={e => onClickSignOut(userData.token)}
+            onClick={(e) => onClickSignOut(userData.token)}
           >
             Sign out
           </Button>

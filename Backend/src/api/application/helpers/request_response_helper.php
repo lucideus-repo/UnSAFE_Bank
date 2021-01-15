@@ -268,78 +268,78 @@ class status_codes
 
     // OTP
     const OtpGenerated = array(
-    'status_code' => 'OTP001',
-    'message' => 'OTP Generated Successfully'
+        'status_code' => 'OTP001',
+        'message' => 'OTP Generated Successfully'
     );
     const InvalidOtpType = array(
-    'status_code' => 'OTP002',
-    'message' => 'Invalid OTP Type Selected'
+        'status_code' => 'OTP002',
+        'message' => 'Invalid OTP Type Selected'
     );
     const OtpVerifySuccess = array(
-    'status_code' => 'OTP003',
-    'message' => 'OTP Verification Successful'
+        'status_code' => 'OTP003',
+        'message' => 'OTP Verification Successful'
     );
     const OtpVerifyFailed = array(
-    'status_code' => 'OTP004',
-    'message' => 'Incorrect OTP'
+        'status_code' => 'OTP004',
+        'message' => 'Incorrect OTP'
     );
     const InvalidOtpFormat = array(
-    'status_code' => 'OTP005',
-    'message' => 'OTP Length Should be 6 Digits'
+        'status_code' => 'OTP005',
+        'message' => 'OTP Length Should be 6 Digits'
     );
     const OtpVerifyNull = array(
-    'status_code' => 'OTP006',
-    'message' => 'Kindly Generate an OTP first'
+        'status_code' => 'OTP006',
+        'message' => 'Kindly Generate an OTP first'
     );
     const IncorrectOtpReferenceFormat = array(
-    'status_code' => 'OTP007',
-    'message' => 'Format of OTP Response is incorrect'
+        'status_code' => 'OTP007',
+        'message' => 'Format of OTP Response is incorrect'
     );
     const InvalidOtpResponse = array(
-    'status_code' => 'OTP008',
-    'message' => 'OTP Response not valid'
+        'status_code' => 'OTP008',
+        'message' => 'OTP Response not valid'
     );
     const OtpSessionMismatch = array(
-    'status_code' => 'OTP009',
-    'message' => 'OTP Response and Session do not match'
+        'status_code' => 'OTP009',
+        'message' => 'OTP Response and Session do not match'
     );
     const InvalidOtpPurpose = array(
-    'status_code' => 'OTP010',
-    'message' => 'Invalid use of OTP'
+        'status_code' => 'OTP010',
+        'message' => 'Invalid use of OTP'
     );
     const ExpiredOtpResponse = array(
-    'status_code' => 'OTP11',
-    'message' => 'OTP Response as expired' 
+        'status_code' => 'OTP11',
+        'message' => 'OTP Response as expired'
     );
 
     // Forgot/Change Password
     const InvalidUserIdFormat = array(
-    'status_code' => 'PSW001',
-    'message' => 'Userid should be alphanumeric'
+        'status_code' => 'PSW001',
+        'message' => 'Userid should be alphanumeric'
     );
     const Unregistered = array(
-    'status_code' => 'PSW002',
-    'message' => 'User not registered'
+        'status_code' => 'PSW002',
+        'message' => 'User not registered'
     );
     const IncorrectPasswordFormat = array(
-    'status_code' => 'PSW003',
-    'message' => 'Password format is incorrect'
+        'status_code' => 'PSW003',
+        'message' => 'Password format is incorrect'
     );
     const PasswordResetSuccess = array(
-    'status_code' => 'PSW004',
-    'message' => 'Password Reset Successful'
+        'status_code' => 'PSW004',
+        'message' => 'Password Reset Successful'
     );
     const NewPasswdOldPasswd = array(
-    'status_code' => 'PSW007',
-    'message' => 'New Password cannot be same as Old Password'
+        'status_code' => 'PSW007',
+        'message' => 'New Password cannot be same as Old Password'
     );
     const ChangePasswdSuccess = array(
-    'status_code' => 'PSW008',
-    'message' => 'Password Changed Successfully'
+        'status_code' => 'PSW008',
+        'message' => 'Password Changed Successfully'
     );
     const OldPassIncorrect = array(
-    'status_code' => 'PSW009',
-    'message' => 'Old password is incorrect'
+        'status_code' => 'PSW009',
+        'message' => 'Old password is incorrect'
     );
     const IncorrectOldPasswordFormat = array(
         'status_code' => 'PSW010',
@@ -352,8 +352,8 @@ class status_codes
 
     // statement
     const TranStatement = array(
-    'status_code' => 'SMT001',
-    'message' => 'Account statement fetched Successfully'
+        'status_code' => 'SMT001',
+        'message' => 'Account statement fetched Successfully'
     );
     const InvalidFromDate = array(
         'status_code' => 'SMT002',
@@ -375,6 +375,80 @@ class status_codes
         'status_code' => 'SMT006',
         'message' => 'Difference between to_date and from_date should not be more than 180 days'
     );
+    // Edit User Module
+    const EditFailed = array(
+        'status_code' => 'EDIT01',
+        'message' => 'Edit Failed.'
+    );
+    const EditSuccess = array(
+        'status_code' => 'EDIT02',
+        'message' => 'Edit Successful'
+    );
+    const FnameInvalid = array(
+        'status_code' => 'EDIT03',
+        'message' => 'First Name is invalid'
+    );
+    const LnameInvalid = array(
+        'status_code' => 'EDIT04',
+        'message' => 'last Name is invalid'
+    );
+    const MobileInvalid = array(
+        'status_code' => 'EDIT06',
+        'message' => 'Mobile Number is invalid'
+    );
+
+    const EmailInvalid = array(
+        'status_code' => 'EDIT07',
+        'message' => 'Email is invalid'
+    );
+
+    const EditMobileAlreadyExists = array(
+        'status_code' => 'EDIT09',
+        'message' => 'Mobile Number already exists'
+    );
+
+    const EditEmailAlreadyExists = array(
+        'status_code' => 'EDIT12',
+        'message' => 'Email Address already exists'
+    );
+
+    const AddressInvalid = array(
+        'status_code' => 'EDIT11',
+        'message' => 'Address is invalid'
+    );
+    const AvatarInvalid = array(
+        'status_code' => 'EDIT12',
+        'message' => 'Profile Picture link is invalid'
+    );
+    //Loan
+
+    const FileNameInvalid = array(
+        'status_code' => 'LOAN01',
+        'message' => 'File Name is invalid'
+    );
+
+    const AmountInvalid = array(
+        'status_code' => 'LOAN02',
+        'message' => 'Loan Amount is invalid'
+    );
+
+    const LoanTypeInvalid = array(
+        'status_code' => 'LOAN03',
+        'message' => 'Loan Type is invalid'
+    );
+
+    const ROIInvalid = array(
+        'status_code' => 'LOAN04',
+        'message' => 'Loan Rate of Interest is invalid'
+    );
+    const LoanSuccess = array(
+        'status_code' => 'LOAN05',
+        'message' => 'Loan Successfully Applied'
+    );
+    const TenureInvalid = array(
+        'status_code' => 'LOAN06',
+        'message' => 'Tenure is invalid'
+    );
 }
 
 function prepare_response($status, $code, $msg, $ts, $data)
@@ -387,11 +461,25 @@ function prepare_response($status, $code, $msg, $ts, $data)
     return json_encode($resp);
 }
 
+function getRequestHeaders()
+{
+    $headers = array();
+    foreach ($_SERVER as $key => $value) {
+        if (substr($key, 0, 5) <> 'HTTP_') {
+            continue;
+        }
+        $header = str_replace(' ', '-', str_replace('_', ' ', strtolower(substr($key, 5))));
+        $headers[$header] = $value;
+    }
+    return $headers;
+}
+
+
 function validate_params($request)
 {
-
     $status = new status_codes();
-    if (isset($request['requestBody'])
+    if (
+        isset($request['requestBody'])
         and isset($request['requestBody']['timestamp'])
         and isset($request['requestBody']['data'])
     ) {
@@ -403,7 +491,7 @@ function validate_params($request)
             }
 
             // check token
-            if (isset($request['requestBody']['token'])) {
+            if (isset($request['requestBody']['token']) && !empty($request['requestBody']['token'])) {
                 if (!preg_match("/^[A-Z0-9a-z]{20}/", $request['requestBody']['token'])) {
                     return $status::InvalidFormatOfToken;
                 }
@@ -436,8 +524,8 @@ function validate_params($request)
                     } else {
                         return $status::RequestParameterNotSet;
                     }
-
-                } else { return $status::ImproperFormatInDeviceParameter;
+                } else {
+                    return $status::ImproperFormatInDeviceParameter;
                 }
             }
 
@@ -457,6 +545,9 @@ function validate_params($request)
 
 function request_parse()
 {
+    // getting token from headers and setting token as a body param
+    $headers = getRequestHeaders();
+
     $status = new status_codes();
     // initialize
     ini_set('memory_limit', '-1');
@@ -465,6 +556,9 @@ function request_parse()
         return $status::ImproperRequestFormat;
     }
     //validate
+    if (isset($headers['authorization']) && !empty($headers['authorization'])) {
+        $post['requestBody']['token']  = $headers['authorization'];
+    }
     $validity = validate_params($post);
     if ($validity['status_code'] != "ALLOK2") {
         return $validity;
@@ -476,5 +570,3 @@ function request_parse()
         return $data;
     }
 }
-
-?>

@@ -24,7 +24,13 @@ interface Props extends RouteComponentProps<any> {
 
   handleGetOTP: (token: string, type: string) => void;
   handleVerifyOTP: (token: string, OTP: string, type: string) => void;
-  handleBankFundTransfer: (token: string, alias: string, amount: string, remarks: string, otpRespose: string) => void;
+  handleBankFundTransfer: (
+    token: string,
+    alias: string,
+    amount: string,
+    remarks: string,
+    otpRespose: string
+  ) => void;
   history: History;
 }
 
@@ -40,7 +46,7 @@ const BankTransferPage = ({
   handleBeneficiariesAlias
 }: Props) => {
   let userData = JSON.parse(localStorage.getItem("userData")!);
-  if (localStorage.length === 0  || !userData) {
+  if (localStorage.length === 0 || !userData) {
     document.location.href = "/";
   }
   //@ts-ignore
@@ -51,6 +57,21 @@ const BankTransferPage = ({
   const [globalAlias, setGlobalAlias] = useState("");
   const [globalAmount, setGlobalAmount] = useState("");
   const [globalRemarks, setGlobalRemarks] = useState("");
+
+  let amountValidate = (evt: any) => {
+    let theEvent = evt || window.event;
+    let key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode(key);
+
+    let regex = /[0-9]|\./;
+    if (
+      !regex.test(key) ||
+      (theEvent.target.value.includes(".") && key === ".")
+    ) {
+      theEvent.returnValue = false;
+      if (theEvent.preventDefault) theEvent.preventDefault();
+    }
+  };
 
   let onClickBeneficiariesAlias = (payload: string) => {
     handleBeneficiariesAlias({
@@ -89,9 +110,14 @@ const BankTransferPage = ({
             </FormGroup>
             <FormGroup>
               <label>Select Beneficiary</label>
-              <Input type="select" name="select" id="exampleSelect" onChange={e => setAlias(e.target.value)}>
+              <Input
+                type="select"
+                name="select"
+                id="exampleSelect"
+                onChange={(e) => setAlias(e.target.value)}
+              >
                 <option />
-                {bankTransfer.beneficiaryAlias.map(d => (
+                {bankTransfer.beneficiaryAlias.map((d) => (
                   <option key={d} value={getAlias(d)}>
                     {getDisplayAlias(d)}
                   </option>
@@ -102,7 +128,7 @@ const BankTransferPage = ({
               <label>Description</label>
               <Input
                 id="username"
-                onChange={e => {
+                onChange={(e) => {
                   setRemarks(e.target.value.trim());
                 }}
               />
@@ -112,8 +138,10 @@ const BankTransferPage = ({
               <Input
                 type="number"
                 placeholder="0.00"
+                min={0}
                 id="username"
-                onChange={e => {
+                onKeyPress={(e) => amountValidate(e)}
+                onChange={(e) => {
                   setAmount(e.target.value);
                 }}
               />
@@ -160,18 +188,27 @@ const BankTransferPage = ({
               <label>OTP</label>
               <Input
                 type="text"
-                onKeyPress={e => otpValidate(e)}
+                onKeyPress={(e) => otpValidate(e)}
                 maxLength={6}
                 placeholder="OTP"
-                onChange={e => setOTP(e.target.value)}
+                onChange={(e) => setOTP(e.target.value)}
               />
               <Button
                 color="link"
                 className="float-right p-0"
-                onClick={e => {
-                  toast.info(()=> <div>Your One Time Password is <b>{bankTransfer.OTPDecoded}</b>. Do not share this OTP for security reasons.</div>, {
-                    autoClose: 10000
-                  });
+                onClick={(e) => {
+                  toast.info(
+                    () => (
+                      <div>
+                        Your One Time Password is{" "}
+                        <b>{bankTransfer.OTPDecoded}</b>. Do not share this OTP
+                        for security reasons.
+                      </div>
+                    ),
+                    {
+                      autoClose: 10000
+                    }
+                  );
                 }}
               >
                 Resend OTP?
@@ -197,10 +234,19 @@ const BankTransferPage = ({
     let handleRender = () => {
       if (bankTransfer.OTPDecoded === "" && bankTransfer.OTPResponse === "") {
         return <GetAccountDetailStage />;
-      } else if (bankTransfer.OTPDecoded !== "" && bankTransfer.OTPResponse === "") {
+      } else if (
+        bankTransfer.OTPDecoded !== "" &&
+        bankTransfer.OTPResponse === ""
+      ) {
         return <OTPStage />;
       } else {
-        handleBankFundTransfer(userData.token, globalAlias, globalAmount, globalRemarks, bankTransfer.OTPResponse);
+        handleBankFundTransfer(
+          userData.token,
+          globalAlias,
+          globalAmount,
+          globalRemarks,
+          bankTransfer.OTPResponse
+        );
         handleResetOTP();
         return <GetAccountDetailStage />;
       }
@@ -215,12 +261,18 @@ const BankTransferPage = ({
         <Card className="card-box">
           <Row className="no-gutters justify-content-center">
             <Col lg="5">
-              <img alt="..." className="mx-auto d-block text-center h-100 p-4" src={svgImage6} />
+              <img
+                alt="..."
+                className="mx-auto d-block text-center h-100 p-4"
+                src={svgImage6}
+              />
             </Col>
             <Col lg="1" />
             <Col lg="5">
               <div className="p-5">
-                <h1 className="display-4 my-3 font-weight-bold ">Bank Transfer</h1>
+                <h1 className="display-4 my-3 font-weight-bold ">
+                  Bank Transfer
+                </h1>
                 {handleRender()}
 
                 <Modal zIndex={2000} centered isOpen={bankTransfer.showModal}>
@@ -233,10 +285,18 @@ const BankTransferPage = ({
                         />
                       </div>
                     </div>
-                    <h4 className="font-weight-bold mt-4">Fund Transfer Complete.</h4>
-                    <p className="mb-0 font-size-lg">Reference Number : {bankTransfer.referenceNumber}</p>
+                    <h4 className="font-weight-bold mt-4">
+                      Fund Transfer Complete.
+                    </h4>
+                    <p className="mb-0 font-size-lg">
+                      Reference Number : {bankTransfer.referenceNumber}
+                    </p>
                     <div className="pt-4">
-                      <Button onClick={toggle1} color="second" className="btn-pill mx-1">
+                      <Button
+                        onClick={toggle1}
+                        color="second"
+                        className="btn-pill mx-1"
+                      >
                         <span className="btn-wrapper--label">OKAY</span>
                       </Button>
                     </div>
@@ -268,7 +328,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     {
       handleBeneficiariesAlias: handleBeneficiaryForFundTransfer,
       handleResetOTP: bankTransferSlice.actions.setResetOTP,
-      handleResetReferenceNumber: bankTransferSlice.actions.resetReferenceNumber,
+      handleResetReferenceNumber:
+        bankTransferSlice.actions.resetReferenceNumber,
       handleResetModal: bankTransferSlice.actions.resetModal,
       handleGetOTP: handleBankTransferGetOTPThunk,
       handleVerifyOTP: handleBankTransferVerifyOTPThunk,
@@ -278,4 +339,6 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
   );
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BankTransferPage));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(BankTransferPage)
+);

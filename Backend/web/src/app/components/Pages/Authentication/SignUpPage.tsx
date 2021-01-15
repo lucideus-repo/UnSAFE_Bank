@@ -7,7 +7,16 @@ import { SignUpState } from "../../../store/ReduxState";
 import handleSignUpThunk from "../../../thunks/Authentication/handleSignUpThunk";
 import { Link } from "react-router-dom";
 
-import { Button, Row, Col, FormGroup, Input, Label, UncontrolledTooltip, Badge } from "reactstrap";
+import {
+  Button,
+  Row,
+  Col,
+  FormGroup,
+  Input,
+  Label,
+  UncontrolledTooltip,
+  Badge
+} from "reactstrap";
 
 import svgImage9 from "../../../assets/images/illustrations/modern_professional.svg";
 import routes from "../../../routes";
@@ -15,6 +24,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Modal } from "reactstrap";
 import CopyToClipboard from "react-copy-to-clipboard";
 import SignUpSlice from "../../../slices/SignUpSlice";
+import { toast } from "react-toastify";
 
 interface Props extends RouteComponentProps<any> {
   signUp: SignUpState;
@@ -28,12 +38,11 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [countryId, setCountryId] = useState("");
   const [address, setAddress] = useState("");
   const [dob, setDob] = useState("");
   const [isCopied, setIsCopied] = useState(false);
 
-  let onClickSignUp = (e: React.FormEvent<HTMLFormElement>) => {
+  let onClickSignUp = (e: any) => {
     e.preventDefault();
     let newData = {
       firstName: firstName,
@@ -47,7 +56,7 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
       dob: dob
     };
 
-    handleSignUp({ newData: newData });
+    handleSignUp({ newData });
     window.scrollTo(0, 0);
   };
 
@@ -83,6 +92,19 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
       if (theEvent.preventDefault) theEvent.preventDefault();
     }
   };
+  const disabled = !(
+    firstName &&
+    lastName &&
+    gender &&
+    mobile &&
+    email &&
+    password &&
+    address &&
+    dob
+  )
+    ? true
+    : false;
+
   return (
     <div>
       <Fragment>
@@ -94,10 +116,21 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                   <div className="bg-composed-wrapper--content py-5">
                     <div className="container">
                       <Row>
-                        <Col lg="5" className="d-none d-lg-flex align-items-center">
-                          <img alt="..." className="w-100 mx-auto d-block img-fluid" src={svgImage9} />
+                        <Col
+                          lg="5"
+                          className="d-none d-lg-flex align-items-center"
+                        >
+                          <img
+                            alt="..."
+                            className="w-100 mx-auto d-block img-fluid"
+                            src={svgImage9}
+                          />
                         </Col>
-                        <Col lg="7" sm="12" className=" d-flex align-items-center">
+                        <Col
+                          lg="7"
+                          sm="12"
+                          className=" d-flex align-items-center"
+                        >
                           <div className="pl-0 pl-md-5">
                             <div className="text-black mt-3">
                               <span className="text-left text-sm-center">
@@ -105,7 +138,8 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                                   Sign Up
                                 </h1>
                                 <p className="font-size-lg text-lg-left text-center mb-0 text-black-50">
-                                  Fill in the fields below and you'll be good to go
+                                  Fill in the fields below and you'll be good to
+                                  go
                                   {signUp.userId ? (
                                     <Fragment>
                                       <Modal
@@ -123,7 +157,9 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                                               />
                                             </div>
                                           </div>
-                                          <h4 className="font-weight-bold mt-4">Congratulations!</h4>
+                                          <h4 className="font-weight-bold mt-4">
+                                            Congratulations!
+                                          </h4>
 
                                           <div className="justify-content-center ">
                                             <span className="mt-10 font-size-lg">
@@ -135,14 +171,19 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                                                 {signUp.userId}
                                               </Badge>
                                             </span>
-                                            <CopyToClipboard text={signUp.userId} onCopy={() => setIsCopied(true)}>
+                                            <CopyToClipboard
+                                              text={signUp.userId}
+                                              onCopy={() => setIsCopied(true)}
+                                            >
                                               <Button
                                                 size="sm"
                                                 color="success"
                                                 className="btn-transition-none"
                                                 id="ClickToCopyTooltip"
                                               >
-                                                <FontAwesomeIcon icon={["fas", "copy"]} />
+                                                <FontAwesomeIcon
+                                                  icon={["fas", "copy"]}
+                                                />
                                               </Button>
                                             </CopyToClipboard>
                                             <UncontrolledTooltip
@@ -150,33 +191,38 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                                               container=".modal"
                                               target="ClickToCopyTooltip"
                                             >
-                                              {!isCopied ? "Copy to Clipboard" : "Copied to Clipboard"}
+                                              {!isCopied
+                                                ? "Copy to Clipboard"
+                                                : "Copied to Clipboard"}
                                             </UncontrolledTooltip>
-                                           
-                                           
-                                       {!isCopied?
-                                       (<UncontrolledTooltip
-                                        placement="left"
-                                        container=".modal"
-                                        target="proceedToLogin"
-                                      >
-                                        Please copy your Customer ID to continue.
-                                      </UncontrolledTooltip>):null}     
 
-
+                                            {!isCopied ? (
+                                              <UncontrolledTooltip
+                                                placement="left"
+                                                container=".modal"
+                                                target="proceedToLogin"
+                                              >
+                                                Please copy your Customer ID to
+                                                continue.
+                                              </UncontrolledTooltip>
+                                            ) : null}
                                           </div>
-                                          <br/>
+                                          <br />
                                           <p className="mb-0 font-size-md">
-                                            Please take a note of your Customer ID for future references.
+                                            Please take a note of your Customer
+                                            ID for future references.
                                           </p>
                                           <div className="pt-4">
-                                            <Button disabled={!isCopied}
+                                            <Button
+                                              disabled={!isCopied}
                                               onClick={onClickOkayButton}
                                               color="second"
                                               className="btn-pill mx-1"
                                               id="proceedToLogin"
                                             >
-                                              <span className="btn-wrapper--label">Proceed to Login</span>
+                                              <span className="btn-wrapper--label">
+                                                Proceed to Login
+                                              </span>
                                             </Button>
                                           </div>
                                         </div>
@@ -196,16 +242,20 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                                       placeholder="John"
                                       id="firstName"
                                       name="aman"
-                                      onChange={e => setFirstName(e.target.value.trim())}
+                                      onChange={(e) =>
+                                        setFirstName(e.target.value.trim())
+                                      }
                                     />
                                   </FormGroup>
 
                                   <FormGroup>
                                     <label>Last Name</label>
                                     <Input
-                                      placeholder="Deo"
+                                      placeholder="Doe"
                                       id="lastName"
-                                      onChange={e => setLastName(e.target.value.trim())}
+                                      onChange={(e) =>
+                                        setLastName(e.target.value.trim())
+                                      }
                                     />
                                   </FormGroup>
                                   <FormGroup>
@@ -214,7 +264,9 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                                       type="select"
                                       name="select"
                                       id="exampleSelect"
-                                      onChange={e => setGender(e.target.value)}
+                                      onChange={(e) =>
+                                        setGender(e.target.value)
+                                      }
                                     >
                                       <option />
                                       <option value="1">Male</option>
@@ -229,8 +281,10 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                                       placeholder="XXXXXXXXXX"
                                       id="mobile"
                                       maxLength={10}
-                                      onKeyPress={e => mobileValidate(e)}
-                                      onChange={e => setMobile(e.target.value.trim())}
+                                      onKeyPress={(e) => mobileValidate(e)}
+                                      onChange={(e) =>
+                                        setMobile(e.target.value.trim())
+                                      }
                                     />
                                   </FormGroup>
 
@@ -240,7 +294,9 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                                       placeholder="user@email.com"
                                       type="email"
                                       id="email"
-                                      onChange={e => setEmail(e.target.value.trim())}
+                                      onChange={(e) =>
+                                        setEmail(e.target.value.trim())
+                                      }
                                     />
                                   </FormGroup>
 
@@ -250,7 +306,9 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                                       placeholder="●●●●●●●●"
                                       type="password"
                                       id="password"
-                                      onChange={e => setPassword(e.target.value)}
+                                      onChange={(e) =>
+                                        setPassword(e.target.value)
+                                      }
                                     />
                                   </FormGroup>
 
@@ -259,7 +317,9 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                                     <Input
                                       placeholder=""
                                       id="address"
-                                      onChange={e => setAddress(e.target.value.trim())}
+                                      onChange={(e) =>
+                                        setAddress(e.target.value.trim())
+                                      }
                                     />
                                   </FormGroup>
                                   <FormGroup>
@@ -268,25 +328,25 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                                       id="dob"
                                       type="date"
                                       max={getDate()}
-                                      onChange={e => setDob(e.target.value)}
+                                      onChange={(e) => setDob(e.target.value)}
                                     />
                                   </FormGroup>
                                   <Button
-                                    disabled={
-                                      !(
-                                        firstName &&
-                                        lastName &&
-                                        gender &&
-                                        mobile &&
-                                        email &&
-                                        password &&
-                                        address &&
-                                        dob
-                                      )
-                                    }
+                                    onClick={(e) => {
+                                      if (disabled) {
+                                        toast.error(
+                                          "Please fill all the fields",
+                                          { position: "top-center" }
+                                        );
+                                        return;
+                                      }
+                                      onClickSignUp(e);
+                                    }}
                                     size="lg"
                                     block={true}
                                     color="second"
+                                    id="submitButtonDiv"
+                                    className={disabled ? "disabled" : ""}
                                   >
                                     Sign Up
                                   </Button>
@@ -294,7 +354,9 @@ const SignUpPage = ({ handleSignUp, signUp }: Props) => {
                               </div>
                               <div className="text-center pt-4 text-black-50">
                                 Already have an account?{" "}
-                                <Link to={routes.app.authentication.login}>Click here to Login</Link>
+                                <Link to={routes.app.authentication.login}>
+                                  Click here to Login
+                                </Link>
                               </div>
                             </div>
                           </div>

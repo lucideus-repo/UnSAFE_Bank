@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Model_Beneficiary extends CI_Model
 {
@@ -22,7 +22,8 @@ class Model_Beneficiary extends CI_Model
                 return $status::IncorrectIfscFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // *****************************************************
         // account_number
@@ -31,7 +32,8 @@ class Model_Beneficiary extends CI_Model
                 return $status::IncorrectAcNoFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // *****************************************************
         // alias
@@ -40,7 +42,8 @@ class Model_Beneficiary extends CI_Model
                 return $status::IncorrectAliasFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // *****************************************************
         /* removed on 21 Jul 2019 by @Vibhav
@@ -61,13 +64,15 @@ class Model_Beneficiary extends CI_Model
         // *****************************************************
         // otp_response
         if (isset($data['data']['otp_response'])) {
-            if (!preg_match("/^[A-Za-z0-9]{15}$/",
-                $data['data']['otp_response'])
-            ) {
+            if (!preg_match(
+                "/^[A-Za-z0-9]{15}$/",
+                $data['data']['otp_response']
+            )) {
                 return $status::IncorrectOtpReferenceFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // **************** ALL DONE **************************
         return array(
@@ -90,12 +95,13 @@ class Model_Beneficiary extends CI_Model
         if (isset($data['data']['amount'])) {
             $amt = $data['data']['amount'];
             if ((strlen($amt) > 10)
-                or !preg_match("/^[0-9]+(\.[0-9]{1,2})?$/", $amt)
+                or !(is_double(floatval($amt)) or is_int(intval($amt)))
             ) {
                 return $status::IncorrectAmountFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // *****************************************************
         // alias
@@ -104,7 +110,8 @@ class Model_Beneficiary extends CI_Model
                 return $status::IncorrectAliasFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // *****************************************************
         // remarks
@@ -113,7 +120,8 @@ class Model_Beneficiary extends CI_Model
                 return $status::IncorrectRemarksFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // *****************************************************
         // otp_response
@@ -122,7 +130,8 @@ class Model_Beneficiary extends CI_Model
                 return $status::IncorrectOtpReferenceFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // **************** ALL DONE **************************
         return array(
@@ -172,7 +181,8 @@ class Model_Beneficiary extends CI_Model
                 RIGHT JOIN account_details as account
                     ON otp.user_details_id_fk = account.user_details_id_fk
                 WHERE
-                    otp.otp_ref = ?", array($otpref)
+                    otp.otp_ref = ?",
+                array($otpref)
             )->row_array();
             $stmt = $this->db->query(
                 "DELETE FROM otp_master
@@ -191,7 +201,7 @@ class Model_Beneficiary extends CI_Model
                 // match otp_ref_id with session
                 if ($accountid == $result['accountid']) {
                     // check for otp response validity
-                    if (time()-$result['otptime'] > $this::OTP_REF_EXPIRY) {
+                    if (time() - $result['otptime'] > $this::OTP_REF_EXPIRY) {
                         return $status::ExpiredOtpResponse;
                     }
                     // check for account number
@@ -217,14 +227,18 @@ class Model_Beneficiary extends CI_Model
                             // check for existing beneficiary
                             // check for existing alias
                             $beneficiaries = $this->list_beneficiaries($userid);
-                            $alias= strtoupper($data['data']['alias']);
+                            $alias = strtoupper($data['data']['alias']);
                             foreach ($beneficiaries as $beneficiary) {
-                                if ($beneficiary['account_number'] ==
-                                    $data['data']['account_number']) {
+                                if (
+                                    $beneficiary['account_number'] ==
+                                    $data['data']['account_number']
+                                ) {
                                     return $status::BeneficiaryAlreadyExist;
                                 }
-                                if (strtoupper($beneficiary['alias']) ==
-                                    $alias) {
+                                if (
+                                    strtoupper($beneficiary['alias']) ==
+                                    $alias
+                                ) {
                                     return $status::AliasAlreadyExist;
                                 }
                             }
@@ -292,7 +306,7 @@ class Model_Beneficiary extends CI_Model
                 $result = $this->list_beneficiaries($result['user_id_fk']);
                 $ret = array();
                 foreach ($result as $i) {
-                    array_push($ret, $i['alias']." - ".$i['account_number']);
+                    array_push($ret, $i['alias'] . " - " . $i['account_number']);
                 }
                 return array(
                     "status_code" => "ALLOK2",
@@ -313,7 +327,8 @@ class Model_Beneficiary extends CI_Model
             FROM
                 beneficiary_details
             WHERE
-                user_id_fk = ?", array($userid)
+                user_id_fk = ?",
+            array($userid)
         )->result_array();
         return $stmt;
     }
@@ -385,7 +400,8 @@ class Model_Beneficiary extends CI_Model
                 return $status::IncorrectAliasFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // *****************************************************
         // otp_response
@@ -394,7 +410,8 @@ class Model_Beneficiary extends CI_Model
                 return $status::IncorrectOtpReferenceFormat;
             } else {
             }
-        } else { return $status::RequestParameterNotSet;
+        } else {
+            return $status::RequestParameterNotSet;
         }
         // **************** ALL DONE **************************
         return array(
@@ -436,7 +453,7 @@ class Model_Beneficiary extends CI_Model
                 WHERE
                     beneficiary_alias = '$ali'
                     AND
-                    user_id_fk = ".$result['user_id_fk'];
+                    user_id_fk = " . $result['user_id_fk'];
                 $stmt = $this->db->query($sql);
                 $error = $this->db->error();
                 /*
@@ -458,10 +475,10 @@ class Model_Beneficiary extends CI_Model
                 );
                 */
                 if ($error['code'] == 0) {
-		    $result = $stmt->row_array();
-            /* beneficiary_email was removed. return array updated
+                    $result = $stmt->row_array();
+                    /* beneficiary_email was removed. return array updated
              on 16-Feb-2020 by @Vibhav */
-		    return array(
+                    return array(
                         "status_code" => "ALLOK2",
                         "data" => array(
                             "alias" => $result['beneficiary_alias'],
@@ -470,9 +487,8 @@ class Model_Beneficiary extends CI_Model
                             "creationDateTime" => $result['created_at']
                         )
                     );
-                }
-		else {
-		    return array(
+                } else {
+                    return array(
                         "status_code" => "ALLOK2",
                         "data" => array(
                             "alias" => $error['message'],
@@ -482,8 +498,8 @@ class Model_Beneficiary extends CI_Model
                             "creationDateTime" => "NULL"
                         )
                     );
-}
-/*                if (isset($result['beneficiary_alias'])) {
+                }
+                /*                if (isset($result['beneficiary_alias'])) {
                     return array(
                         "status_code" => "ALLOK2",
                         "data" => array(
@@ -514,7 +530,8 @@ class Model_Beneficiary extends CI_Model
             return $status::InvalidSession;
         } else {
             // check for otp reference
-            $result = $this->db->query("
+            $result = $this->db->query(
+                "
                 SELECT
                     account.user_id_fk as userid,
                     account.id_pk as accountid,
@@ -529,7 +546,8 @@ class Model_Beneficiary extends CI_Model
                     otp.otp_ref = ?",
                 array($otpref)
             )->row_array();
-            $stmt = $this->db->query("
+            $stmt = $this->db->query(
+                "
                 DELETE FROM otp_master
                 WHERE otp_ref = ?",
                 array($otpref)
@@ -547,12 +565,13 @@ class Model_Beneficiary extends CI_Model
                 // match otp_ref_id with session
                 if ($accountid == $result['accountid']) {
                     // check for otp response validity
-                    if (time()-$result['otptime'] > $this::OTP_REF_EXPIRY) {
+                    if (time() - $result['otptime'] > $this::OTP_REF_EXPIRY) {
                         return $status::ExpiredOtpResponse;
                     }
                     // check if beneficiary exists
                     $userid = $result['userid'];
-                    $result = $this->db->query("
+                    $result = $this->db->query(
+                        "
                         SELECT id_pk
                         FROM beneficiary_details
                         WHERE user_id_fk = ? AND beneficiary_alias = ?",
@@ -560,7 +579,8 @@ class Model_Beneficiary extends CI_Model
                     )->row_array();
                     if (isset($result['id_pk'])) {
                         // beneficiary was there. now delete
-                        $stmt = $this->db->query("
+                        $stmt = $this->db->query(
+                            "
                             DELETE FROM beneficiary_details
                             WHERE id_pk = ?",
                             array($result['id_pk'])
@@ -610,7 +630,8 @@ class Model_Beneficiary extends CI_Model
                     otp.otp_ref = ?",
                 array($otpref)
             )->row_array();
-            $stmt = $this->db->query("
+            $stmt = $this->db->query(
+                "
                 DELETE FROM otp_master
                 WHERE otp_ref = ?",
                 array($otpref)
@@ -627,14 +648,15 @@ class Model_Beneficiary extends CI_Model
                 // match otp_ref_id with session
                 if ($payerid == $result['accountid']) {
                     // check for otp response validity
-                    if (time()-$result['otptime'] > $this::OTP_REF_EXPIRY) {
+                    if (time() - $result['otptime'] > $this::OTP_REF_EXPIRY) {
                         return $status::ExpiredOtpResponse;
                     }
                     // check if beneficiary exists
                     $userid = $result['userid'];
                     $payer_account = $result['account_number'];
                     $payer_balance = floatval($result['balance']);
-                    $is_beneficiary = $this->db->query("
+                    $is_beneficiary = $this->db->query(
+                        "
                         SELECT id_pk, beneficiary_account_no
                         FROM beneficiary_details
                         WHERE user_id_fk = ? AND beneficiary_alias = ?",
@@ -655,9 +677,10 @@ class Model_Beneficiary extends CI_Model
                         if ($payer_balance >= floatval($data['data']['amount'])) {
                             // fund transfer
                             $amount = floatval(number_format($data['data']['amount'], 2, ".", ""));
-                            if ($amount < 1.00) {
-                                return $status::MinTransactionNotMet;
-                            }
+                            //commenting to make -ve transactions
+                            // if ($amount < 1.00) {
+                            //     return $status::MinTransactionNotMet;
+                            // }
                             $payee_balance += $amount;
                             $payer_balance -= $amount;
                             $sql = "UPDATE account_details SET account_balance = ? WHERE id_pk = ?";
@@ -678,7 +701,8 @@ class Model_Beneficiary extends CI_Model
                                 array($reference)
                             )->row_array()['id_pk'] != null);
                             // entry in transaction_master
-                            $complete = $this->db->query("
+                            $complete = $this->db->query(
+                                "
                                 INSERT INTO transaction_master(
                                     trans_date,
                                     src_acct,

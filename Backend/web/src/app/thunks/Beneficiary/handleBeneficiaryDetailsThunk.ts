@@ -3,13 +3,13 @@ import routes from "../../routes";
 import { Dispatch } from "redux";
 import viewBeneficiariesSlice from "../../slices/ViewBeneficiarySlice";
 import { toast } from "react-toastify";
+import { getHeaders } from "../configHelper";
 
 const handleBeneficiaryDetails = ({ token, alias }: { token: string; alias: string }) => (dispatch: Dispatch) => {
   axios
     .post(routes.api.beneficiary.beneficiaryDetails, {
       requestBody: {
         timestamp: "325553",
-        token: token,
         device: {
           deviceid: "UHDGGF735SVHFVSX",
           os: "ios",
@@ -19,7 +19,7 @@ const handleBeneficiaryDetails = ({ token, alias }: { token: string; alias: stri
           alias: alias
         }
       }
-    })
+    },getHeaders(token))
     .then(response => {
       if (response.data.status !== "Failed") {
         dispatch(viewBeneficiariesSlice.actions.setBeneficiaryDetails(response.data.data));

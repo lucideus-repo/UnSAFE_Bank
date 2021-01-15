@@ -14,7 +14,7 @@ const routes = {
       allBeneficiary: get(BASE_URL + "/beneficiary/list"),
       beneficiaryDetails: get(BASE_URL + "/beneficiary/fetch"),
       addBeneficiary: get(BASE_URL + "/beneficiary/add"),
-      deleteBeneficiary:get(BASE_URL + "/beneficiary/delete")
+      deleteBeneficiary: get(BASE_URL + "/beneficiary/delete")
     },
 
     otp: {
@@ -30,9 +30,19 @@ const routes = {
       getAliasBankTransfer: get(BASE_URL + "/beneficiary/get"),
       payBankTransfer: get(BASE_URL + "/beneficiary/pay")
     },
+    user: {
+      userProfile: get(BASE_URL + "/account/details"),
+      editProfile: get(BASE_URL + "/editUser/editUserDetails")
+    },
+    loan:{
+      apply:get(BASE_URL + "/loan/apply"),
+      appliedLoan:get(BASE_URL + "/loan"),
+    },
     accountStatement: get(BASE_URL + "/account/statement"),
-    userProfile: get(BASE_URL + "/account/details"),
-    about:get(BASE_URL +"/show?file=about.html" )
+    changePassword: get(BASE_URL + "/password/change"),
+    about: get(BASE_URL + "/show?file=about.html"),
+    contactUs: get(BASE_URL + "/contactUs"),
+
   },
 
   app: {
@@ -49,10 +59,19 @@ const routes = {
       bank: get("/transfer/bank"),
       wallet: get("/transfer/wallet")
     },
+    user: {
+      userProfile: get("/profile"),
+      editUser: get("/profile/edit")
+    },
+    loan:{
+      apply:get("/loan/apply"),
+      appliedLoans:get("/loan"),
+    },
     dashboard: get("/dashboard"),
     accountStatement: get("/account"),
-    userProfile: get("/profile"),
-    about:get("/about")
+    about: get("/about"),
+    changePassword: get("/password/change"),
+    contactUs:get("/contact-us")
   }
 };
 

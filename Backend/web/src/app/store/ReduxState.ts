@@ -31,7 +31,6 @@ export interface AccountStatementState {
 
 export interface UserProfileState {
   loading: boolean;
-  count: number;
   userProfile: any;
 }
 

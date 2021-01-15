@@ -1,7 +1,6 @@
-version: '3.6'
+version: "3.6"
 
 services:
-
   db:
     container_name: database
     build: ./mysql
@@ -16,7 +15,7 @@ services:
       - backend
 
   server:
-    build: './apache/'
+    build: "./apache/"
     depends_on:
       - db
     networks:
@@ -28,7 +27,7 @@ services:
 
   web:
     build:
-      context: './web'
+      context: "./web"
       dockerfile: Dockerfile
     depends_on:
       - server
@@ -38,13 +37,13 @@ services:
       - 3000:80
 
   php:
-    build: './php/'
+    build: "./php/"
     depends_on:
       - db
     networks:
       - backend
     volumes:
-      - ./src/:/var/www/html/
+      - ./src/:/var/www/html/:Z
     command: /tmp/wait-for-it.sh -t 0 database:3306 -- php-fpm
 
 networks:

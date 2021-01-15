@@ -10,29 +10,33 @@ UnSAFE Bank is a core virtual banking suite designed with the aim to incorporate
 
 It currently consists of the following functionalities:
 
-* Funds Transfer
-* View Account Statement
-* Add/View Beneficiary
+- Funds Transfer
+- View Account Statement
+- Manage Beneficiary
+- Loans
+- Account Settings
+- Contact us
+- About us
 
 **Note:** New features and vulnerability integration is under development.
 
 ## Vulnerability Coverage
 
-Say it intentionally or unintentionally, we have introduced vulnerabilities which varies from low severity to critical severity. 
+Say it intentionally or unintentionally, we have introduced vulnerabilities which varies from low severity to critical severity.
 
 To provide you a reference, the following classes of vulnerabilities will be encountered in the applications:
 
-| OWASP Top 10 - 2017 | OWASP Mobile Top 10 2016 |
-|----------------------|-------------------|
-| A1:2017-Injection | M1: Improper Platform Usage |
-| A2:2017-Broken Authentication | M2: Insecure Data Storage |
-| A3:2017-Sensitive Data Exposure | M3: Insecure Communication |
-| A5:2017-Broken Access Control | M4: Insecure Authentication |
-| A6:2017-Security Misconfiguration | M5: Insufficient Cryptography |
-| A7:2017-Cross-Site Scripting (XSS) | M6: Insecure Authorization |
-| | M7: Client Code Quality |
-| | M8: Code Tampering |
-| | M9: Reverse Engineering |
+| OWASP Top 10 2017             | OWASP Mobile Top 10 2016      |
+| ------------------------------- | ----------------------------- |
+| A1: Injection                   | M1: Improper Platform Usage   |
+| A2: Broken Authentication       | M2: Insecure Data Storage     |
+| A3: Sensitive Data Exposure     | M3: Insecure Communication    |
+| A4: XML External Entities (XXE) | M4: Insecure Authentication   |
+| A5: Broken Access Control       | M5: Insufficient Cryptography |
+| A6: Security Misconfiguration   | M6: Insecure Authorization    |
+| A7: Cross-Site Scripting (XSS)  | M7: Client Code Quality       |
+| A8: Insecure Deserialization    | M8: Code Tampering            |
+|                                 | M9: Reverse Engineering       |
 
 
 ## Setting up the environment
@@ -47,13 +51,13 @@ To provide you a reference, the following classes of vulnerabilities will be enc
 ### Setting up the server
 
 1. Clone the repository on your system (Laptop/Desktop)
-`git clone https://github.com/lucideus-repo/UnSAFE_Bank.git`
+   `git clone https://github.com/lucideus-repo/UnSAFE_Bank.git`
 2. Navigate to the UnSAFE_Bank/Backend directory
-`cd UnSAFE_Bank/Backend`
+   `cd UnSAFE_Bank/Backend`
 3. Start docker service (if not running)
-`sudo service docker start`
+   `sudo service docker start`
 4. Start the containers
-`docker-compose up -d`
+   `docker-compose up -d`
 
 ### Installing iOS Application
 
@@ -83,8 +87,6 @@ To provide you a reference, the following classes of vulnerabilities will be enc
 5. Click on `Test Connection?` and enter the <SERVER_IP> and <SERVER_PORT>.
 6. Ensure that the application shows a message `Connection Established`.
 
-
-
 ### Login Credentials
 
 Customer ID and password is required to login into the application. You can always sign up as a new user in the application.
@@ -100,23 +102,24 @@ On successful sign up:
 
 Following data can be used to perform actions such as add beneficiary, funds transfer etc.
 
-| Account Holder | Account Number | IFSC Code |
-| -------------- | -------------- | --------- |
-| Vipul Malhotra | 003558008876 | IFSC00009 |
-| Kevin Winkel | 270365500638 | IFSC00009 |
-| Kelly Campbell | 533074805951 | IFSC00010 |
-| Krystal Langworth | 731258783797 | IFSC00006 |
-| Margarita Mann | 359502423130 | IFSC00010 |
-| David Mahabir | 795554898923 | IFSC00002 |
-| Boris Gerhold | 485064210112 | IFSC00006 |
-| Nathaniel Runolfsson | 518569490010 | IFSC00003 |
-| Yvette Cooper | 841478410516 | IFSC00007 |
-| Orion Glover | 001498029143 | IFSC00003 |
+| Account Holder       | Account Number | IFSC Code |
+| -------------------- | -------------- | --------- |
+| Vipul Malhotra       | 003558008876   | IFSC00009 |
+| Kevin Winkel         | 270365500638   | IFSC00009 |
+| Kelly Campbell       | 533074805951   | IFSC00010 |
+| Krystal Langworth    | 731258783797   | IFSC00006 |
+| Margarita Mann       | 359502423130   | IFSC00010 |
+| David Mahabir        | 795554898923   | IFSC00002 |
+| Boris Gerhold        | 485064210112   | IFSC00006 |
+| Nathaniel Runolfsson | 518569490010   | IFSC00003 |
+| Yvette Cooper        | 841478410516   | IFSC00007 |
+| Orion Glover         | 001498029143   | IFSC00003 |
 
 ### Troubleshooting
+
 Problem 1: Docker containers fail to build on the first attempt.
 
-Problem 2: Internet connection goes away while the docker containers are building up. 
+Problem 2: Internet connection goes away while the docker containers are building up.
 
 Problem 3: You end up inserting junk data or deleting essential data from the database.
 
@@ -128,14 +131,13 @@ Problem 5: Error message `listen tcp 0.0.0.0:3000: bind: address already in use`
 
 > Solution: Check that another service that uses port 80 such as Apache or IIS is down.
 
-Problem 6: Navigating to http://<SERVER_IP>:<SERVER_PORT> gives a mesage `Service Unavailable`. 
+Problem 6: Navigating to http://<SERVER_IP>:<SERVER_PORT> gives a message `Service Unavailable`.
 
 > Solution: Wait for 20 to 30 seconds for the services to completely start up.
 
-Problem 7: Web application shows the message `Backend server is unrespensive`.
+Problem 7: Web application shows the message `Backend server is unresponsive`.
 
 > Solution 1: Follow the steps mentioned to [check the connectivity status](https://github.com/lucideus-repo/UnSAFE_Bank/blob/master/README.md#test-connectivity-status-web-application) and navigate to http://<SERVER_URL>:<SERVER_PORT>/api. Check if you can get the message `Welcome to UnSAFE Bank`.
-
 
 ### Encountered a bug or want to suggest something?
 

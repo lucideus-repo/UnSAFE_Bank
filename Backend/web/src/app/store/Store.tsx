@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore, Store } from "redux";
+import { applyMiddleware, compose, createStore, Store } from "redux";
 import thunk from "redux-thunk";
 import { combineReducers } from "@reduxjs/toolkit";
 import { ReduxState } from "./ReduxState";
@@ -15,6 +15,9 @@ import bankTransferSlice from "../slices/BankTransferSlice";
 import connectionSlice from "../slices/ConnectionSlice";
 import deleteBeneficiarySlice from "../slices/DeleteBeneficiarySlice";
 
+const composeEnhancers =
+  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const rootReducer = combineReducers<ReduxState>({
   login: loginSlice.reducer,
   dashboard: dashboardSlice.reducer,
@@ -27,9 +30,13 @@ const rootReducer = combineReducers<ReduxState>({
   addBeneficiary: addBeneficiarySlice.reducer,
   bankTransfer: bankTransferSlice.reducer,
   connection: connectionSlice.reducer,
-  deleteBeneficiary:deleteBeneficiarySlice.reducer
+  deleteBeneficiary: deleteBeneficiarySlice.reducer
 });
 
 export default function configureStore(): Store<ReduxState, any> {
-  return createStore(rootReducer, undefined, applyMiddleware(thunk));
+  return createStore(
+    rootReducer,
+    undefined,
+    composeEnhancers(applyMiddleware(thunk))
+  );
 }

@@ -3,6 +3,7 @@ import axios from "axios";
 import routes from "../../routes";
 import { toast } from "react-toastify";
 import bankTransferSlice from "../../slices/BankTransferSlice";
+import { getHeaders } from "../configHelper";
 const handleBankFundTransfer = (
   token: string,
   alias: string,
@@ -14,7 +15,6 @@ const handleBankFundTransfer = (
     .post(routes.api.fundTransfer.payBankTransfer, {
       requestBody: {
         timestamp: "325553",
-        token: token,
         device: {
           deviceid: "UHDGGF735SVHFVSX",
           os: "ios",
@@ -27,7 +27,7 @@ const handleBankFundTransfer = (
           otp_response: otpRespose
         }
       }
-    })
+    },getHeaders(token))
     .then((response) => {
       if (response.data.status !== "Failed") {
         dispatch(
