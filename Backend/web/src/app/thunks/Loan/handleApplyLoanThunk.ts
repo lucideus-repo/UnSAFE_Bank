@@ -70,7 +70,7 @@ const handleApplyLoanThunk = ({
       getHeaders(token)
     )
     .then((response) => {
-      console.log(response);
+
       if (response.data.status !== "Failed") {
         setTimeout(() => {
           setShowModal(true);

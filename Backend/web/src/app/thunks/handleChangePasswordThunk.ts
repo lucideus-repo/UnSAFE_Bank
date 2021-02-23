@@ -31,7 +31,6 @@ const handleEditUserProfileThunk = ({
       }
     },getHeaders(token))
     .then((response) => {
-      console.log(response);
       if (response.data.status !== "Failed") {
         setShowModal(true);
       } else {

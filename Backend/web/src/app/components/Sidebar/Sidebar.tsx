@@ -11,7 +11,7 @@ import themeSlice from "../../slices/ThemeSlice";
 import { ThemeState } from "../../store/ReduxState";
 // @ts-ignore
 import RouterLink from "./ReactMetismenuRouterLink";
-import LucideusLogo from "./LucideusLogo";
+import LucideusLogo from "./SafeSecurityLogo";
 
 interface Props extends RouteComponentProps<any> {
   theme: ThemeState;
@@ -97,7 +97,6 @@ class SidebarHeader extends Component {
     return (
       <Fragment>
         <div className="app-sidebar--header ">
-          {/* <div className="nav-logo"> */}
           <Link
             to={routes.app.dashboard}
             title=""
@@ -106,7 +105,6 @@ class SidebarHeader extends Component {
             <LucideusLogo />
           </Link>
         </div>
-        {/* </div> */}
       </Fragment>
     );
   }

@@ -32,7 +32,7 @@ const handleContactUsThunk = ({
       getHeaders(token)
     )
     .then((response) => {
-      console.log(response);
+
       if (response.data.status !== "Failed") {
         setShowModal(true);
         setModalMessage(response.data.message);

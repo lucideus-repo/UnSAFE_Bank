@@ -16,8 +16,7 @@ import {
   FormGroup,
   Label,
   Input,
-  Button,
-  UncontrolledTooltip
+  Button
 } from "reactstrap";
 import LoadingBar from "../LoadingBar";
 import routes from "../../routes";

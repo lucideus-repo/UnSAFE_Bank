@@ -6,19 +6,26 @@ import deleteBeneficiarySlice from "../../slices/DeleteBeneficiarySlice";
 import Swal from "sweetalert2";
 import { getHeaders } from "../configHelper";
 
-const handleDeleteBeneficiary = (alias: string, otpResponse: string, token: string) => (dispatch: Dispatch) => {
-  console.log("called");
+const handleDeleteBeneficiary = (
+  alias: string,
+  otpResponse: string,
+  token: string
+) => (dispatch: Dispatch) => {
   axios
-    .post(routes.api.beneficiary.deleteBeneficiary, {
-      requestBody: {
-        timestamp: new Date(),
-        data: {
-          alias: alias,
-          otp_response: otpResponse
+    .post(
+      routes.api.beneficiary.deleteBeneficiary,
+      {
+        requestBody: {
+          timestamp: new Date(),
+          data: {
+            alias: alias,
+            otp_response: otpResponse
+          }
         }
-      }
-    },getHeaders(token))
-    .then(response => {
+      },
+      getHeaders(token)
+    )
+    .then((response) => {
       if (response.data.status !== "Failed") {
         dispatch(deleteBeneficiarySlice.actions.setisSuccessful(true));
 
@@ -39,7 +46,9 @@ const handleDeleteBeneficiary = (alias: string, otpResponse: string, token: stri
         });
       }
     })
-    .catch(res => toast.error("Backend Server is unresponsive.", { position: "top-center" }));
+    .catch((res) =>
+      toast.error("Backend Server is unresponsive.", { position: "top-center" })
+    );
 };
 
 export default handleDeleteBeneficiary;

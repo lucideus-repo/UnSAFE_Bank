@@ -72,18 +72,23 @@ const AuthenticationPage = ({
             title: "Connection Established",
             showConfirmButton: true,
             confirmButtonColor: "#3D476E"
-          }).then(()=>window.location.reload());
-         
+          }).then(() => window.location.reload());
+
           return response;
         } catch (error) {
-          if(!(error.toString()==="TypeError: Cannot read property '0' of undefined"||error.toString()==="TypeError: result.value is undefined"))
-          Swal.fire({
-            icon: "error",
-            title: "Connection not Established",
-            showConfirmButton: true,
-            confirmButtonColor: "#3D476E"
-          });
-          
+          if (
+            !(
+              error.toString() ===
+                "TypeError: Cannot read property '0' of undefined" ||
+              error.toString() === "TypeError: result.value is undefined"
+            )
+          )
+            Swal.fire({
+              icon: "error",
+              title: "Connection not Established",
+              showConfirmButton: true,
+              confirmButtonColor: "#3D476E"
+            });
         }
       })
       .catch(() => {
@@ -155,7 +160,7 @@ const AuthenticationPage = ({
                                     <Input
                                       placeholder="BNKXXXXX"
                                       id="username"
-                                      onChange={e =>
+                                      onChange={(e) =>
                                         setUsername(e.target.value.trim())
                                       }
                                     />
@@ -173,7 +178,7 @@ const AuthenticationPage = ({
                                       placeholder="Enter your password"
                                       type="password"
                                       id="password"
-                                      onChange={e =>
+                                      onChange={(e) =>
                                         setPassword(e.target.value)
                                       }
                                     />
@@ -195,14 +200,19 @@ const AuthenticationPage = ({
                               <div className="text-center pt-4 text-black-50">
                                 Don't have an account?{" "}
                                 <Link to={routes.app.authentication.signup}>
-                                Click here to Sign Up
+                                  Click here to Sign Up
                                 </Link>
                               </div>
-                              <div className="text-center pt-4 text-black-50">
-                                <Button onClick={onTestConnection} color="link">
-                                  Test Connection?
-                                </Button>
-                              </div>
+                              {!!+process.env.REACT_APP_ENABLE_TEST_CONNECTION!&& (
+                                <div className="text-center pt-4 text-black-50">
+                                  <Button
+                                    onClick={onTestConnection}
+                                    color="link"
+                                  >
+                                    Test Connection?
+                                  </Button>
+                                </div>
+                              )}
                             </div>
                           </div>
                         </Col>
