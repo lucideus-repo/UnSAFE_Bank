@@ -155,4 +155,4 @@ This project is using the GNU General Public License v3.0.
 
 [Rubal Jain](https://www.linkedin.com/in/rubaljain-1991)
 
-[Lucideus Inc.](https://www.lucideus.com)
+[Safe Security](https://safe.security)
