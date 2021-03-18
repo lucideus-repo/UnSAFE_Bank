@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (4.8.1)
+  - CryptoSwift (0.15.0)
+  - KeychainAccess (3.1.2)
+  - lottie-ios (3.0.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - CryptoSwift
+  - KeychainAccess
+  - lottie-ios
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - CryptoSwift
+    - KeychainAccess
+    - lottie-ios
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  CryptoSwift: 769f58a9e89f64e8796c2e59ce5f002dc81a2438
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
+  lottie-ios: 06e0b54aab85ba128e332687d7f4ac4861a7a7ae
+
+PODFILE CHECKSUM: 23032d13f70a92e02bfe4a8d5ccda62b9746b1ce
+
+COCOAPODS: 1.7.2

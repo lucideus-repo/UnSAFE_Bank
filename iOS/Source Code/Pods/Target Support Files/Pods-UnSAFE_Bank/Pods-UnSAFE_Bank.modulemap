@@ -1,0 +1,6 @@
+framework module Pods_UnSAFE_Bank {
+  umbrella header "Pods-UnSAFE_Bank-umbrella.h"
+
+  export *
+  module * { export * }
+}

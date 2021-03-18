@@ -1,0 +1,725 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8A0B0034215148FB003D67F0 /* AddBeneficiaryOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B0033215148FB003D67F0 /* AddBeneficiaryOld.swift */; };
+		8A0B00362151ADE7003D67F0 /* ListBeneficiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B00352151ADE7003D67F0 /* ListBeneficiary.swift */; };
+		8A0B00382151D1C7003D67F0 /* AccountDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0B00372151D1C7003D67F0 /* AccountDetails.swift */; };
+		8A0BD2D42215A0F80061F72D /* VerifyOtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0BD2D32215A0F80061F72D /* VerifyOtpVC.swift */; };
+		8A14AFAC22577F3D0000E71D /* tick1.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A14AFAB22577F3D0000E71D /* tick1.json */; };
+		8A1A09AD22576D07007A52E9 /* BankTransferVC7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1A09AC22576D07007A52E9 /* BankTransferVC7.swift */; };
+		8A36401721A5496100863ED8 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A36401621A5496100863ED8 /* SignUpController.swift */; };
+		8A461E8B22F8353500007086 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A461E8A22F8353500007086 /* RecoverPasswordViewController.swift */; };
+		8A5AABF522E1D8CB00E13702 /* addBeneficiaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5AABF422E1D8CB00E13702 /* addBeneficiaryTableViewCell.swift */; };
+		8A6A05D021BAB5FC00AE8428 /* AddBeneficiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6A05CF21BAB5FC00AE8428 /* AddBeneficiary.swift */; };
+		8A78C8292247D1CC00E96AD6 /* BankTransferVC5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A78C8282247D1CC00E96AD6 /* BankTransferVC5.swift */; };
+		8A87E7E1214D2E6A002F2638 /* APIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A87E7E0214D2E6A002F2638 /* APIHelpers.swift */; };
+		8A87E7E4214E8BAE002F2638 /* JSONHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A87E7E3214E8BAE002F2638 /* JSONHelpers.swift */; };
+		8A87E7E6214EDF8E002F2638 /* StaticHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A87E7E5214EDF8E002F2638 /* StaticHelpers.swift */; };
+		8AB31792225758C100D72FC1 /* tick.json in Resources */ = {isa = PBXBuildFile; fileRef = 8AB31791225758C100D72FC1 /* tick.json */; };
+		8ABBD37E22F30644005BDC70 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABBD37D22F30644005BDC70 /* ForgotPasswordViewController.swift */; };
+		8ADA9BEF21E3734B007A1A0B /* BankTransferVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA9BEE21E3734B007A1A0B /* BankTransferVC2.swift */; };
+		8ADA9BF121E48CF8007A1A0B /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA9BF021E48CF8007A1A0B /* ViewController+Extensions.swift */; };
+		8ADA9BF321E48DF0007A1A0B /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ADA9BF221E48DF0007A1A0B /* UIView+Extensions.swift */; };
+		8AF02F9D224F99460061281E /* BankTransferVC6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF02F9C224F99460061281E /* BankTransferVC6.swift */; };
+		8AFEDD2222F3F5DB00065FCB /* RecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFEDD2122F3F5DB00065FCB /* RecoveryViewController.swift */; };
+		8AFEDD2422F4082600065FCB /* RecoveryOtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFEDD2322F4082600065FCB /* RecoveryOtpViewController.swift */; };
+		BA0E951F204AA66C00319BEF /* MyWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E951E204AA66C00319BEF /* MyWalletVC.swift */; };
+		BA34E103214B903800360CDE /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34E102214B903800360CDE /* APIModels.swift */; };
+		BA532C49214CF6820023E535 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA532C48214CF6820023E535 /* Strings.swift */; };
+		BAA494A72039678B000E6D0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA494A62039678B000E6D0C /* AppDelegate.swift */; };
+		BAA494A92039678B000E6D0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA494A82039678B000E6D0C /* ViewController.swift */; };
+		BAA494AC2039678B000E6D0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA494AA2039678B000E6D0C /* Main.storyboard */; };
+		BAA494AE2039678B000E6D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA494AD2039678B000E6D0C /* Assets.xcassets */; };
+		BAA494B12039678B000E6D0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA494AF2039678B000E6D0C /* LaunchScreen.storyboard */; };
+		BAC789B62043CD5D00D20899 /* beneficiaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789B52043CD5D00D20899 /* beneficiaryTableViewCell.swift */; };
+		BAC789B92043CDF900D20899 /* BeneficiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789B82043CDF900D20899 /* BeneficiaryVC.swift */; };
+		BAC789BB2043E98500D20899 /* viewBeneficiaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789BA2043E98500D20899 /* viewBeneficiaryTableViewCell.swift */; };
+		BAC789BD2043EBD800D20899 /* FetchBeneficiaryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789BC2043EBD800D20899 /* FetchBeneficiaryDetails.swift */; };
+		BAC789C0204418AF00D20899 /* fundsTransferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789BF204418AF00D20899 /* fundsTransferTableViewCell.swift */; };
+		BAC789C220441B8700D20899 /* FundsTransferVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789C120441B8700D20899 /* FundsTransferVC.swift */; };
+		BAC789C42044229900D20899 /* beneficiary.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC789C32044229900D20899 /* beneficiary.storyboard */; };
+		BAC789C6204422CC00D20899 /* transfer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC789C5204422CC00D20899 /* transfer.storyboard */; };
+		BAC789C92044232300D20899 /* accountStatement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC789C82044232300D20899 /* accountStatement.storyboard */; };
+		BAC789CB2044317100D20899 /* BankTransferVC4.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789CA2044317100D20899 /* BankTransferVC4.swift */; };
+		BAC789CD2044393400D20899 /* BankTransferVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789CC2044393400D20899 /* BankTransferVC1.swift */; };
+		BAC789CF2044396B00D20899 /* BankTransferVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789CE2044396B00D20899 /* BankTransferVC3.swift */; };
+		BAC789D120443C7800D20899 /* confirmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789D020443C7800D20899 /* confirmTableViewCell.swift */; };
+		BAC789D3204448C400D20899 /* accountStatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789D2204448C400D20899 /* accountStatementTableViewCell.swift */; };
+		BAC789D52044497100D20899 /* AccountStatementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789D42044497100D20899 /* AccountStatementVC.swift */; };
+		BAC789D720451DF900D20899 /* ShowAccountStatementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC789D620451DF900D20899 /* ShowAccountStatementVC.swift */; };
+		BAFE66F7203DB95D001C65E4 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFE66F6203DB95D001C65E4 /* DashboardVC.swift */; };
+		BAFE66F9203DBB03001C65E4 /* optionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFE66F8203DBB03001C65E4 /* optionsTableViewCell.swift */; };
+		CE37F554240CC45E00E54A9E /* SignupSuccessMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37F553240CC45D00E54A9E /* SignupSuccessMessageController.swift */; };
+		E4A07FF29E0F64E0DE595184 /* Pods_UnSAFE_Bank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F84DCC4CB1438551A0E878 /* Pods_UnSAFE_Bank.framework */; };
+		EE330DAF24321254004923B0 /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE330DAE24321254004923B0 /* WebViewVC.swift */; };
+		EE330DB22432232C004923B0 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE330DB12432232C004923B0 /* ChangePasswordVC.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		46F84DCC4CB1438551A0E878 /* Pods_UnSAFE_Bank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnSAFE_Bank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63D9B7BAFAC1886C39E72C7A /* Pods-UnSAFE_Bank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnSAFE_Bank.release.xcconfig"; path = "Pods/Target Support Files/Pods-UnSAFE_Bank/Pods-UnSAFE_Bank.release.xcconfig"; sourceTree = "<group>"; };
+		873D55BD899B9E5BF7C66695 /* Pods-UnSAFE_Bank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnSAFE_Bank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnSAFE_Bank/Pods-UnSAFE_Bank.debug.xcconfig"; sourceTree = "<group>"; };
+		8A0B0033215148FB003D67F0 /* AddBeneficiaryOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeneficiaryOld.swift; sourceTree = "<group>"; };
+		8A0B00352151ADE7003D67F0 /* ListBeneficiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBeneficiary.swift; sourceTree = "<group>"; };
+		8A0B00372151D1C7003D67F0 /* AccountDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetails.swift; sourceTree = "<group>"; };
+		8A0BD2D32215A0F80061F72D /* VerifyOtpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOtpVC.swift; sourceTree = "<group>"; };
+		8A14AFAB22577F3D0000E71D /* tick1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tick1.json; sourceTree = "<group>"; };
+		8A1A09AC22576D07007A52E9 /* BankTransferVC7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTransferVC7.swift; sourceTree = "<group>"; };
+		8A36401621A5496100863ED8 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		8A461E8A22F8353500007086 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
+		8A5AABF422E1D8CB00E13702 /* addBeneficiaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addBeneficiaryTableViewCell.swift; sourceTree = "<group>"; };
+		8A6A05CF21BAB5FC00AE8428 /* AddBeneficiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBeneficiary.swift; sourceTree = "<group>"; };
+		8A78C8282247D1CC00E96AD6 /* BankTransferVC5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTransferVC5.swift; sourceTree = "<group>"; };
+		8A87E7E0214D2E6A002F2638 /* APIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelpers.swift; sourceTree = "<group>"; };
+		8A87E7E3214E8BAE002F2638 /* JSONHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelpers.swift; sourceTree = "<group>"; };
+		8A87E7E5214EDF8E002F2638 /* StaticHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticHelpers.swift; sourceTree = "<group>"; };
+		8AB31791225758C100D72FC1 /* tick.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tick.json; sourceTree = "<group>"; };
+		8ABBD37D22F30644005BDC70 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		8ACF12792329029700EEB543 /* damnVIA.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = damnVIA.entitlements; sourceTree = "<group>"; };
+		8ADA9BEE21E3734B007A1A0B /* BankTransferVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTransferVC2.swift; sourceTree = "<group>"; };
+		8ADA9BF021E48CF8007A1A0B /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		8ADA9BF221E48DF0007A1A0B /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		8AF02F9C224F99460061281E /* BankTransferVC6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTransferVC6.swift; sourceTree = "<group>"; };
+		8AFEDD2122F3F5DB00065FCB /* RecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryViewController.swift; sourceTree = "<group>"; };
+		8AFEDD2322F4082600065FCB /* RecoveryOtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryOtpViewController.swift; sourceTree = "<group>"; };
+		BA0E951E204AA66C00319BEF /* MyWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWalletVC.swift; sourceTree = "<group>"; };
+		BA34E102214B903800360CDE /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
+		BA532C48214CF6820023E535 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		BAA1A878AF71765D24A0927D /* Pods-damnVIA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-damnVIA.release.xcconfig"; path = "Pods/Target Support Files/Pods-damnVIA/Pods-damnVIA.release.xcconfig"; sourceTree = "<group>"; };
+		BAA494A32039678B000E6D0C /* UnSAFE Bank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UnSAFE Bank.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAA494A62039678B000E6D0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BAA494A82039678B000E6D0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BAA494AB2039678B000E6D0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BAA494AD2039678B000E6D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BAA494B02039678B000E6D0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BAA494B22039678B000E6D0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAC789B52043CD5D00D20899 /* beneficiaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beneficiaryTableViewCell.swift; sourceTree = "<group>"; };
+		BAC789B82043CDF900D20899 /* BeneficiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficiaryVC.swift; sourceTree = "<group>"; };
+		BAC789BA2043E98500D20899 /* viewBeneficiaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewBeneficiaryTableViewCell.swift; sourceTree = "<group>"; };
+		BAC789BC2043EBD800D20899 /* FetchBeneficiaryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBeneficiaryDetails.swift; sourceTree = "<group>"; };
+		BAC789BF204418AF00D20899 /* fundsTransferTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fundsTransferTableViewCell.swift; sourceTree = "<group>"; };
+		BAC789C120441B8700D20899 /* FundsTransferVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsTransferVC.swift; sourceTree = "<group>"; };
+		BAC789C32044229900D20899 /* beneficiary.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = beneficiary.storyboard; sourceTree = "<group>"; };
+		BAC789C5204422CC00D20899 /* transfer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = transfer.storyboard; sourceTree = "<group>"; };
+		BAC789C82044232300D20899 /* accountStatement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = accountStatement.storyboard; sourceTree = "<group>"; };
+		BAC789CA2044317100D20899 /* BankTransferVC4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTransferVC4.swift; sourceTree = "<group>"; };
+		BAC789CC2044393400D20899 /* BankTransferVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTransferVC1.swift; sourceTree = "<group>"; };
+		BAC789CE2044396B00D20899 /* BankTransferVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTransferVC3.swift; sourceTree = "<group>"; };
+		BAC789D020443C7800D20899 /* confirmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = confirmTableViewCell.swift; sourceTree = "<group>"; };
+		BAC789D2204448C400D20899 /* accountStatementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountStatementTableViewCell.swift; sourceTree = "<group>"; };
+		BAC789D42044497100D20899 /* AccountStatementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStatementVC.swift; sourceTree = "<group>"; };
+		BAC789D620451DF900D20899 /* ShowAccountStatementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAccountStatementVC.swift; sourceTree = "<group>"; };
+		BAFE66F6203DB95D001C65E4 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		BAFE66F8203DBB03001C65E4 /* optionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = optionsTableViewCell.swift; sourceTree = "<group>"; };
+		CE37F553240CC45D00E54A9E /* SignupSuccessMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupSuccessMessageController.swift; sourceTree = "<group>"; };
+		EE330DAE24321254004923B0 /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
+		EE330DB12432232C004923B0 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		FCD33437E3D290D241E3FDAF /* Pods-damnVIA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-damnVIA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-damnVIA/Pods-damnVIA.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BAA494A02039678B000E6D0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4A07FF29E0F64E0DE595184 /* Pods_UnSAFE_Bank.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0178101BB1A9C7345B0F060B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				46F84DCC4CB1438551A0E878 /* Pods_UnSAFE_Bank.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A751EAD22F439DB00972294 /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				8AFEDD2322F4082600065FCB /* RecoveryOtpViewController.swift */,
+				8AFEDD2122F3F5DB00065FCB /* RecoveryViewController.swift */,
+				8A461E8A22F8353500007086 /* RecoverPasswordViewController.swift */,
+			);
+			path = "Forgot Password";
+			sourceTree = "<group>";
+		};
+		8A78C82A2247D42E00E96AD6 /* Bank Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				BAC789C120441B8700D20899 /* FundsTransferVC.swift */,
+				BAC789CC2044393400D20899 /* BankTransferVC1.swift */,
+				8ADA9BEE21E3734B007A1A0B /* BankTransferVC2.swift */,
+				BAC789CE2044396B00D20899 /* BankTransferVC3.swift */,
+				BAC789CA2044317100D20899 /* BankTransferVC4.swift */,
+				8A78C8282247D1CC00E96AD6 /* BankTransferVC5.swift */,
+				8AF02F9C224F99460061281E /* BankTransferVC6.swift */,
+				8A1A09AC22576D07007A52E9 /* BankTransferVC7.swift */,
+			);
+			path = "Bank Transfer";
+			sourceTree = "<group>";
+		};
+		8A78C82B224840FA00E96AD6 /* Beneficiary */ = {
+			isa = PBXGroup;
+			children = (
+				8A0B00352151ADE7003D67F0 /* ListBeneficiary.swift */,
+				8A6A05CF21BAB5FC00AE8428 /* AddBeneficiary.swift */,
+				8A0BD2D32215A0F80061F72D /* VerifyOtpVC.swift */,
+				BAC789BC2043EBD800D20899 /* FetchBeneficiaryDetails.swift */,
+				BAC789B82043CDF900D20899 /* BeneficiaryVC.swift */,
+			);
+			path = Beneficiary;
+			sourceTree = "<group>";
+		};
+		8A78C82C2248416600E96AD6 /* Account Statement */ = {
+			isa = PBXGroup;
+			children = (
+				BAC789D620451DF900D20899 /* ShowAccountStatementVC.swift */,
+				BAC789D42044497100D20899 /* AccountStatementVC.swift */,
+			);
+			path = "Account Statement";
+			sourceTree = "<group>";
+		};
+		8A78C82D224841A800E96AD6 /* Pre-Login */ = {
+			isa = PBXGroup;
+			children = (
+				8ABBD37D22F30644005BDC70 /* ForgotPasswordViewController.swift */,
+				8A36401621A5496100863ED8 /* SignUpController.swift */,
+				BAA494A82039678B000E6D0C /* ViewController.swift */,
+				CE37F553240CC45D00E54A9E /* SignupSuccessMessageController.swift */,
+			);
+			path = "Pre-Login";
+			sourceTree = "<group>";
+		};
+		8A78C82E224841C100E96AD6 /* Post-Login */ = {
+			isa = PBXGroup;
+			children = (
+				BAFE66F6203DB95D001C65E4 /* DashboardVC.swift */,
+				8A0B00372151D1C7003D67F0 /* AccountDetails.swift */,
+			);
+			path = "Post-Login";
+			sourceTree = "<group>";
+		};
+		8A78C82F224841DF00E96AD6 /* Obsolete */ = {
+			isa = PBXGroup;
+			children = (
+				8A0B0033215148FB003D67F0 /* AddBeneficiaryOld.swift */,
+			);
+			path = Obsolete;
+			sourceTree = "<group>";
+		};
+		8A78C830224841F400E96AD6 /* Coming Soon */ = {
+			isa = PBXGroup;
+			children = (
+				BA0E951E204AA66C00319BEF /* MyWalletVC.swift */,
+			);
+			path = "Coming Soon";
+			sourceTree = "<group>";
+		};
+		8A87E7E2214D2E75002F2638 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8ADA9BF221E48DF0007A1A0B /* UIView+Extensions.swift */,
+				8ADA9BF021E48CF8007A1A0B /* ViewController+Extensions.swift */,
+				8A87E7E0214D2E6A002F2638 /* APIHelpers.swift */,
+				8A87E7E3214E8BAE002F2638 /* JSONHelpers.swift */,
+				8A87E7E5214EDF8E002F2638 /* StaticHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BA34E101214B8FD100360CDE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA34E102214B903800360CDE /* APIModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BAA4949A2039678A000E6D0C = {
+			isa = PBXGroup;
+			children = (
+				BAA494A52039678B000E6D0C /* damnVIA */,
+				BAA494A42039678B000E6D0C /* Products */,
+				D5D493921C0855FF475533E8 /* Pods */,
+				0178101BB1A9C7345B0F060B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BAA494A42039678B000E6D0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BAA494A32039678B000E6D0C /* UnSAFE Bank.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BAA494A52039678B000E6D0C /* damnVIA */ = {
+			isa = PBXGroup;
+			children = (
+				8ACF12792329029700EEB543 /* damnVIA.entitlements */,
+				8AB31791225758C100D72FC1 /* tick.json */,
+				8A14AFAB22577F3D0000E71D /* tick1.json */,
+				BAC789C7204422D600D20899 /* Storyboards */,
+				BAA494A62039678B000E6D0C /* AppDelegate.swift */,
+				BA532C48214CF6820023E535 /* Strings.swift */,
+				8A87E7E2214D2E75002F2638 /* Helpers */,
+				BA34E101214B8FD100360CDE /* Models */,
+				BAC789BE2043ED9200D20899 /* ViewControllers */,
+				BAC789B72043CD7100D20899 /* TableViewCell */,
+				BAA494AD2039678B000E6D0C /* Assets.xcassets */,
+				BAA494AF2039678B000E6D0C /* LaunchScreen.storyboard */,
+				BAA494B22039678B000E6D0C /* Info.plist */,
+			);
+			path = damnVIA;
+			sourceTree = "<group>";
+		};
+		BAC789B72043CD7100D20899 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8A5AABF422E1D8CB00E13702 /* addBeneficiaryTableViewCell.swift */,
+				BAC789D2204448C400D20899 /* accountStatementTableViewCell.swift */,
+				BAC789D020443C7800D20899 /* confirmTableViewCell.swift */,
+				BAC789BF204418AF00D20899 /* fundsTransferTableViewCell.swift */,
+				BAC789BA2043E98500D20899 /* viewBeneficiaryTableViewCell.swift */,
+				BAC789B52043CD5D00D20899 /* beneficiaryTableViewCell.swift */,
+				BAFE66F8203DBB03001C65E4 /* optionsTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		BAC789BE2043ED9200D20899 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EE330DB02432230E004923B0 /* Change Password */,
+				EE330DAD2432123D004923B0 /* WebView */,
+				8A751EAD22F439DB00972294 /* Forgot Password */,
+				8A78C82B224840FA00E96AD6 /* Beneficiary */,
+				8A78C82F224841DF00E96AD6 /* Obsolete */,
+				8A78C830224841F400E96AD6 /* Coming Soon */,
+				8A78C82C2248416600E96AD6 /* Account Statement */,
+				8A78C82D224841A800E96AD6 /* Pre-Login */,
+				8A78C82A2247D42E00E96AD6 /* Bank Transfer */,
+				8A78C82E224841C100E96AD6 /* Post-Login */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BAC789C7204422D600D20899 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BAC789C82044232300D20899 /* accountStatement.storyboard */,
+				BAC789C5204422CC00D20899 /* transfer.storyboard */,
+				BAC789C32044229900D20899 /* beneficiary.storyboard */,
+				BAA494AA2039678B000E6D0C /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D5D493921C0855FF475533E8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FCD33437E3D290D241E3FDAF /* Pods-damnVIA.debug.xcconfig */,
+				BAA1A878AF71765D24A0927D /* Pods-damnVIA.release.xcconfig */,
+				873D55BD899B9E5BF7C66695 /* Pods-UnSAFE_Bank.debug.xcconfig */,
+				63D9B7BAFAC1886C39E72C7A /* Pods-UnSAFE_Bank.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EE330DAD2432123D004923B0 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				EE330DAE24321254004923B0 /* WebViewVC.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		EE330DB02432230E004923B0 /* Change Password */ = {
+			isa = PBXGroup;
+			children = (
+				EE330DB12432232C004923B0 /* ChangePasswordVC.swift */,
+			);
+			path = "Change Password";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BAA494A22039678B000E6D0C /* UnSAFE_Bank */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAA494B52039678B000E6D0C /* Build configuration list for PBXNativeTarget "UnSAFE_Bank" */;
+			buildPhases = (
+				2665C3499D769B1F1659BB1C /* [CP] Check Pods Manifest.lock */,
+				BAA4949F2039678B000E6D0C /* Sources */,
+				BAA494A02039678B000E6D0C /* Frameworks */,
+				BAA494A12039678B000E6D0C /* Resources */,
+				85D5CC3EC73FA47FD72AC2A9 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnSAFE_Bank;
+			productName = damnVIA;
+			productReference = BAA494A32039678B000E6D0C /* UnSAFE Bank.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BAA4949B2039678A000E6D0C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = lucideus;
+				TargetAttributes = {
+					BAA494A22039678B000E6D0C = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = BAA4949E2039678A000E6D0C /* Build configuration list for PBXProject "UnSAFE_Bank" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BAA4949A2039678A000E6D0C;
+			productRefGroup = BAA494A42039678B000E6D0C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BAA494A22039678B000E6D0C /* UnSAFE_Bank */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BAA494A12039678B000E6D0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A14AFAC22577F3D0000E71D /* tick1.json in Resources */,
+				BAA494B12039678B000E6D0C /* LaunchScreen.storyboard in Resources */,
+				8AB31792225758C100D72FC1 /* tick.json in Resources */,
+				BAC789C42044229900D20899 /* beneficiary.storyboard in Resources */,
+				BAC789C92044232300D20899 /* accountStatement.storyboard in Resources */,
+				BAC789C6204422CC00D20899 /* transfer.storyboard in Resources */,
+				BAA494AE2039678B000E6D0C /* Assets.xcassets in Resources */,
+				BAA494AC2039678B000E6D0C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2665C3499D769B1F1659BB1C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UnSAFE_Bank-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85D5CC3EC73FA47FD72AC2A9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UnSAFE_Bank/Pods-UnSAFE_Bank-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UnSAFE_Bank/Pods-UnSAFE_Bank-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BAA4949F2039678B000E6D0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AF02F9D224F99460061281E /* BankTransferVC6.swift in Sources */,
+				BA34E103214B903800360CDE /* APIModels.swift in Sources */,
+				BAFE66F9203DBB03001C65E4 /* optionsTableViewCell.swift in Sources */,
+				CE37F554240CC45E00E54A9E /* SignupSuccessMessageController.swift in Sources */,
+				8A36401721A5496100863ED8 /* SignUpController.swift in Sources */,
+				BA532C49214CF6820023E535 /* Strings.swift in Sources */,
+				BAC789CF2044396B00D20899 /* BankTransferVC3.swift in Sources */,
+				BAC789D3204448C400D20899 /* accountStatementTableViewCell.swift in Sources */,
+				8ABBD37E22F30644005BDC70 /* ForgotPasswordViewController.swift in Sources */,
+				8A87E7E4214E8BAE002F2638 /* JSONHelpers.swift in Sources */,
+				BAC789D120443C7800D20899 /* confirmTableViewCell.swift in Sources */,
+				BAA494A92039678B000E6D0C /* ViewController.swift in Sources */,
+				8ADA9BEF21E3734B007A1A0B /* BankTransferVC2.swift in Sources */,
+				EE330DB22432232C004923B0 /* ChangePasswordVC.swift in Sources */,
+				BAC789B92043CDF900D20899 /* BeneficiaryVC.swift in Sources */,
+				8A0B00362151ADE7003D67F0 /* ListBeneficiary.swift in Sources */,
+				8A0B00382151D1C7003D67F0 /* AccountDetails.swift in Sources */,
+				8A0BD2D42215A0F80061F72D /* VerifyOtpVC.swift in Sources */,
+				8A78C8292247D1CC00E96AD6 /* BankTransferVC5.swift in Sources */,
+				8A0B0034215148FB003D67F0 /* AddBeneficiaryOld.swift in Sources */,
+				8A87E7E6214EDF8E002F2638 /* StaticHelpers.swift in Sources */,
+				BAC789BB2043E98500D20899 /* viewBeneficiaryTableViewCell.swift in Sources */,
+				8ADA9BF121E48CF8007A1A0B /* ViewController+Extensions.swift in Sources */,
+				BAC789C220441B8700D20899 /* FundsTransferVC.swift in Sources */,
+				BAC789C0204418AF00D20899 /* fundsTransferTableViewCell.swift in Sources */,
+				8A6A05D021BAB5FC00AE8428 /* AddBeneficiary.swift in Sources */,
+				8A87E7E1214D2E6A002F2638 /* APIHelpers.swift in Sources */,
+				8AFEDD2222F3F5DB00065FCB /* RecoveryViewController.swift in Sources */,
+				BA0E951F204AA66C00319BEF /* MyWalletVC.swift in Sources */,
+				BAA494A72039678B000E6D0C /* AppDelegate.swift in Sources */,
+				8A1A09AD22576D07007A52E9 /* BankTransferVC7.swift in Sources */,
+				BAC789CD2044393400D20899 /* BankTransferVC1.swift in Sources */,
+				BAC789B62043CD5D00D20899 /* beneficiaryTableViewCell.swift in Sources */,
+				BAC789CB2044317100D20899 /* BankTransferVC4.swift in Sources */,
+				BAC789D720451DF900D20899 /* ShowAccountStatementVC.swift in Sources */,
+				8A5AABF522E1D8CB00E13702 /* addBeneficiaryTableViewCell.swift in Sources */,
+				BAFE66F7203DB95D001C65E4 /* DashboardVC.swift in Sources */,
+				8ADA9BF321E48DF0007A1A0B /* UIView+Extensions.swift in Sources */,
+				BAC789D52044497100D20899 /* AccountStatementVC.swift in Sources */,
+				EE330DAF24321254004923B0 /* WebViewVC.swift in Sources */,
+				BAC789BD2043EBD800D20899 /* FetchBeneficiaryDetails.swift in Sources */,
+				8A461E8B22F8353500007086 /* RecoverPasswordViewController.swift in Sources */,
+				8AFEDD2422F4082600065FCB /* RecoveryOtpViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BAA494AA2039678B000E6D0C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAA494AB2039678B000E6D0C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BAA494AF2039678B000E6D0C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAA494B02039678B000E6D0C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BAA494B32039678B000E6D0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_CFLAGS[arch=*]" = "";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BAA494B42039678B000E6D0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BAA494B62039678B000E6D0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 873D55BD899B9E5BF7C66695 /* Pods-UnSAFE_Bank.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 92V788N3UW;
+				INFOPLIST_FILE = damnVIA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lucideus.iChallengeYou;
+				PRODUCT_NAME = "UnSAFE Bank";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		BAA494B72039678B000E6D0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63D9B7BAFAC1886C39E72C7A /* Pods-UnSAFE_Bank.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 92V788N3UW;
+				INFOPLIST_FILE = damnVIA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lucideus.iChallengeYou;
+				PRODUCT_NAME = "UnSAFE Bank";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BAA4949E2039678A000E6D0C /* Build configuration list for PBXProject "UnSAFE_Bank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAA494B32039678B000E6D0C /* Debug */,
+				BAA494B42039678B000E6D0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BAA494B52039678B000E6D0C /* Build configuration list for PBXNativeTarget "UnSAFE_Bank" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAA494B62039678B000E6D0C /* Debug */,
+				BAA494B72039678B000E6D0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BAA4949B2039678A000E6D0C /* Project object */;
+}
