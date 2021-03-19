@@ -63,7 +63,7 @@ To provide you a reference, the following classes of vulnerabilities will be enc
 
 1. Download and install the [Cydia Impactor](http://www.cydiaimpactor.com/) on your system.
 2. Connect your iPhone to the system and open Cydia Impactor.
-3. Navigate to the **/iOS** directory.
+3. Navigate to the **/iOS/IPA File/** directory.
 4. Drag and drop the **UnSAFE Bank.ipa** file on Cydia Impactor.
 5. Follow the Cydia Impactor process to complete the installation.
 6. Trust the developer profile (if required) and your application would be ready to use.
@@ -83,9 +83,9 @@ To provide you a reference, the following classes of vulnerabilities will be enc
 1. Make sure that you are either using the same machine as the server or the server machine is running on a machine on the same local network.
 2. Note down the port number of your web application (APP_PORT). Default port is 3000.
 3. Check your server's IP address (`ifconfig` or `ipconfig`) and the port (Default port is 80).
-4. On any browser, navigate to http://<SERVER_IP>:<APP_PORT> and check if you can land at the login page.
+4. On any browser, navigate to http://<SERVER_IP>:<APP_PORT> and check if the application is opening.
 5. Click on `Test Connection?` and enter the <SERVER_IP> and <SERVER_PORT>.
-6. Ensure that the application shows a message `Connection Established`.
+6. Ensure that the application shows a message `Connection Established` and you are good to go.
 
 ### Login Credentials
 
@@ -94,9 +94,9 @@ Customer ID and password is required to login into the application. You can alwa
 On successful sign up:
 
 1. You will be provided with your Customer ID corresponding to your account. Always note your Customer ID and keep it SAFE for further usage.
-2. Your dummy PII and account information would be created automatically.
-3. Default beneficiaries would be added in your account.
-4. Virtual money would be added in your account ranging from 1 to 10 lakh.
+2. Your dummy PII and account information would be generated automatically.
+3. Default beneficiaries shall be added in your account automatically.
+4. Virtual money shall be added in your account ranging between 1 to 10 lakh.
 
 ### Existing User Bank Accounts
 
