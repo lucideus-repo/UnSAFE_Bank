@@ -36,7 +36,7 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@types/react-copy-to-clipboard": "^4.3.0",
     "@types/react-countup": "^4.3.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "bootstrap": "^4.4.1",
     "clsx": "^1.1.0",
     "hamburgers": "^1.1.3",
