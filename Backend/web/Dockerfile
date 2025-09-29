@@ -1,30 +1,35 @@
-# pull official base image
-FROM node:13.12.0-alpine as build
-# set working directory
-WORKDIR /app
-# copy everything to /app directory
-COPY . /app
-# add the node_modules folder to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
-# install and cache dependencies
-RUN yarn -s
-# build the project for production
-RUN yarn build -s
+# ---- Build stage ----
+FROM node:14-bullseye AS build
 
-# set up production environment
-# the base image for this is an alpine based nginx image
+WORKDIR /app
+
+# Install build tools for node-gyp
+RUN apt-get update \
+    && apt-get install -y python make g++ bash \
+    && rm -rf /var/lib/apt/lists/*
+
+# Use Yarn v1 (classic)
+RUN corepack enable \
+    && corepack prepare yarn@1.22.22 --activate
+
+# Copy dependency files first
+COPY package.json yarn.lock ./
+
+# Install dependencies
+RUN yarn install --non-interactive --ignore-engines
+
+# Copy the source code
+COPY . .
+
+# Build app
+RUN yarn build
+
+# ---- Runtime stage ----
 FROM nginx:alpine
-# copy the build folder from react to the root of nginx (www)
-COPY --from=build /app/build /usr/share/nginx/html
-# --------- only for those using react router ----------
-# if you are using react router
-# you need to overwrite the default nginx configurations
-# remove default nginx configuration file
+
 RUN rm /etc/nginx/conf.d/default.conf
-# replace with custom one
 COPY nginx/nginx.conf /etc/nginx/conf.d
-# --------- /only for those using react router ----------
-# expose port 80 to the outer world
+COPY --from=build /app/build /usr/share/nginx/html
+
 EXPOSE 80
-# start nginx
 CMD ["nginx", "-g", "daemon off;"]
